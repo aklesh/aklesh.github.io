@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Klesh - Field Engineering</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+
+<body>
+    <header class="site-header">
+    <div class="logo"></div>
+    <nav>
+        <ul>
+            <li><a href="/field-notes.html">Field Notes</a></li>
+            <li class="dropdown">
+                <a href="#">Projects ▾</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-header">Space Systems</div>
+                    <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                    <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                    <a href="/projects/rax.html">RAX (LEO)</a>
+
+                    <div class="dropdown-header">Ocean & Ice</div>
+                    <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                    <a href="/projects/bruie.html">Buoyant Rover</a>
+                    <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                    <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                    <div class="dropdown-header">Earth Science</div>
+                    <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                    <a href="/projects/geology.html">Geology & Volcanology</a>
+                </div>
+            </li>
+            <li><a href="/gear.html">Gear</a></li>
+            <li class="dropdown">
+                <a href="#">For Students ▾</a>
+                <div class="dropdown-content">
+                    <a href="/courses.html">Courses</a>
+                    <a href="/opportunities.html">Opportunities</a>
+                    <a href="/life-in-field.html">Life in the Field</a>
+                    <a href="/references.html">References</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">About ▾</a>
+                <div class="dropdown-content">
+                    <a href="/resume.html">Resume</a>
+                    <a href="#">Fail Resume</a>
+                    <a href="#">Media</a>
+                    <a href="/publications.html">Publications</a>
+                    <a href="/this-website.html">This Website</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        
+<div class="gallery">
+    <div class="gallery-viewport">
+        <div class="gallery-track">
+            
+            
+            <div class="gallery-item">
+                <img src="gallery/expedition_mountains.png" alt="expedition_mountains.png">
+                <div class="caption">
+                    <strong>Alpine Ascent</strong><br>Himalayas, 2023 | Photo: Team Lead
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="gallery/expedition_underwater.png" alt="expedition_underwater.png">
+                <div class="caption">
+                    <strong>Deep Reef Survey</strong><br>Pacific Ocean, 2024 | Photo: Self
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="gallery/a5d32167-7fb0-ef11-9b65-6c92cf29d881.jpeg" alt="a5d32167-7fb0-ef11-9b65-6c92cf29d881.jpeg">
+                <div class="caption">
+                    Test
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="gallery/expedition_jungle.png" alt="expedition_jungle.png">
+                <div class="caption">
+                    <strong>Biodiversity Study</strong><br>Amazon Basin, 2024 | Photo: Field Assistant
+                </div>
+            </div>
+            
+            
+        </div>
+        <button class="gallery-nav prev" aria-label="Previous image">&#10094;</button>
+        <button class="gallery-nav next" aria-label="Next image">&#10095;</button>
+    </div>
+</div>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-01-26 15:05:19)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.gallery-track');
+        const items = document.querySelectorAll('.gallery-item');
+        let index = 0;
+        const totalSlides = items.length;
+
+        if (totalSlides > 0) {
+            // Set dynamic widths
+            track.style.width = `${totalSlides * 100}%`;
+            items.forEach(item => {
+                item.style.width = `${100 / totalSlides}%`;
+            });
+
+            let autoScrollInterval;
+
+            const updateCarousel = () => {
+                const updatePercentage = index * (100 / totalSlides);
+                track.style.transform = `translateX(-${updatePercentage}%)`;
+            };
+
+            const startAutoScroll = () => {
+                stopAutoScroll(); // Clear existing interval first
+                autoScrollInterval = setInterval(() => {
+                    index = (index + 1) % totalSlides;
+                    updateCarousel();
+                }, 5000);
+            };
+
+            const stopAutoScroll = () => {
+                clearInterval(autoScrollInterval);
+            };
+
+            startAutoScroll();
+
+            // Navigation Arrows
+            const prevBtn = document.querySelector('.gallery-nav.prev');
+            const nextBtn = document.querySelector('.gallery-nav.next');
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    stopAutoScroll();
+                    index = (index - 1 + totalSlides) % totalSlides;
+                    updateCarousel();
+                    // Do NOT restart auto-scroll here; wait for mouseleave
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    stopAutoScroll();
+                    index = (index + 1) % totalSlides;
+                    updateCarousel();
+                    // Do NOT restart auto-scroll here; wait for mouseleave
+                });
+
+                // Pause on hover
+                const viewport = document.querySelector('.gallery-viewport');
+                viewport.addEventListener('mouseenter', stopAutoScroll);
+                viewport.addEventListener('mouseleave', startAutoScroll);
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
