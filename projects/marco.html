@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarCO: First Interplanetary CubeSats - Projects</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+
+    
+    <div class="project-content" style="line-height: 1.8; color: #333; font-size: 1.1rem;">
+        <p><img src="/gallery/MarCO_Held.png" alt="MarCO" style="float:right; width:600px; margin:0 0 1em 1em;"></p>
+<h2>MarCO: The First Interplanetary CubeSats</h2>
+<p>MarCO was a programmatic challenge as much as it was a technical one. The spacecraft were never required for InSight to land safely on Mars, which provided the freedom to accept risk and try something different. Yet flying two CubeSats to another planet to use them to relay entry-descent-and-landing data back to Earth in near-real time. And significant doubts</p>
+<p>We built on everything we&rsquo;d learned from RAX and INSPIRE — INSPIRE never actually flew, but the technology it proved out became MarCO&rsquo;s foundation almost directly. RAX&rsquo;s simple, robust power system became MarCO&rsquo;s power system. INSPIRE&rsquo;s Iris radio, its fault-tolerant flight software, its whole approach to surviving deep space on commercial parts — all of it carried forward. We went from mission concept review to an October 2014 decision to build, to delivering two flight-ready spacecraft just eleven months later. Fifteen months from concept to first flight article, on a budget around forty times smaller than a typical NASA Discovery-class mission. None of that was possible by working alone; it was possible because we didn&rsquo;t have to start from zero.</p>
+<h2>Getting to Flight-Ready</h2>
+<p>The original idea was four identical CubeSats doing a radio occultation experiment at Mars. Schedule and budget risk cut that to two. Then, as we understood InSight&rsquo;s landing geometry better, we realized Mars Odyssey wouldn&rsquo;t be able to serve as a real-time relay during EDL — Mars Reconnaissance Orbiter could record the landing for later playback, but there was no plan for real-time coverage. That gap became MarCO&rsquo;s real mission.</p>
+<p>We tested constantly — high-fidelity engineering models built from flight-equivalent parts, joint rehearsals with the InSight team starting months before launch, monthly EDL dress rehearsals on the real flight hardware in space, with everything except the actual UHF signal reception. We deliberately launched without EDL sequences already written, because we knew both the spacecraft&rsquo;s behavior and what we&rsquo;d learn in flight would change what those sequences needed to do. That turned out to matter more than we expected.</p>
+<h2>Cruise: Sustaining Operations With a Skeleton Crew</h2>
+<p>Once checkout was complete, the team shrank on purpose — from about 12 engineers during launch and checkout down to just 5 JPL engineers, augmented by 4 Cal Poly students, for the whole cruise phase to Mars. That&rsquo;s an unusually small team for a deep-space mission, and it was part of the experiment itself: could a mission this small actually operate a spacecraft this far from home?</p>
+<p>Cruise wasn&rsquo;t quiet. Both spacecraft threw anomalies, usually resolved within a few days: MarCO-A&rsquo;s radio unexpectedly dropped into receive-only mode. The attitude control system reset itself more than once. Roughly every six weeks, a propulsion leak would spike into a high-rate blowdown, knocking the spacecraft out of control until autonomous fault management — and a fair amount of nervous waiting — brought it back. Some of our own mistakes caused smaller issues too: a sequence loaded on top of one already running, a few missed communication passes from clock-drift errors, a memory bank that filled up and corrupted data. None of it threatened the spacecraft. All of it taught us something we folded back into how we operated.</p>
+<p>The moment cruise really turned a corner was October 2nd, when MarCO-B sent back the first image either spacecraft had taken of Mars — a tiny red dot, still six weeks out. Mars flyby and EDL were next.</p>
+<h2>The Week Before</h2>
+<p>EDL planning had actually started right after launch, but the team&rsquo;s real focus shifted to it once the core technology-demonstration objectives wrapped up that summer. We ran joint operational readiness tests with the InSight team, rehearsing the roughly 45 minutes bracketing EDL again and again, refining a plan for how MarCO would relay InSight&rsquo;s 8 kbps data stream back to Earth without letting the delay creep — a small, carefully engineered pipeline: prioritize InSight&rsquo;s data, record spacecraft health telemetry at a slower rate underneath it, downlink a snapshot every 30 seconds, and retransmit everything afterward as a redundant backup, just in case.</p>
+<p>Then, the week of EDL itself, things got tense in a way no rehearsal could fully prepare us for.</p>
+<p><strong>Sunday morning, one day before EDL:</strong> MarCO-B failed to check in at its scheduled contact time. InSight donated extra uplink passes to help us listen. Nothing. Half the team stayed up through the night not knowing whether the spacecraft had failed outright or was simply waiting for its next scheduled wake-up.</p>
+<p><strong>6:05 a.m. Monday, November 26, 2018:</strong> MarCO-B&rsquo;s signal came back. It had likely had another attitude-control fault and been pointed the wrong way to reach us — not gone, just quiet. At 6:30 a.m., both spacecraft were called &ldquo;go&rdquo; for EDL.</p>
+<p><strong>Just after 7:15 a.m.:</strong> MarCO-A&rsquo;s own carrier signal dropped. With EDL four and a half hours away, we&rsquo;d now lost contact with <em>both</em> spacecraft at different points that same morning. The cause, once we understood it: MarCO-A&rsquo;s star tracker was being blinded by &ldquo;Mars-shine&rdquo; — sunlight reflecting off the planet itself, bright enough to confuse the sensor MarCO-A needed to know where it was pointing.</p>
+<p>Both spacecraft found their way back before it mattered. By early afternoon, both had entered EDL mode, locked their star trackers once they were looking past Mars rather than at it, and picked up InSight&rsquo;s UHF carrier signal right on schedule.</p>
+<h2>Entry, Descent, and Landing</h2>
+<p>What followed was the part the mission is remembered for. At 12:41 p.m. Pacific time, both spacecraft confirmed they&rsquo;d detected InSight&rsquo;s carrier signal. Telemetry began flowing five minutes later. Then, in the span of about fourteen minutes, we watched Mars try to kill the signal and lose:</p>
+<ul>
+<li>InSight hit the expected plasma blackout during entry. MarCO-B held the carrier through a 15-second gap; MarCO-A lost 38 seconds.</li>
+<li>12:51 p.m. — parachute deployment, visible in the data as a Doppler shift.</li>
+<li>12:53 p.m. — backshell separation.</li>
+<li>12:54 p.m. — touchdown.</li>
+</ul>
+<p>Five minutes after landing, InSight&rsquo;s first image of Mars had already been relayed to Earth through the two CubeSats, and the UHF link went quiet. When the numbers came in afterward, MarCO-A had relayed 93% of InSight&rsquo;s EDL data, MarCO-B 97%. For comparison, MRO — recording for later playback rather than relaying live — had captured 76%. The CubeSats had proven their worth. An estimated seven million people watched the landing unfold live, and the mission generated more than five billion media impressions in the days that followed.</p>
+<h2>What We Learned, and What We Lost</h2>
+<p>MarCO&rsquo;s primary mission was complete the moment InSight touched down safely. But both spacecraft were still healthy, and a technology demonstration doesn&rsquo;t stop being useful just because the headline objective is done. We kept flying — a radio occultation experiment through Mars&rsquo;s atmosphere, attempts to image Phobos and Deimos, a &ldquo;farewell&rdquo; image of Mars with our own antenna in the frame. Both spacecraft drifted several million miles past Mars into their own heliocentric orbits.</p>
+<p>Then, within days of each other in early January 2019, we lost them both.</p>
+<p>MarCO-B had started showing signs of trouble on Christmas Eve — a return of the mid-cruise pressure leaks, harder blowdowns, more frequent wheel desaturations. On January 2nd, MarCO-A simply stopped transmitting. For the rest of January, we ran a parallel campaign of command-in-the-blind attempts and long listening sessions, using every antenna aperture we could get, including the largest 70-meter dishes at high power just to try to break back in. It didn&rsquo;t work.</p>
+<p>The most likely explanation, pieced together from the last telemetry either spacecraft sent: a software threshold for the coarse sun sensors — the simple system that helps the spacecraft find the sun and stay power-positive — had been set for conditions that no longer held as both spacecraft traveled farther from the sun than originally planned. If the sensors couldn&rsquo;t reliably find the sun, the spacecraft would spend less time charging, drift toward a power-negative state, and eventually lose the ability to point a radio back at Earth at all. Both spacecraft failing within days of each other points to something systemic, not two unrelated coincidences.</p>
+<p>We declared the mission complete on February 2, 2019, with any hope of an extended mission dependent on communications we never got back.</p>
+<p>I don&rsquo;t think that ending takes anything away from what MarCO did. The mission was successful because of a narrow focus, a real acceptance of risk, and a small team that trusted each other enough to move fast without moving carelessly. The choices that made it work can be traced straight back to RAX and INSPIRE — sometimes down to a single early design decision, like RAX&rsquo;s simple power-system controller, that turned out to be exactly the kind of robust choice MarCO needed years later. And the choices that eventually cost us the spacecraft are just as worth understanding as the ones that got us to Mars in the first place. Both are the same story.</p>
+<hr />
+<h2>Bibliography</h2>
+<h3>Academic Papers</h3>
+<ul>
+<li><a href="https://digitalcommons.usu.edu/smallsat/2018/all2018/369/" style="color: var(--navy); text-decoration: none;"><strong>Klesh, A.</strong>, et al. &ldquo;MarCO: Early Operations of the First CubeSats to Mars.&rdquo; <em>32nd Annual AIAA/USU Conference on Small Satellites</em>, Logan, UT, 2018.</a></li>
+<li><a href="https://digitalcommons.usu.edu/smallsat/2015/all2015/12/" style="color: var(--navy); text-decoration: none;"><strong>Klesh, A.</strong>, and Krajewski, J. &ldquo;MarCO: CubeSats to Mars in 2016.&rdquo; <em>29th Annual AIAA/USU Conference on Small Satellites</em>, Logan, UT, 2015.</a></li>
+<li><a href="https://ntrs.nasa.gov/citations/20160005952" style="color: var(--navy); text-decoration: none;">Schoolcraft, J., <strong>Klesh, A.</strong>, and Werne, T. &ldquo;MarCO: Interplanetary Mission Development On a CubeSat Scale.&rdquo; <em>SpaceOps Conference</em>, 2016.</a></li>
+</ul>
+<h3>Popular Media &amp; News</h3>
+<ul>
+<li><a href="https://www.jpl.nasa.gov/news/press_kits/insight/landing/marco/" style="color: var(--navy); text-decoration: none;">NASA/JPL. &ldquo;MarCO Mission Press Kit.&rdquo; <em>Jet Propulsion Laboratory</em>, 2018.</a></li>
+<li><a href="https://www.nytimes.com/2018/11/26/science/nasa-insight-mars-landing.html" style="color: var(--navy); text-decoration: none;">Chang, K. &ldquo;NASA’s InSight Mars Lander Touches Down Safely.&rdquo; <em>The New York Times</em>, Nov 26, 2018.</a></li>
+<li><a href="https://spectrum.ieee.org/aerospace/satellites/marscube-one-the-first-interplanetary-cubesats" style="color: var(--navy); text-decoration: none;"><strong>Klesh, A.</strong>, and Krajewski, J. &ldquo;Mars Cube One: The First Interplanetary CubeSats.&rdquo; <em>IEEE Spectrum</em>, 2018.</a></li>
+</ul>
+<!-- AI Disclaimer Component -->
+<div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 2rem; overflow: hidden;">
+    <div onclick="document.getElementById('ai-disclaimer-content').style.display = document.getElementById('ai-disclaimer-content').style.display === 'none' ? 'block' : 'none'; document.getElementById('ai-toggle-icon').textContent = document.getElementById('ai-disclaimer-content').style.display === 'none' ? '+' : '-';" style="padding: 10px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #666; user-select: none;">
+        <span><strong>Note:</strong> This page was assisted by AI tools.</span>
+        <span id="ai-toggle-icon" style="font-weight: bold; font-family: monospace;">+</span>
+    </div>
+    <div id="ai-disclaimer-content" style="display: none; padding: 15px; border-top: 1px solid #e9ecef; font-size: 0.9rem; color: #444; line-height: 1.5;">
+        <p style="margin-bottom: 0;">This content was generated with the assistance of an AI agent to aggregate technical specifications, historical data, and citation references. The generated draft was reviewed and edited by the author to ensure accuracy and alignment with first-hand mission experience.</p>
+    </div>
+</div>
+    </div>
+</div>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

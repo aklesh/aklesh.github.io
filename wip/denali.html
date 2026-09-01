@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denali - Field Notes</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="page-head">
+    <h1 style="font-size: 2.2rem;">Denali</h1>
+    
+    
+    
+
+<button class="notes-toggle" id="notesDrawerToggle" aria-expanded="false" aria-controls="notesDrawerPanel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+    </svg>
+    All Notes <span class="count">(0)</span>
+</button>
+
+<div class="drawer-backdrop" id="notesDrawerBackdrop"></div>
+<nav class="drawer" id="notesDrawerPanel" aria-label="All Notes">
+    <div class="drawer-head">
+        <h2>All Notes</h2>
+        <button class="drawer-close" id="notesDrawerClose" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    <div class="drawer-list">
+        
+    </div>
+</nav>
+
+<script>
+    (function () {
+        var notesDrawerToggleBtn = document.getElementById('notesDrawerToggle');
+        var notesDrawerEl = document.getElementById('notesDrawerPanel');
+        var notesDrawerBackdropEl = document.getElementById('notesDrawerBackdrop');
+        var notesDrawerCloseBtn = document.getElementById('notesDrawerClose');
+
+        if (!notesDrawerToggleBtn || !notesDrawerEl || !notesDrawerBackdropEl || !notesDrawerCloseBtn) {
+            return;
+        }
+
+        function openNotesDrawer() {
+            notesDrawerEl.classList.add('open');
+            notesDrawerBackdropEl.classList.add('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeNotesDrawer() {
+            notesDrawerEl.classList.remove('open');
+            notesDrawerBackdropEl.classList.remove('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        notesDrawerToggleBtn.addEventListener('click', function () {
+            notesDrawerEl.classList.contains('open') ? closeNotesDrawer() : openNotesDrawer();
+        });
+        notesDrawerCloseBtn.addEventListener('click', closeNotesDrawer);
+        notesDrawerBackdropEl.addEventListener('click', closeNotesDrawer);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeNotesDrawer();
+        });
+    })();
+</script>
+</div>
+
+<main class="notes-main">
+    <article class="blog-post">
+        <header style="margin-bottom: 3rem; border-bottom: 2px solid var(--navy); padding-bottom: 1.5rem;">
+            <div style="color: #666; font-size: 0.9rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <span>&#128197; Draft</span>
+                
+                
+            </div>
+        </header>
+
+
+        <div class="blog-content" style="font-size: 1.1rem; line-height: 1.6; color: #333;">
+            <hr />
+<p>title: Denali
+date: 2019-06-09
+keywords: Alaska, Denali
+lat: 63.0692
+long: -151.0064
+image:/gallery/blueice/IMG_2499.large.webp</p>
+<hr />
+<p>In the summer of 2019, I flew from Pasadena to Anchorage, Alaska to participate in a <a href="https://www.nols.edu/locations/nols-alaska/">National Outdoor Leadership School (NOLS)</a> expedition. NOLS has been in Alaska since 1971 and generations of students have participated in training in glacial travel, mountaineering, sea kayaking, backpacking and other wilderness courses. Their premier course, however, is a 34-day summit attempt of Mt. Denali</p>
+<p>Beginning near Wonder Lake at 2,000 feet above sea level in Denali National Park, NOLS crews traverse the Muldrow Glacier, and hopefully reaching 20,310 feet above sea level at the summit, before descending back the same way. These days, most attempts begin with the participant flying via ski-plane from Talkeetna, Alaska to a base camp at 7,200 feet. There, many groups work with established guides to climb a set path up the mountain, with well-established routes, set rope-lines, and assisted carries. Many folks also use this location as a step-off point for alternate ascent routes - generally, it&rsquo;s much quicker with only about two weeks necessary for a summit attempt and return.</p>
+<p>But the Muldrow route was the original path and few groups today follow it. In 2019, there were four groups that traversed this path - 2 private parties, 1 ranger crew, and 1 NOLS crew of 14.</p>
+<p>While this Field Note was written in August of 2026, the journal notes were captured contemporaneously, along the summit attempt. Figures, captions and other comments were added after to flush out the events along this story. To better capture this, journal entries will be indicated through the use of quotation marks.</p>
+<h2>Motivation</h2>
+<p>I&rsquo;ve known about NOLS for years. NASA uses NOLS to train astronauts, both newly selected candidate classes and sometimes mission crews (historically, this was common for shuttle crews). Head to the wilderness, learn new skills, improve in leadership and followership, step away from the modern world and focus on the expedition goals, the days challenges, and - most importantly - your crew members.</p>
+<p>For myself, I looked forward to the adventure - glacial mountaineering! Extended camping! Knots and ropes! In 2016, I completed the NOLS Alaska Mountaineering course to learn the basics. Afterwards, I was hooked. I wanted to return. The following year, I hired one of our previous instructors to serve as a guide and we returned to the Matanuska Glacier to investigate the deep crevasses and moulins to <a href="https://www.jpl.nasa.gov/news/robot-spelunkers-go-for-a-dip/">map the subglacial hydrological passageways</a>, this time aiming to learn how to navigate, with the goal of someday reaching worlds like Jupiter&rsquo;s moon, Europa. We sent submersibles and robotic probes deep underground, finding unique tunnels that connected the waterways.</p>
+<h2>Pre-Deployment</h2>
+<p>The Muldrow glacier requires several days of backpacking before hitting the glacier and the terrain is not forgiving. To assist in the long, unsupported climb once the glacier is reached, a cache of supplies is brought to the glacier&rsquo;s edge. For NOLS, this is done earlier in the year by dog team. In 2019, a short film was created about it.</p>
+<div class="media-featured-video-block">
+    <div class="media-featured-video-embed">
+        <iframe src="https://player.vimeo.com/video/376898872?h=1583baa917" title="The Long Haul"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+    </div>
+    <div class="media-featured-video-body">
+        <div class="media-featured-video-title">The Long Haul</div>
+        <p class="media-featured-video-desc">
+            Early in the spring of 2019, two dogsled teams left for the Muldrow Glacier to cache the supplies needed for that summer's NOLS crew ascent of Mt Denali. Full version <a
+                https://vimeo.com/376898872/1583baa917" target="_blank" rel="noopener">here</a>.
+        </p>
+    </div>
+</div>
+
+<h2>The Climb</h2>
+<p><em>6/5/19 - Made it to Alaska and met up with Mike Lorr at the airport. He&rsquo;s quite nice, just turned 40, and is doing this as a present to himself. Back is certainly feeling better, but I need to keep stretching.</em></p>
+<p><em>6/6/19 - Mike and I met the team at the train station at 6:30am for a quiet ride to NOLS. A few staff at least knew of me from before or through Keeton, which was cool. Called Brian, Kristen and Carolyn for brief chats. Had a great day packing gear, but certainly a bit trepidatious with the back. However, able to play soccer, move about, and carry packs with no issue. Looking forward to getting started!</em></p>
+<p><em>6/7/19 - On the bus all day. The bumpy road was less than fun, but got some sleep after last night&rsquo;s mosquitoes. Had our ranger briefings, and camped out for the first night. Met for one-on-one and told Jessie about back and astronaut ambitions. Today was sore, but did extra stretching. Tomorrow is the mountain!</em></p>
+<p><em>6/8/19 - Today was great! Nervous about my back, but didn&rsquo;t feel it at all. Early morning bus ride had several bears, caribou, and moose. After getting to the trailhead at noon we finally were moving. Packs are heavy! But mood was light and river crossing was much fun. Long hike across the tundra got us over Turtle Hill. Mac &lsquo;n pepper jack cheese with sausage. Then - tragedy - hot chocolate was unsweetened! Trying to improve hip belt tomorrow with foam spacers. Supposed to be a long day&hellip;</em></p>
+<p><em>6/9/19 - 10 miles and 2000 feet (3 Turtle Hills). Today was a slog, but everyone has similar complaints, which is great actually. Hips are better with foam, shoulders are slowly getting sore, but not too bad! Massages may be necessary. Had a lot of good conversations which made the trail go quicker. Walking with the orange sled through the alders was&hellip; interesting. But full team is in good spirits and tomorrow we push for the cache!</em></p>
+<p><em>6/10/19 - Glacier! Short hike (~2.5 miles) but ~2000 feet of elevation gain to McGonagal pass. The team did great, but a few were lagging. We opened 19 wooden boxes with over 1000 screws. Best part of the day was iceberg hopping to cross the glacial river. No one fell, but it will create challenges tomorrow. We&rsquo;re slowly working to a night schedule, and tomorrow is the first ferry. There may be a raft? Had our feed back sessions and all seems well. Ferry tomorrow!</em></p>
+<p><a href="https://vimeo.com/376898872/1583baa917?fbclid=IwAR0z2J1bUJVBkZZEMiM71Lwy9KyvUCT5oIo2kdqfDJp_yl4qZsi3qp4LH6c">https://vimeo.com/376898872/1583baa917?fbclid=IwAR0z2J1bUJVBkZZEMiM71Lwy9KyvUCT5oIo2kdqfDJp_yl4qZsi3qp4LH6c</a></p>
+<p><em>6/11/19 - A very hard day. Only 3.5 miles to the bottom of the Muldrow glacier as the crow flies, but lots of traversing. First we had to teardown camp and cross iceberg lake - with all the crate wood! 3 people ended up in the water. We organized rope teams and sleds and I pulled a light green one. At first, not bad, slushy snow was horrible - especially when breaking trail. Eventually we found the problem. A four foot crack had developed, widened by the cord, essentially snow plowing the trail and gathering snow for the ride. We shifted to fourth rope team and eventually made it to the ice fall camp. Everyone was wrecked, but moved to unload and cache. My legs went in the water a few times along the way (more fun), so I switched back to neoprene socks. Long push back with many foot or soreness issues. Returned at 11pm after rising at 4am. Kennon decided to depart with the cache team, probably for the best, and we were told after dinner that the next day would start at 7pm! Self-care and switch to night schedule. Much needed!</em></p>
+<p><em>6/12-6/13/19 - Night travel! Actually not bad. 7pm wakeup, 6am sleep, but we&rsquo;re at the lower ice fall base. First true snow camp. Hips were bad after the rest day, so tomorrow&rsquo;s climb will be interesting. Also dug up the rations and re-sorted for the next few days. Gorgeous vista and &ldquo;sunlight&rdquo;. Finally have my camera out and all are in good spirits. 1820m and climbing!</em></p>
+<p><em>6/13-6/14/19 - 9pm wakeup and camp teardown. Lower icefall was really side hilling all the way up, moving quickly under ceracs and about 3 hours till a break. Fell a few times (found a crevasse and ended up like a turtle on my back!) and beautiful views. Kept adjusting my pack to balance hip vs shoulder pain. Have a few members having some trouble, so we see how that gets resolved. Snow kitchen and latrine, plus melting snow for water. Tomorrow we back-ferry. Added 500m today!</em></p>
+<p><em>6/14/-6/15/19 - Made quesadillas and rice for dinner which was great. Downhill with light packs was also not bad, but uphill was tough, even with slightly lighter packs than yesterday. Hill of cracks was especially a slog. White out conditions certainly didn&rsquo;t help. Once up, temp had dropped significantly, so many grabbed full parkas. Did a snow scrub overnight, slept solidly, and now have upper ice fall. Supposed to be a long day - first day for long underwear!</em></p>
+<p><em>6/16/19 - Upper ice fall was certainly long! Left at midnight and took a long time route finding&hellip; 3 hours of standing still! We pushed all the way to Karsten&rsquo;s though, arriving around 9:30am. With a promise of a rest day tomorrow, we switched to day schedule. Lots of great photos, and starting to dial in hips.</em></p>
+<p><em>6/17/19 - Made it to Karsten&rsquo;s camp! Huge climb ahead of this, and they decided not to have a rest day. It will be a definite push. Washed some clothes and they smell much nicer. Small snow storm, but Jake, Noah and I had a fast rope team - felt better than any other day on reaching camp. Waking at 4am for the wall - definitely a transition as looking at the map we&rsquo;ve got ~3.5 miles and 10,000 feet to go. We&rsquo;re at 10.7k feet now!</em></p>
+<p><em>6/18/19 - Up at 4am for the big push halfway up the ridge. The views&hellip; are stunning. We were whited out with the sun baking the snow for most of the way, but we had several awesome vistas. Very steep - no longer &ldquo;backpacking&rdquo; but &ldquo;mountaineering&rdquo;. Amazing how close to vertical you can climb with crampons (or snowshoes for that matter). On the way back down we did have a near-miss. Steve slipped and stepped just off trail causing an avalanche and him to fall. Jesse got pulled off, Becca as well, Mike arrested and a picket held. We were below and just heard - all were fine, but took awhile to sort, plus the team was shaken. Long debrief at night, but planned 7:30am wakeup. Made dinner and reduced dried apricot pizza for half the group to help relieve all.</em></p>
+<p><em>6/19/19 - Karsten&rsquo;s ridge again, slow but steady. Followed the private crew up and the path was well frozen in. No problem climbing, but the camp on the ridge is on a high slope. Had to spend several hours digging tent platforms in. New cookmates - Mike &amp; Drew - and a rest day tomorrow! ~12.7k!</em></p>
+<p><em>6/20/19 - Rest day! Slept past 10, learned ascenders, and built the amphitheater. Read a bunch (and slept) to relax. 4am wakeup for Karsten part 2.</em></p>
+<p><em>6/21/19 - Steep Karsten climb, but got us high up. Very much a stairmaster almost all day. Beautiful views and higher than most local aircraft. We pushed for Harper Glacier, which got us to 15250 feet! Hard slow slog back returned at 9:30pm. Dinner, then sleep for 8:30am wakeup and final camp before high camp!</em></p>
+<p><em>6/22/19 - Karsten push again, but much &ldquo;easier&rdquo; this time. We built a new snow camp with a great kitchen. Softened beef jerky in water and butter and added it to Ramen for dinner. Had a slight headache likely due to altitude and dehydration. 15250 ft!</em></p>
+<p><em>6/23/19 - Rest day! Read a bunch and relaxed. Sleep was ok, but decided not to take diamax for the first day.</em></p>
+<p><em>6/24/19 - Push up to high camp. Karin fell mostly into a crevasse, so Jesse and I had to arrest. Got her out for the final breathless slog to ~17.2k. More digging for tents and most of the new rations are soupy. Took diamax and advil, so hopefully will sleep better. Lots of water drinks too. Rest day for acclimation tomorrow!</em></p>
+<p><em>6/25/19 - Rest day of mostly reading and rest, plus prepping for the summit day. It&rsquo;s the first day of the window and should be pretty sunny. I&rsquo;ll be on the student rope team with Karin and Charles - a strong group. Also will have the emergency stove and repair kit.</em></p>
+<p><em>6/26/19 - 2:45am wakeup to make breakfast and melt snow for water. Aim was to be out by 5, but we made it by 5:45am. Cold day with frozen toes, but I exercised them warm after a few breaks with ~3000 feet and 3 miles to go, Denali did not seem far. Denali pass was neat - the other side of the mountain so far down, where most climbers come from. It quickly became a near-white-out such that when we reached summit ridge, 50 mph winds were blowing at 0 deg F or below. But we made it! I gave Chrissy and my rope team a hug, kissed the USGS marker, and we all took many photos. Lots of hugs and high-fives, then started back - deteriorating conditions were forcing us back. With altitude, it was a pretty bad slog. The odd sugary snack combination didn&rsquo;t settle well and everyone was dehydrated. Mike Lorr had already been experiencing cold or exercise induced asthma, many had headaches, all were dehydrated. But we made it back! Lots of rejoicing, water, and food to be had before sleep.</em></p>
+<p><em>6/27/19 - Pushed for Harper Glacier camp to get below Karsten&rsquo;s by Saturday for a better position for a likely storm. Dram spilled overnight, so it was an annoying morning for Drew (Mike too, but he was far better about it). Made it to camp, learned &ldquo;Kaboom&rdquo; and will read &ldquo;80 days around the world&rdquo; to the group tonight. Big 4am push tomorrow to descend the ridge!</em></p>
+<p><em>6/28/19 - Descending Karsten&rsquo;s ridge was a long day, but one of the last where we were above planes. First section was slow with lots of protection, limited breaks, and Jesse very worried in front. Bit of a cache break, then the final push to camp. Fun potluck dinner and I invented a rehydrated banana pie with pilotbread / fig-newton crumb / brown sugar and with chocolate chips and sweetened milk on top - quite good!</em></p>
+<p><em>6/29/19 - Rest day - of sorts as always. Slept solid as we&rsquo;re back around 11k feet. Relaxed breakfast, then assisted with the incinerator team for trash. Call was made for 11pm departure (night schedule!) to get below the great ice fall in spite of a possible (low probability?) storm. Rested on and off for about 5 hours into the evening.</em></p>
+<p><em>6/30/19 - Sled travel is great when you aren&rsquo;t plowing with a four foot crack in the sled. Headed down the great ice fall and just before the old camp break, I was yanked backward off my feet. Jacob had fallen into a crevasse behind me. Arrested quickly and Jessie belayed backward to put in two pickets. I sat arrested as a backup as Chrissy and Jessie probed and worked a 3:! haul. My suggestion to use the original rope as a redirect anchor in a redirect did the trick to prevent the rope from cutting into the ice to get Jacob out. He was pretty shook up, but we made it to camp and halted for the evening.</em></p>
+<p><em>7/1/19 - Tough push down the hill of cracks and lower ice fall. Dreary, cold, slow, but we made it through. Overshooting and finding the old cache of food from early trip was great. I got cheese! Simple camp and ready to push on tomorrow.</em></p>
+<p><em>7/2/19 - We pushed through the Muldrow to the pass and burnt all the old boxes. Much of the group went another 4-5 hours to set up camp. Steve, Jake, Noah and I stayed behind to tend the fire and then quick-stepped to catch up. Switched to trail shoes, but all new blisters developing! 13 miles today!&hellip; 80+ lb packs.</em></p>
+<p><em>7/3/19 - Went over Turtle hill to get to the McKinley River. Only a half-day, but challenging terrain and heavy packs. Looking forward to being off trail. Early, but long, hot, sweaty, mosquito night.</em></p>
+<p><em>7/4/19 - Happy 4th of July! We were all ready for the 6am departure and long, cold fording of the river. Noah and I bracketed Jacob as he can&rsquo;t swim. Once on the other side, a fast push up the 2.5 mile trail to the trailhead! Rested till the bus pickup. Becca&rsquo;s dad had the rangers drop off beer, and Drew&rsquo;s colleagues left us meat sticks and muffin bars. NOLS picked us up for the ride home. Celebration!</em></p>
+        </div>
+
+        
+
+        <nav class="blog-nav"
+            style="margin-top: 4rem; display: flex; justify-content: space-between; padding-top: 2rem; border-top: 2px solid #eee;">
+            <div class="prev-post" style="flex: 1;">
+                
+            </div>
+            <div class="next-post" style="flex: 1; text-align: right;">
+                
+            </div>
+        </nav>
+    </article>
+</main>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

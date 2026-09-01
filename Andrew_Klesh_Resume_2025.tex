@@ -1,0 +1,132 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+% Colors
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{100,100,100}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdfborder={0 0 0}
+}
+
+% Section formatting
+\titleformat{\section}
+    {\Large\bfseries\color{darkblue}}
+    {}{0em}
+    {}
+    [\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}
+    {\large\bfseries}
+    {}{0em}
+    {}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+\titleformat{\subsubsection}
+    {\normalsize\bfseries}
+    {}{0em}
+    {}
+\titlespacing*{\subsubsection}{0pt}{6pt}{3pt}
+
+% List formatting
+\setlist[itemize]{leftmargin=*, itemsep=2pt, parsep=0pt, topsep=4pt}
+
+% Footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{mediumgray}Generated August 31, 2026}
+
+\begin{document}
+
+% Title
+\begin{center}
+    {\Huge\bfseries Andrew Klesh} \\[0.3em]
+    {\large \href{mailto:andrew.t.klesh@jpl.nasa.gov}{andrew.t.klesh@jpl.nasa.gov}}
+\end{center}
+
+\vspace{0.5em}
+
+\subsection*{RESEARCH INTERESTS}
+\begin{itemize}
+\item In-situ exploration of extreme environments (deep space, arctic, volcanic, glacial, underwater)
+\item Low-cost and NanoSpacecraft mission development and operations
+\end{itemize}
+
+\subsection*{EXPERIENCE}
+\subsubsection*{JPL (2011-Present)}
+\textbf{Leadership in Project and Mission Development \& Execution}
+
+\begin{itemize}
+\item \textbf{\href{https://www.brinsonhub.caltech.edu/team/andy-klesh?back_url=/team}{Brinson Exploration Hub}} – Associate Director / Chief Systems Engineer (2024-Present) for joint Caltech/JPL “skunkworks”, rapidly executing high-risk/high-reward expeditions and missions.
+\item \textbf{\href{https://science.nasa.gov/mission/lunar-trailblazer/}{Lunar Trailblazer}} – Proj Sys Engineer (Lead) (2020-2025) for \textasciitilde{}\$86M 210kg lunar s/c with JPL \& international instruments \& multi-institution integration \& ops.
+\item \textbf{Ocean Exploration / \href{https://www.jpl.nasa.gov/robotics-at-jpl/bruie/}{Buoyant Rover for Under-Ice Exploration (BRUIE)}} – Engineering lead of novel systems to explore ice-water interface \& Hadal deep ocean with WHOI. More than 30 arctic, Antarctic, ocean ice-breaker, and mountaineering scientific expeditions.
+\item \textbf{\href{https://www.caltech.edu/about/news/fiber-sensing-technology-can-provide-early-warning-for-volcanic-eruptions}{Distributed Acoustic Sensing (DAS)}} – Collaboration w/ Caltech for field deployment of fiber-optic seismic networks including Iceland; Kilauea, HI; Taku Glacier, AK; \& Ridgecrest, CA. Geology master’s thesis: “\href{https://scholarworks.calstate.edu/concern/theses/1544bw88k}{Improving Knowledge of Lava Pathways at Kilauea Using DAS}”.
+\item \textbf{\href{https://www.jpl.nasa.gov/missions/mars-cube-one-marco/}{MarCO}} – Chief Engineer (2014-2020). Responsible for technical development, I\&T, and ops of the first interplanetary CubeSats, leading to successful 2018 InSight EDL support at Mars.
+\item \textbf{\href{https://www.jpl.nasa.gov/missions/interplanetary-nano-spacecraft-pathfinder-in-relevant-environment-inspire/}{INSPIRE}} – PI and Chief Engineer (2012-2014). Led development of the first deep space CubeSats \& technology (including \href{https://en.wikipedia.org/wiki/Iris_%28transponder%29}{Iris radio}, Nano Thin Star Tracker \& protos FSW).
+\item \textbf{Mission Architect / Systems Engineer} – Have consulted for, developed, or led >20 robotic \& small spacecraft missions throughout mission lifecycle and supported numerous special studies for large projects, including Europa Lander immolation system.
+\end{itemize}
+
+\subsection*{EDUCATION}
+\begin{multicols}{2}
+\begin{itemize}
+\item \textbf{M.S. Geology} (\href{https://www.cpp.edu/sci/geological-sciences/index.shtml}{CalPoly-Pomona} – 2023)
+\item \textbf{Postdoc:} \href{https://www.isas.jaxa.jp/en/}{JAXA} \href{https://www.isas.jaxa.jp/en/missions/spacecraft/past/hayabusa.html}{Hayabusa} / \href{https://global.jaxa.jp/countdown/f17/overview/ikaros_e.html}{Ikaros} (2010)
+\end{itemize}
+
+\textbf{U. Michigan (2001-2010)}
+\begin{itemize}
+\item \textbf{Postdoc:}\href{https://en.wikipedia.org/wiki/Radio_Aurora_Explorer}{RAX CubeSat} (2009)
+\item \textbf{Ph.D. Aerospace Engineering} –\href{https://aero.engin.umich.edu/}{FDC} (2009)
+\item \textbf{\href{https://clasp.engin.umich.edu/academics/graduate-studies/masters-program/masters-space-engineering/}{M.Eng Space Systems Engineering}} (2009)
+\item \textbf{M.S.E Aerospace Engineering} (2006)
+\item \textbf{B.S.E. Aerospace Engineering}, cum laude (2005)
+\item \textbf{B.S.E Electrical Engineering}, cum laude (2005)
+\end{itemize}
+
+\end{multicols}
+\subsection*{TEACHING \& MENTORING}
+\begin{multicols}{2}
+\textbf{JPL, Caltech and Arizona State University:}
+
+\begin{itemize}
+\item \href{https://news.asu.edu/20201228-asu-students-channel-macgyver-solve-science-engineering-problems}{Macgyver Engineering (Field Engineering)}
+\item \href{https://www.ee.caltech.edu/academics/courses/ee-154-ab}{EE154: Practical Electronics for Space}
+\item Deep Space Ops for Small Spacecraft (Remote Multi-Institutional Course)
+\end{itemize}
+
+\end{multicols}
+\subsection*{SELECT PROFESSIONAL DISTINCTIONS}
+\begin{multicols}{2}
+\begin{itemize}
+\item 2020 \href{https://aiaa.org/awards/engineer-of-the-year-award/}{AIAA Engineer of the Year}
+\item 2019 \href{https://en.wikipedia.org/wiki/NASA_Exceptional_Engineering_Achievement_Medal}{NASA Exceptional Engineering Medal}
+\item 2016 \href{https://www.jpl.nasa.gov/site/research/research-community/awards-and-recognitions/lew-allen-award/}{JPL Lew Allen Award for Excellence}
+\item 2010 \href{https://en.wikipedia.org/wiki/Luigi_G._Napolitano_Award#:~:text=on%20the%20contribution.-,The%20Luigi%20G.,Luigi%20Napolitano%20Book%20Award%20annually.}{IAF Luigi G. Napolitano Award}
+\end{itemize}
+
+\end{multicols}
+\subsection*{ADDITIONAL RELEVANT SKILLS \& ONGOING ACTIVITIES}
+\begin{itemize}
+\item Private Pilot (IFR) with Tailplane \& Skiplane Training. UAS Operator Licensed.
+\item 2 x \href{https://www.nols.edu/locations/nols-alaska/}{National Outdoor Leadership School} – Alaska Mountaineering / Glacier Rescue + Denali
+\item Scuba Diver (Rescue) (350+ dives incl. Dry-Suit, Ice \& Altitude) + \href{https://dornsife.usc.edu/hyperbaric/}{Hyperbaric Chamber Supervisor}
+\item \href{https://www.emsr.org/index.cfm}{Pasadena Fire Department EMSR EMT / AEMT} (+ \href{https://www.nols.edu/courses/wm/wilderness-emt-wemt/}{Wilderness EMT} \& JPL USAR Capt.) (>4400 hrs)
+\end{itemize}
+
+\end{document}

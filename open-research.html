@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Research – Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+
+<!-- Hero -->
+<div class="meet-andy-hero"
+    style="background-image: linear-gradient(135deg, rgba(13, 34, 53, 0.85) 0%, rgba(26, 58, 92, 0.65) 60%, rgba(13, 34, 53, 0.9) 100%), url('/gallery/BRUIE_Blue.avif');">
+    <!-- <img src="/gallery/BRUIE_Blue.avif" alt="Antarctic BRUIE" class="hero-photo"> -->
+    <h1>Active Research</h1>
+    <p class="tagline">
+        Intriguing Questions and Motivations
+    </p>
+    <span class="photo-credit">Casey Station, Antarctica / Credit: NASA/JPL</span>
+</div>
+
+<div class="meet-andy-body">
+
+    <div class="bio-section">
+        <h2>Current Research Questions</h2>
+
+        <p>
+            At its core, exploration is about observation, obtaining a unique vantage to ask questions and seek answers.
+            In my research, I pursue novel means to obtain such vantage points, often making use of collaborative
+            systems or sensors to obtain multiple simultaneous views. Multiple perspectives significantly extend our
+            ability to observe challenging or ephemeral phenomena... and in doing so, unlock new understanding.
+        </p>
+        <p>
+            As humans, we are driven to climb that next hill or look around the next bend. It's in our nature to be
+            curious, but there are many arenas where our physical fragility limits our ability to make observations.
+            This
+            limitation can be overcome through the use of tools, extending our reach into extreme environments.
+            Sometimes, this means submarines or spacesuits, life-support systems allowing us to travel further,
+            deeper, higher. Sometimes, it's with robots or instrumentation, allowing these assets to be our hands
+            and eyes.
+        </p>
+        <p>
+            Despite our drive, we remain limited. How do we build tools that can observe the ephemeral,
+            dangerous, or obscure? How do we build systems that can withstand the extremes of the natural world?
+        </p>
+
+        <h2>The Ephemeral</h2>
+        <p> In 2018, when the InSight lander was to land on Mars, planetary alignment was such that existing orbital
+            assets could not provide a real-time relay of the dangerous entry-descent-and-landing (EDL) phase. Ideally,
+            InSight would land safely. If it did not, there would be no complete record of what went wrong. And
+            an onboard "blackbox" is of no use without possibility of recovery.
+        </p>
+        <p> Instead, our team's two CubeSats, MarCO-A and MarCO-B (Eva and Wall-E) launched with InSight, independently
+            traveled to
+            Mars, and provided real-time relay of EDL data back to Earth. These spacecraft were small, built fast, and
+            relatively cheap. And the program accepted higher than normal risk. Despite this, these two vehicles,
+            with extremely focused objectives, were optimized to maximize InSight data return.
+        </p>
+        <p> They succeeded - wildly.</p>
+        <figure class="body-photo-figure">
+            <img src="gallery/handshake.jpg" alt="Post-EDL handshake between the InSight and MarCO teams"
+                class="body-photo">
+            <figcaption class="body-photo-caption">
+                Mission controllers shake hands moments after confirmation that InSight had landed safely on Mars,
+                relayed in real time by MarCO-A and MarCO-B.
+                <a class="photo-credit-link"
+                    href="https://www.jpl.nasa.gov/news/press_kits/insight/landing/appendix/gallery" target="_blank"
+                    rel="noopener">Credit: NASA/JPL-Caltech</a>
+            </figcaption>
+        </figure>
+        <p> Transient events, such as Mars EDL, benefit from multiple simultaneous viewpoints. We look to small
+            spacecraft to serve as assets that can respond quickly to time-sensitive events or provide otherwise unique
+            vantage points.
+        </p>
+        <p> While the "Mars perspective" is distant, similar transient events occur in our own planetary environment.
+            When volcanoes in Iceland threatened eruption, our team rushed to install a Distributed Acoustic Sensing
+            (DAS) system to observe. Thanks to these efforts, led by Prof Zhongwen Zhan, a prototype early-warning
+            system was demonstrated, allowing for an alert up to 27 minute in advance of lava reaching the surface.
+            Today, the Icelandic Meteorological Office has integrated low-frequency DAS fiber measurements as one
+            component of its evaluation when issuing alerts.
+        </p>
+        <p>
+            A key goal in this line of research is developing the tools and mission architectures to enable the rapid,
+            intelligent deployment of assets and sensors to observe transient events, ensuring that we can capture
+            critical data at the most important moments.
+        </p>
+
+        <h2>The Dangerous</h2>
+        <p>
+            While deep ocean hydrothermal vent fields are believed to be fed from water seeping from fracture zones,
+            underwater
+            volcanic eruptions often leave lava passageways similar to the lava tubes we find terrestrially. Submersible
+            pilots have
+            reported that the HOV Alvin has even collapsed the ceilings of such passages when settling on the ocean
+            bottom
+            in certain locations, such as the Axial Seamount. In fact, in 1975, Alvin almost became stuck in such a
+            confined spot.
+        </p>
+        <p>How might these deep ocean tubes connect to existing vent fields? What structures might hardening lava
+            produce
+            in the significant
+            pressures of the deep? As of yet, we have only seen glimpses through narrow skylights. And how might these
+            structures serve as an analogue environment to ocean worlds beyond our own, such as under the seas of
+            Jupiter's moon Europa?
+        </p>
+        <figure class="body-photo-figure">
+            <img src="gallery/85871BC6-52BA-4087-9B0A-515009FB2BF2_1_105_c.jpeg"
+                alt="SpongeBob SpareParts prior to the first dive to 4000m." class="body-photo">
+            <figcaption class="body-photo-caption">
+                SpongeBob SpareParts was our attempted rescue-vehicle for NUI. When NUI popped to the surface after days
+                lost at 4000m depth, SpongeBob became a testbed for mini-submersibles and led to several derivatives.
+                <a class="photo-credit-link" href="https://doi.org/10.7557/cage.6779" target="_blank"
+                    rel="noopener">Credit: Andrew Klesh / NASA/JPL-Caltech</a>
+            </figcaption>
+        </figure>
+        <p>
+            In 2019, we built the mini-rescue submersible SpongeBob SpareParts and successfully dove to 4000m. In
+            subsequent
+            years, both AWI and JPL have built advanced mini-submersibles using commercial parts. Now, the time is ripe
+            to
+            combine the
+            experience from the sub-orbital, orbital, and deep-sea communities to explore these deep ocean labyrinths.
+        <p>
+            Where humans dare not tread, robots can.
+        </p>
+
+        <h2>The Obscure</h2>
+        <p>
+            Life tends to live on interfaces. Terrestrially, plants adhere to the surface, animals walk the Earth. In
+            the ocean, life drifts toward the bottom. In a frozen ocean, life also adheres to the ice.
+            Here, at the ice-ocean interface, life flourishes.
+        </p>
+        <p>
+            This location, unfortunately, is largely out of reach. However, as Dr. Kevin Hand says, "it is a lens"
+            through which we can examine our solar system's ocean worlds. Once lakes in northern Alaska freeze over, the
+            ice descends inexhaustibly toward the bottom, trapping methane seeps, algal mats, and a variety of critters
+            large and small.
+        </p>
+        <p>
+            We deployed BRUIE, our buoyant rover for under-ice exploration, for multiple months to study these seeps and
+            the surrounding environment. BRUIE, by nature of its buoyancy, is always anchored to the underside of the
+            ice.
+            It can slowly crawl, examine, and measure the under-ice and lake-bottom environment, seeking clues to how
+            and why life might live in these extremes. No human can remain here for months on end, yet BRUIE treks on,
+            running on 80 C-cell Energizer batteries.
+        </p>
+        <figure class="body-photo-figure">
+            <img src="gallery/BRUIE_Antarctica_Penguin.webp" alt="BRUIE" class="body-photo">
+            <figcaption class="body-photo-caption">
+                BRUIE, or the Buoyant Rover for Under-Ice Exploration, prior to a drive on the underside of an ice
+                shelf.
+                <a class="photo-credit-link"
+                    href="https://www.nasa.gov/image-article/arctic-under-ice-robot-preps-for-arctic-mission/"
+                    target="_blank" rel="noopener">Credit: NASA / JPL-Caltech</a>
+            </figcaption>
+        </figure>
+        <p>
+            To truly make BRUIE effective, algorithmic autonomy must be married with software reliability. Scientist
+            desires mapped to
+            engineering capabilities. Operational readiness in spite of environmental extremes.
+        </p>
+        <p>
+            Now, our team is working to add path-planning, seep detection, and even obstacle
+            avoidance (challenging when many obstacles are translucent ice!) to the vehicle to expand its ability to
+            explore in our stead. In addition, we use the low-bandwidth high-latency acoustic modem link tied to
+            Starlink
+            basestations as a close analogue to how scientists and engineers will need to remotely operate when
+            exploring Europa.
+        </p>
+        <p>
+            Training for Europa begins today.
+        </p>
+
+        <h2> Technology Focuses and Applications</h2>
+        <p>
+            I use small spacecraft, ROV/AUVs, and robots in my work as they provide accessible platforms and can be
+            built in numbers. I'm particularly interested in how we can use larger sets of such low-cost (and sometimes
+            disposable) assets to maximize our ability to explore. This likely means optimizing operations, especially
+            if multiple assets support a single human, and utilizing onboard autonomy to reduce workload. In both
+            deep space and deep ocean operations, this may require optimizing communications - not all data can be
+            transmitted, nor can an individual digest large amounts of data. It also means optimizing interfaces - how
+            can we present the state of the environment and multi-agent system such that a human can control them?
+        </p>
+        <p>
+            In practice, using these assets to explore extreme environments has meant developing vehicles & technologies
+            that are low cost and potentially disposable. I promote hardware-rich development to allow for iterative
+            testbeds with the best tests occurring in realistic analogues. This means that the same tools can often be
+            used across projects, simply with different packaging and interfaces. Ideally, we would apply this principal
+            across environments, using the ocean as an iterative testbed for future space missions for software,
+            electronics, operations and crew training.
+        </p>
+        <p>
+            I specifically enjoy applications that directly extend in-situ human exploration. The use of DAS on the Moon
+            to provide localization for astronauts and rovers; deploying mini-submersibles to provide additional
+            lighting and cameras for Alvin or remote divers; and operations that utilize a human as the orchestrator. I
+            have a long-term goal of augmenting human operations with multiple assets and augmented sensing to better
+            allow for human exploration regardless of specific environment.
+        </p>
+    </div>
+
+</div>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

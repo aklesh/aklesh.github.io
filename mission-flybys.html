@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Flybys - Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div style="padding: 2rem 4rem; max-width: 1200px; margin: 0 auto;">
+    <h1>Mission Flybys</h1>
+
+    <div class="intro-section" style="margin-bottom: 1.5rem;">
+        <p style="font-size: 1.1rem; max-width: 900px; line-height: 1.6;">
+            A different kind of map than the trajectory viewer -- this one isn't
+            physically accurate, it's relational: real historical gravity-assist
+            routes between the major planets, drawn as a radial arc diagram with
+            <a href="https://d3js.org/" target="_blank" rel="noopener">D3.js</a>.
+            MarCO and Lunar Trailblazer are highlighted in gold among the wider
+            history of planetary flyby missions.
+        </p>
+    </div>
+
+    <div class="flyby-controls">
+        <div class="flyby-legend">
+            <span class="flyby-legend-item"><span class="flyby-swatch" style="background:#ffd700"></span>Andrew's
+                missions</span>
+            <span class="flyby-legend-item"><span class="flyby-swatch" style="background:#6b7280"></span>Other
+                missions</span>
+        </div>
+        <button id="flybyReset" type="button">Reset view</button>
+    </div>
+
+    <div class="flyby-stage">
+        <div id="flybyViz"></div>
+        <div class="flyby-panel">
+            <h2 id="flybyPanelLabel">All Missions</h2>
+            <div id="flybyList"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+    // ------------------------------------------------------------------
+    // Verified against a real, installed copy of d3@7.9.0 (d3.linkRadial,
+    // d3.select confirmed working) before writing this.
+    //
+    // Layout parameters below (radius/arc-span for each ring) were checked
+    // numerically in a standalone Node script BEFORE writing this page --
+    // the first version of this diagram crammed 4 hub nodes into a 30-degree
+    // wedge at 70px radius, giving ~42px between adjacent node centers,
+    // nowhere near enough room for text labels ("Jupiter" alone needs
+    // ~55-60px). That produced the "EVerttyllugsupiter" collision seen in
+    // testing. These parameters were chosen specifically to keep minimum
+    // spacing above ~80px for the crowded 8-planet hub ring.
+    //
+    // This diagram is NOT physically accurate -- it's a relational map of
+    // real historical gravity-assist trajectories, not real orbital
+    // geometry, matching the reference poster's own schematic style.
+    // ------------------------------------------------------------------
+
+    const FLYBY_HUB_COLOR = '#000080';
+    const FLYBY_LEAF_COLOR = '#5a5a63';
+    const FLYBY_HIGHLIGHT_COLOR = '#ffd700';
+    const FLYBY_DEFAULT_LINK_COLOR = '#9aa0ab';
+
+    // Major planets -- the primary focus per direction from Andrew, rather
+    // than a long tail of individual asteroids/comets.
+    const flybyHubs = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+    // A small, deliberately short list of other notable bodies -- kept to
+    // maintain some connection to the small-body/moon story without letting
+    // it dominate the diagram the way the earlier asteroid-heavy version did.
+    const flybyOthers = ['Moon', 'Pluto', '1P/Halley', '4 Vesta', '1 Ceres', '67P/Churyumov-Gerasimenko'];
+
+    // Real historical gravity-assist trajectories, one entry per leg. Dates
+    // are well-established mission history; not freshly re-verified against
+    // a primary source this session, flagged here rather than presented as
+    // independently checked line-by-line.
+    const flybyMissions = [
+        { mission: 'Mariner 10', source: 'Earth', target: 'Venus', year: 1974 },
+        { mission: 'Mariner 10', source: 'Venus', target: 'Mercury', year: 1974 },
+        { mission: 'Voyager 1', source: 'Earth', target: 'Jupiter', year: 1979 },
+        { mission: 'Voyager 1', source: 'Jupiter', target: 'Saturn', year: 1980 },
+        { mission: 'Voyager 2', source: 'Earth', target: 'Jupiter', year: 1979 },
+        { mission: 'Voyager 2', source: 'Jupiter', target: 'Saturn', year: 1981 },
+        { mission: 'Voyager 2', source: 'Saturn', target: 'Uranus', year: 1986 },
+        { mission: 'Voyager 2', source: 'Uranus', target: 'Neptune', year: 1989 },
+        { mission: 'Galileo (VEEGA)', source: 'Earth', target: 'Venus', year: 1990 },
+        { mission: 'Galileo (VEEGA)', source: 'Venus', target: 'Earth', year: 1990 },
+        { mission: 'Galileo (VEEGA)', source: 'Earth', target: 'Jupiter', year: 1995 },
+        { mission: 'Cassini (VVEJGA)', source: 'Earth', target: 'Venus', year: 1998 },
+        { mission: 'Cassini (VVEJGA)', source: 'Venus', target: 'Earth', year: 1999 },
+        { mission: 'Cassini (VVEJGA)', source: 'Earth', target: 'Jupiter', year: 2000 },
+        { mission: 'Cassini (VVEJGA)', source: 'Jupiter', target: 'Saturn', year: 2004 },
+        { mission: 'MESSENGER', source: 'Earth', target: 'Venus', year: 2005 },
+        { mission: 'MESSENGER', source: 'Venus', target: 'Mercury', year: 2008 },
+        { mission: 'BepiColombo', source: 'Earth', target: 'Venus', year: 2020 },
+        { mission: 'BepiColombo', source: 'Venus', target: 'Mercury', year: 2021 },
+        { mission: 'Juno', source: 'Earth', target: 'Jupiter', year: 2016 },
+        { mission: 'New Horizons', source: 'Earth', target: 'Jupiter', year: 2007 },
+        { mission: 'New Horizons', source: 'Jupiter', target: 'Pluto', year: 2015 },
+        { mission: 'Rosetta', source: 'Earth', target: 'Mars', year: 2007 },
+        { mission: 'Rosetta', source: 'Mars', target: '67P/Churyumov-Gerasimenko', year: 2014 },
+        { mission: 'Vega 1', source: 'Venus', target: '1P/Halley', year: 1986 },
+        { mission: 'Dawn', source: 'Mars', target: '4 Vesta', year: 2011 },
+        { mission: 'Dawn', source: '4 Vesta', target: '1 Ceres', year: 2015 },
+        // Andrew's own missions, highlighted distinctly below.
+        { mission: 'MarCO-A / MarCO-B', source: 'Earth', target: 'Mars', year: 2018, highlight: true },
+        { mission: 'Lunar Trailblazer', source: 'Earth', target: 'Moon', year: 2025, highlight: true },
+    ];
+
+    // ------------------------------------------------------------------
+    // Layout: two rings. Hubs (major planets) on a wide arc at the top,
+    // verified via a standalone Node script to keep >=80px between
+    // adjacent node centers at these parameters. Others on a wider,
+    // farther-out arc for the rest of the circle, with even more room
+    // given there are fewer of them.
+    // ------------------------------------------------------------------
+    const HUB_RADIUS = 190;
+    const OTHER_RADIUS = 340;
+
+    const nodeAngle = {};
+    const nodeRadius = {};
+
+    const hubArcSpan = Math.PI * 200 / 180;
+    const hubArcStart = Math.PI * -100 / 180;
+    flybyHubs.forEach((name, i) => {
+        nodeAngle[name] = hubArcStart + (hubArcSpan * (i + 0.5)) / flybyHubs.length;
+        nodeRadius[name] = HUB_RADIUS;
+    });
+
+    const otherArcSpan = Math.PI * 150 / 180;
+    const otherArcStart = Math.PI * 100 / 180;
+    flybyOthers.forEach((name, i) => {
+        nodeAngle[name] = otherArcStart + (otherArcSpan * (i + 0.5)) / flybyOthers.length;
+        nodeRadius[name] = OTHER_RADIUS;
+    });
+
+    const allNodeNames = [...flybyHubs, ...flybyOthers];
+
+    // ------------------------------------------------------------------
+    // Render
+    // ------------------------------------------------------------------
+    const width = 900, height = 780;
+    const svg = d3.select('#flybyViz')
+        .append('svg')
+        .attr('viewBox', [-width / 2, -height / 2, width, height])
+        .attr('width', '100%')
+        .attr('height', '100%');
+
+    const linkGen = d3.linkRadial()
+        .angle(d => d.angle)
+        .radius(d => d.radius);
+
+    const linkGroup = svg.append('g').attr('fill', 'none');
+    const links = linkGroup.selectAll('path')
+        .data(flybyMissions)
+        .join('path')
+        .attr('d', d => linkGen({
+            source: { angle: nodeAngle[d.source], radius: nodeRadius[d.source] },
+            target: { angle: nodeAngle[d.target], radius: nodeRadius[d.target] },
+        }))
+        .attr('stroke', d => d.highlight ? FLYBY_HIGHLIGHT_COLOR : FLYBY_DEFAULT_LINK_COLOR)
+        .attr('stroke-width', d => d.highlight ? 3 : 1.3)
+        .attr('stroke-opacity', d => d.highlight ? 0.95 : 0.5);
+
+    const nodeGroup = svg.append('g');
+    allNodeNames.forEach(name => {
+        const isHub = flybyHubs.includes(name);
+        const r = nodeRadius[name];
+        const a = nodeAngle[name] - Math.PI / 2;
+        const x = r * Math.cos(a), y = r * Math.sin(a);
+
+        nodeGroup.append('circle')
+            .attr('cx', x).attr('cy', y)
+            .attr('r', isHub ? 9 : 5)
+            .attr('fill', isHub ? FLYBY_HUB_COLOR : FLYBY_LEAF_COLOR);
+
+        const flip = Math.cos(a) < 0;
+        nodeGroup.append('text')
+            .attr('x', x).attr('y', y)
+            .attr('font-family', isHub ? 'Outfit, sans-serif' : 'Inter, sans-serif')
+            .attr('font-weight', isHub ? 700 : 500)
+            .attr('font-size', isHub ? 15 : 11)
+            .attr('fill', isHub ? FLYBY_HUB_COLOR : '#3a3a42')
+            .attr('text-anchor', flip ? 'end' : 'start')
+            .attr('transform', `translate(${flip ? -12 : 12}, 5)`)
+            .text(name);
+    });
+
+    // ------------------------------------------------------------------
+    // Interaction
+    // ------------------------------------------------------------------
+    const listEl = document.getElementById('flybyList');
+    const panelLabel = document.getElementById('flybyPanelLabel');
+    let flybySelected = null;
+
+    function renderList() {
+        listEl.innerHTML = '';
+        const sorted = [...flybyMissions].sort((a, b) => a.year - b.year);
+        sorted.forEach((m, idx) => {
+            const div = document.createElement('div');
+            div.className = 'flyby-entry' + (flybySelected === idx ? ' selected' : '') + (m.highlight ? ' highlight' : '');
+            div.innerHTML = `
+            <div class="flyby-entry-top">
+                <span class="flyby-year">${m.year}</span>
+                <span class="flyby-entry-title">${m.mission}</span>
+            </div>
+            <p class="flyby-entry-desc">${m.source} &rarr; ${m.target}</p>`;
+            div.addEventListener('click', () => selectMission(idx, m));
+            listEl.appendChild(div);
+        });
+    }
+
+    function selectMission(idx, mission) {
+        flybySelected = flybySelected === idx ? null : idx;
+        const active = flybySelected !== null ? mission : null;
+
+        links
+            .attr('stroke', d => {
+                if (active) return d === active ? FLYBY_HIGHLIGHT_COLOR : FLYBY_DEFAULT_LINK_COLOR;
+                return d.highlight ? FLYBY_HIGHLIGHT_COLOR : FLYBY_DEFAULT_LINK_COLOR;
+            })
+            .attr('stroke-opacity', d => {
+                if (!active) return d.highlight ? 0.95 : 0.5;
+                return d === active ? 1 : 0.08;
+            })
+            .attr('stroke-width', d => {
+                if (!active) return d.highlight ? 3 : 1.3;
+                return d === active ? 4.5 : 1;
+            });
+
+        panelLabel.textContent = active ? `Selected: ${active.mission}` : 'All Missions';
+        renderList();
+    }
+
+    document.getElementById('flybyReset').addEventListener('click', () => {
+        flybySelected = null;
+        selectMission(null, null);
+    });
+
+    renderList();
+</script>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

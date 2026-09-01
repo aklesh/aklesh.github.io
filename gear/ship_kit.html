@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Kit - Field Gear</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="page-head">
+    <h1 style="font-size: 2.2rem; line-height: 1.2;">
+        Ship Kit
+    </h1>
+    
+    
+    
+
+<button class="notes-toggle" id="notesDrawerToggle" aria-expanded="false" aria-controls="notesDrawerPanel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+    </svg>
+    All Entries <span class="count">(2)</span>
+</button>
+
+<div class="drawer-backdrop" id="notesDrawerBackdrop"></div>
+<nav class="drawer" id="notesDrawerPanel" aria-label="All Entries">
+    <div class="drawer-head">
+        <h2>All Entries</h2>
+        <button class="drawer-close" id="notesDrawerClose" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    <div class="drawer-list">
+        
+        <a href="/gear/edc.html" >
+            <div class="drawer-note-title"><span class="drawer-pin"
+                    aria-label="Pinned">&#128204;</span> Every Day Carry</div>
+            <div class="drawer-note-date">2026-01-19</div>
+        </a>
+        
+        <a href="/gear/ship_kit.html" 
+            class="current" aria-current="page" >
+            <div class="drawer-note-title">Ship Kit</div>
+            <div class="drawer-note-date">2026-07-25</div>
+        </a>
+        
+    </div>
+</nav>
+
+<script>
+    (function () {
+        var notesDrawerToggleBtn = document.getElementById('notesDrawerToggle');
+        var notesDrawerEl = document.getElementById('notesDrawerPanel');
+        var notesDrawerBackdropEl = document.getElementById('notesDrawerBackdrop');
+        var notesDrawerCloseBtn = document.getElementById('notesDrawerClose');
+
+        if (!notesDrawerToggleBtn || !notesDrawerEl || !notesDrawerBackdropEl || !notesDrawerCloseBtn) {
+            return;
+        }
+
+        function openNotesDrawer() {
+            notesDrawerEl.classList.add('open');
+            notesDrawerBackdropEl.classList.add('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeNotesDrawer() {
+            notesDrawerEl.classList.remove('open');
+            notesDrawerBackdropEl.classList.remove('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        notesDrawerToggleBtn.addEventListener('click', function () {
+            notesDrawerEl.classList.contains('open') ? closeNotesDrawer() : openNotesDrawer();
+        });
+        notesDrawerCloseBtn.addEventListener('click', closeNotesDrawer);
+        notesDrawerBackdropEl.addEventListener('click', closeNotesDrawer);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeNotesDrawer();
+        });
+    })();
+</script>
+</div>
+
+<main class="notes-main">
+    <article>
+        <div
+            style="color: #666; font-size: 0.9rem; margin-bottom: 2rem; display: flex; gap: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+            <span>&#128197; 2026-07-25</span>
+        </div>
+
+        
+
+        <div class="blog-content" style="line-height: 1.6; color: #333; font-size: 1.1rem;">
+            <h1>Overview</h1>
+<p>Over the years, I&rsquo;ve found there are a few unique items I always like to bring on a ship-based expedition. Ships often have rolling decks, requiring additional care and securing of gear. Further, there are a handful of niceities to have on hand for extended voyages.</p>
+<h2>General Philosophy</h2>
+<p>This kit assumes that there will be other larger field kits available, including the EDC. Here, the gear is targetted solely toward problems encountered at sea.</p>
+<p>I&rsquo;ve also attempted to keep everything the same base color (blue in this case) to assist in identification and separation of gear at the voyage end.</p>
+<h2>Ship-Kit Inventory</h2>
+<p><strong><a href="https://www.amazon.com/dp/B08XGRZWM3">Rachet Straps</a></strong>
+Ratchet straps can be used to secure boxes and containers to just about anything. They are particularly useful on a ship for securing gear to deck points or railings, or create storage underneath a desk or bench. Ideally, find straps that are corrosion resistant, but most straps will likely remain indoors.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0CN6KMJBY">Bungee Cords</a></strong>
+Another useful item for securing gear. Many ships have 1/4-20 or M6 threaded mounts on benches and walls, which allows for easy attachment of bungee cords. Generally, bungee cords won&rsquo;t work well on deck.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0BD18N6CG">Parachute Cord</a></strong>
+A length of paracord can be useful in innumerable situations. It&rsquo;s equally important to know knots to go with them, such as an overhand loop or trucker&rsquo;s hitch. If you cut paracord, use a lighter to fuse the ends to prevent fraying.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0BXSMJK86">Non-Slip Liner</a></strong>
+Any non-slip liner can be useful to prevent items from rolling or sliding on bench or desktops. I suggest having a roll with you, but cut a few pieces beforehand sized for your laptop or other items you might always leave out. It&rsquo;s low-cost enough to cut and replace as needed, but easily saved for future voyages.</p>
+<p><strong><a href="https://www.amazon.com/dp/B08CTPJ8RS">Scissors</a></strong>
+Whether for opening boxes or cutting liner, it&rsquo;s useful to have a pair of scissors with a good grip and sharp blades.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0000EI9AR">Tin Snips</a></strong>
+Many larger packages use metal bands to hold them closed during shipment. Tin snips are invaluable for cutting through those bands. While you can try and cut them with other tools, it&rsquo;s not as clean or easy.</p>
+<p><strong><a href="https://www.amazon.com/dp/B000J07BRQ">Packing Tape</a></strong>
+Packing tape is incredibly useful for sealing up boxes at the end of a long expedition. Use one that has a dedicated dispenser.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0C9GWX9R7">Electrical Tape</a></strong>
+This electrical tape is more for labeling and marking rather than electrical work (use Scotch Super33+ for that or for in-water usage).</p>
+<p><strong><a href="https://www.amazon.com/dp/B09G9SVMQ7">Gaffer Tape</a></strong>
+Do not use duct tape on benches or other surfaces - it leaves a sticky residue. Instead, gaffer tape works great and can be removed without damaging surfaces.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0CJZ42N9R">Velcro Straps</a></strong>
+Great for securing and organizing cables at your bench.</p>
+<p><strong><a href="https://www.amazon.com/dp/B00ZPIHH9Y">Shipping Labels</a></strong>
+Having labels that are easy to peel and stick on boxes is a lifesaver at the end of an expedition. Here&rsquo;s a <a href="../tools/shipping-label.html">quick tool</a> to create a printable label.</p>
+<p><strong><a href="https://www.amazon.com/dp/B000MKDUKU">Klein Bag</a></strong>
+A small tool bag can keep kit tools organized.</p>
+<p><strong><a href="https://www.amazon.com/dp/B014VBHNDU">Storage Bag</a></strong>
+The entire ship kit can fit into a medium nylon travel-cube.</p>
+<p><strong>Laundry Bag</strong>
+Invariably, on long expeditions, you&rsquo;ll need to do laundry and bring it from your berth to the laundry room, often located in the bowels of the ship. Bring a lightweight cloth bag to carry clothing back and forth.
+&hellip;</p>
+        </div>
+
+        
+        <div style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee;">
+            <span style="font-weight: bold; margin-right: 0.5rem;">Tags:</span>
+            
+            <span
+                style="display: inline-block; background: #f0f4f8; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-right: 0.5rem; color: var(--navy);">gear</span>
+            
+            <span
+                style="display: inline-block; background: #f0f4f8; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-right: 0.5rem; color: var(--navy);">equipment</span>
+            
+            <span
+                style="display: inline-block; background: #f0f4f8; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-right: 0.5rem; color: var(--navy);">ship</span>
+            
+        </div>
+        
+
+    </article>
+
+    <!-- Navigation -->
+    <div
+        style="display: flex; justify-content: space-between; margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #eee;">
+        
+        <div></div>
+        
+
+        
+        <a href="/gear/edc.html" style="text-decoration: none; text-align: right; max-width: 45%;">
+            <div style="font-size: 0.8rem; color: #888;">Next Review &rarr;</div>
+            <div style="font-weight: bold; color: var(--navy);">Every Day Carry</div>
+        </a>
+        
+    </div>
+</main>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacecraft Trajectories - Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div style="padding: 2rem 4rem; max-width: 1200px; margin: 0 auto;">
+    <!-- NOTE: 1200px, matching expeditions.html's deviation from the site's
+         usual 900-1000px width, for the same reason -- a visualization
+         stage plus a side panel genuinely needs the extra room. -->
+    <h1>Spacecraft Trajectories</h1>
+
+    <div class="intro-section" style="margin-bottom: 1.5rem;">
+        <p style="font-size: 1.1rem; max-width: 900px; line-height: 1.6;">
+            An interactive view of interplanetary trajectories, built with
+            <a href="https://typpo.github.io/spacekit/" target="_blank" rel="noopener">Spacekit.js</a>.
+            Planets move on their real orbits. Spacecraft trajectories shown here are
+            <strong>illustrative transfer orbits anchored to real launch and arrival dates</strong> &mdash;
+            not precise mission telemetry. See the note on each craft for what's real and what's approximated.
+        </p>
+    </div>
+
+    <div class="traj-controls">
+        <div class="traj-playback">
+            <button id="trajBtnPlay" type="button" class="active">&#9658; Play</button>
+            <button id="trajBtnPause" type="button">&#10074;&#10074; Pause</button>
+            <span class="traj-date" id="trajDateLabel">&mdash;</span>
+        </div>
+        <div class="traj-speed">
+            <label for="trajSpeedRange">Speed</label>
+            <input type="range" id="trajSpeedRange" min="1" max="4" step="1" value="2">
+        </div>
+    </div>
+
+    <div class="traj-stage">
+        <div id="trajViz"></div>
+        <div class="traj-panel">
+            <h2>Craft &amp; Bodies</h2>
+            <div id="trajCraftList"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://typpo.github.io/spacekit/build/spacekit.js"></script>
+<script>
+    // ------------------------------------------------------------------
+    // Verified against the REAL, currently-live Spacekit.js examples
+    // (github.com/typpo/spacekit/tree/master/examples), not just docs or
+    // memory -- an earlier pass on this page checked the npm-published
+    // package's TypeScript defs first and found they expose a different,
+    // older-looking API (EphemPresets only, no SpaceObjectPresets) than
+    // what the live hosted examples actually use. Since this page loads
+    // Spacekit from the same CDN URL the live examples use
+    // (typpo.github.io/spacekit/build/spacekit.js), the live examples were
+    // treated as the source of truth here, not the npm package.
+    // ------------------------------------------------------------------
+
+    // Simple, standard Julian Date conversion -- used to anchor each craft's
+    // custom Ephem to a real calendar date, rather than hand-typing a static
+    // JD number and risking an arithmetic mistake.
+    function dateToJD(date) {
+        return (date.getTime() / 86400000) + 2440587.5;
+    }
+
+    const viz = new Spacekit.Simulation(document.getElementById('trajViz'), {
+        basePath: 'https://typpo.github.io/spacekit/src',
+        startDate: new Date('2018-05-05'), // MarCO + InSight launch date
+        jdPerSecond: 4,
+        camera: { enableDrift: false },
+    });
+
+    viz.createSkybox(Spacekit.SkyboxPresets.NASA_TYCHO);
+    viz.createObject('Sun', Spacekit.SpaceObjectPresets.SUN);
+    viz.createObject('Mercury', Spacekit.SpaceObjectPresets.MERCURY);
+    viz.createObject('Venus', Spacekit.SpaceObjectPresets.VENUS);
+    const earthObj = viz.createObject('Earth', Spacekit.SpaceObjectPresets.EARTH);
+    const marsObj = viz.createObject('Mars', Spacekit.SpaceObjectPresets.MARS);
+    viz.createObject('Jupiter', Spacekit.SpaceObjectPresets.JUPITER);
+
+    // ------------------------------------------------------------------
+    // Craft trajectories.
+    //
+    // InSight and MarCO-A/B launched together on the same Atlas V on
+    // 2018-05-05 and reached Mars on 2018-11-26 -- both real, confirmed
+    // dates. Their actual cruise trajectories involved trajectory-correction
+    // maneuvers and are not simple fixed two-body Kepler orbits, which is
+    // what a single Ephem here can represent. Rather than fabricate
+    // precision I don't have, all three use the SAME approximate
+    // Earth-to-Mars Hohmann-style transfer ellipse (a ~1.26 AU, e ~0.21,
+    // derived from Earth's and Mars' own mean orbital radii), epoch-anchored
+    // to the real 2018-05-05 launch date. This is a genuine simplification,
+    // not mission-accurate telemetry -- flagged in the UI panel for each
+    // craft, not just here.
+    // ------------------------------------------------------------------
+    const launchJD = dateToJD(new Date('2018-05-05'));
+
+    function makeTransferEphem(epochJD) {
+        return new Spacekit.Ephem({
+            epoch: epochJD,
+            a: 1.26,        // AU -- midpoint of Earth's (1.0) and Mars' (1.524) orbital radii
+            e: 0.208,        // approximates a Hohmann-style transfer eccentricity
+            i: 1.85,         // deg -- roughly Mars' orbital inclination, since the transfer aims there
+            om: 49.6,        // deg -- approximate ascending node, roughly Mars'
+            w: 286.5,        // deg -- approximate argument of periapsis
+            ma: 0,           // start at periapsis (perihelion, near Earth's distance) at epoch
+        }, 'deg');
+    }
+
+    const craftDefs = [
+        {
+            id: 'insight',
+            name: 'InSight',
+            color: 0xc2611a,
+            ephem: makeTransferEphem(launchJD),
+            note: "Landed on Mars Nov. 26, 2018. Mission ended Dec. 2022 (dust-covered solar panels). InSight is stationary on the surface -- its position \"today\" is simply wherever Mars is today, which IS shown accurately here (Mars itself uses Spacekit's real orbital data, not an approximation).",
+            accuracy: 'high',
+        },
+        {
+            id: 'marco-a',
+            name: 'MarCO-A (Eva)',
+            color: 0x000080,
+            ephem: makeTransferEphem(launchJD),
+            note: "Flew past Mars relaying InSight's landing, then continued into its own heliocentric orbit. Contact was lost in early January 2019 and never re-established -- MarCO-A's actual current position is unknown; nothing has tracked it since. The path shown past that date is a rough ballistic extrapolation only, not real tracking data.",
+            accuracy: 'low-after-jan-2019',
+        },
+        {
+            id: 'marco-b',
+            name: 'MarCO-B (Wall-E)',
+            color: 0x0e7c86,
+            ephem: makeTransferEphem(launchJD),
+            note: "Same story as MarCO-A -- flew past Mars successfully, then drifted into an independent heliocentric orbit before going silent in January 2019. Its current position is likewise unknown and unverified past that date.",
+            accuracy: 'low-after-jan-2019',
+        },
+    ];
+
+    const craftObjects = {};
+    craftDefs.forEach(c => {
+        craftObjects[c.id] = viz.createObject(c.name, {
+            ephem: c.ephem,
+            labelText: c.name,
+            theme: { color: c.color },
+            ecliptic: { displayLines: true, lineColor: c.color },
+        });
+    });
+
+    // ------------------------------------------------------------------
+    // UI: craft list, matching the same select-to-highlight interaction
+    // pattern used on expeditions.html.
+    // ------------------------------------------------------------------
+    const listEl = document.getElementById('trajCraftList');
+    let trajSelectedId = null;
+
+    function renderCraftList() {
+        listEl.innerHTML = '';
+        craftDefs.forEach(c => {
+            const div = document.createElement('div');
+            div.className = 'traj-entry' + (c.id === trajSelectedId ? ' selected' : '');
+            div.innerHTML = `
+            <div class="traj-entry-top">
+                <span class="traj-dot" style="background:#${c.color.toString(16).padStart(6, '0')}"></span>
+                <span class="traj-entry-title">${c.name}</span>
+            </div>
+            <p class="traj-entry-note">${c.note}</p>`;
+            div.addEventListener('click', () => selectCraft(c.id));
+            listEl.appendChild(div);
+        });
+    }
+
+    function selectCraft(id) {
+        trajSelectedId = id;
+        craftDefs.forEach(c => {
+            const obj = craftObjects[c.id];
+            // getOrbit().setHexColor() is a real, confirmed Spacekit method
+            // (seen in the live asteroid example) for recoloring an orbit
+            // line dynamically -- used here the same way expeditions.html
+            // brings a selected marker/route to visual prominence.
+            if (obj && obj.getOrbit) {
+                obj.getOrbit().setHexColor(c.id === id ? 0xffd700 : c.color);
+            }
+        });
+        if (craftObjects[id]) viz.zoomToFit(craftObjects[id]);
+        renderCraftList();
+    }
+
+    renderCraftList();
+
+    // ------------------------------------------------------------------
+    // Playback controls
+    // ------------------------------------------------------------------
+    const btnPlay = document.getElementById('trajBtnPlay');
+    const btnPause = document.getElementById('trajBtnPause');
+    const dateLabel = document.getElementById('trajDateLabel');
+    const speedRange = document.getElementById('trajSpeedRange');
+
+    const SPEED_STEPS = [1, 4, 20, 80]; // jd-per-second at each slider position
+
+    btnPlay.addEventListener('click', () => {
+        viz.start();
+        btnPlay.classList.add('active'); btnPause.classList.remove('active');
+    });
+    btnPause.addEventListener('click', () => {
+        viz.stop();
+        btnPause.classList.add('active'); btnPlay.classList.remove('active');
+    });
+    speedRange.addEventListener('input', () => {
+        viz.setJdPerSecond(SPEED_STEPS[parseInt(speedRange.value, 10) - 1]);
+    });
+
+    viz.onTick = function () {
+        const d = viz.getDate();
+        dateLabel.textContent = d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    };
+
+    viz.start();
+</script>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

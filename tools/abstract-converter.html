@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Converter - Expedition Wrenches</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="converter-container">
+    <div class="converter-header">
+        <h1>Academic Abstract Converter</h1>
+        <p>Convert complex academic abstracts into plain English and a simplified version using only the 1000 most
+            common words.</p>
+    </div>
+
+    <div class="converter-controls">
+        <div class="control-group">
+            <label for="provider-select">AI Provider</label>
+            <select id="provider-select">
+                <option value="gemini">Google Gemini</option>
+                <option value="openai">OpenAI</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="model-input">Model Name</label>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.2rem;">
+                <input type="text" id="model-input" value="gemini-1.5-flash" style="flex: 1;">
+                <button id="check-models-btn" type="button"
+                    style="padding: 0 0.5rem; font-size: 0.8rem; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">List
+                    Models</button>
+            </div>
+            <div id="models-list"
+                style="display: none; font-size: 0.75rem; color: #333; background: #f0f0f0; padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; max-height: 100px; overflow-y: auto;">
+            </div>
+            <small style="color: #666; font-size: 0.8rem;">e.g., gemini-1.5-flash, gemini-pro, gpt-4o</small>
+        </div>
+        <div class="control-group" id="api-key-group">
+            <label for="api-key-input">API Key</label>
+            <input type="password" id="api-key-input" placeholder="Enter your API Key">
+        </div>
+    </div>
+
+    <div class="input-section">
+        <label for="abstract-input">Paste Abstract Here</label>
+        <textarea id="abstract-input" placeholder="Paste your academic abstract text here..."></textarea>
+    </div>
+
+    <div id="error-message" class="error-message"></div>
+
+    <div class="action-bar">
+        <button id="convert-btn" class="convert-btn">
+            Convert Abstract
+            <span class="loading-spinner"></span>
+        </button>
+    </div>
+
+    <div class="output-section">
+        <div class="result-box">
+            <h3>Plain English</h3>
+            <div id="result-plain" class="result-content">The simplified version will appear here...</div>
+        </div>
+        <div class="result-box">
+            <h3>1000 Common Words</h3>
+            <div id="result-1000" class="result-content">The constrained version will appear here...</div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+<script>
+    // --- Configuration ---
+    // If you want to hardcode keys, put them here. 
+    // DO NOT COMMIT REAL KEYS TO PUBLIC REPOS.
+    const API_CONFIG = {
+        gemini: "", // e.g., "AIzaSy..."
+        openai: ""  // e.g., "sk-..."
+    };
+
+    const COMMON_1000_WORDS = `
+a ability able about above accept according account across act action activity actually add address administration admit adult affect after again against age agency agent ago agree agreement ahead air all allow almost alone along already also although always American among amount analysis and animal another answer any anyone anything appear apply approach area argue arm around arrive art article artist as ask assume at attack attention attorney audience author authority available avoid away baby back bad bag ball bank bar base be beat beautiful because become bed before begin behavior behind believe benefit best better between beyond big bill billion bit black blood blue board body book born both box boy break bring brother budget build building business but buy by call camera campaign can cancer candidate capital car card career carry case catch cause cell center central century certainly chair challenge chance change character charge check child choice choose church citizen city civil claim class clear clearly close coach cold collection college color come commercial common community company compare computer concern condition conference Congress consider consumer contain continue control cost could country couple course court cover create crime cultural culture cup current customer cut dark data daughter day dead deal death debate decade decide decision deep defense degree Democrat democratic describe design despite detail determine develop development die difference different difficult dinner direction director discover discuss discussion disease do doctor dog door down draw dream drive drop drug during each early east easy eat economic economy edge education effect effort eight either election else employee end energy enjoy enough enter entire environment environmental especially establish even evening event ever every everybody everyone everything evidence exactly example executive exist expect experience expert explain eye face fact factor fail fall family far fast father fear federal feel feeling few field fight figure fill film final finally financial find fine finger finish fire firm first fish five floor fly focus follow food foot for force foreign forget form former forward four free friend from front full fund future game garden gas general generation get girl give glass go goal good government great green ground group grow growth guess gun guy hair half hand hang happen happy hard he head health hear heart heat heavy help her here herself high him himself his history hit hold home hope hospital hot hotel hour house how however huge human hundred husband I idea identify if image imagine impact important improve in include including increase indeed indicate individual industry information inside instead institution interest interesting international interview into investment involve issue it item its itself job join just keep key kid kill kind kitchen knowledge land language large last late later laugh law lawyer lay lead leader learn least leave left leg legal less let level lie life light like likely line list listen little live local long look lose loss lot love low machine magazine main maintain majority make man manage management manager many market marriage material matter may maybe me mean measure media medical meet meeting member memory message method middle might military million mind minute miss mission model modern moment money month more morning most mother move movement Mr Mr much music must my myself name nation national natural nature near nearly necessary need network never new news newspaper next nice night no none nor north not note nothing notice now n't number occur of off offer office officer official often oh oil ok old on once one only onto open operation opportunity option or order organization other others our out outside over own owner page pain painting paper parent part participant particular particularly partner party pass past patient pattern pay peace people per perform performance perhaps period person personal phone physical pick picture piece place plan plant play player PM point police policy political politics poor popular population position positive possible power practice prepare present president pressure pretty prevent price private probably problem process produce product production professional professor program project property protect prove provide public pull purpose push put quality question quickly quite race radio raise range rate rather reach read ready real reality realize really reason receive recent recently recognize record red reduce reflect region relate relationship religious remain remember remove report represent Republican require research resource respond response responsibility rest result return reveal rich right rise risk road rock role room rule run safe same save say scene school science scientist score sea season seat second section security see seek seem sell send senior sense series serious serve service set seven several sex sexual shake share she shoot short shot should shoulder show side sign significant similar simple simply since sing single sister sit site situation six size skill skin small smile so social society soldier some somebody someone something sometimes son song soon sort sound source south southern space speak special specific speech spend sport spring staff stage stand standard star start state statement station stay step still stock stop store story strategy street strong structure student study stuff style subject success successful such suddenly suffer suggest summer support sure surface system table take talk task tax teach teacher team technology television tell ten tend term test than thank that the their them themselves then theory there these they thing think third this those though thought thousand threat three through throughout throw thus time to today together tonight too top total tough toward town trade traditional training travel treat tree trial trip trouble true truth try turn TV two type under understand unit until up upon us use usually value various very victim view violence visit voice vote wait walk wall want war watch water way we weapon wear week weight well west western what whatever when where whether which while white who whole whom whose why wide wife will win wind window wish with within without woman wonder word work worker world worry would write writer wrong yard yeah year yes yet you young your yourself
+`.trim().split(/\s+/).join(", "); // Format as comma separated for prompt
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const providerSelect = document.getElementById('provider-select');
+        const modelInput = document.getElementById('model-input');
+        const checkModelsBtn = document.getElementById('check-models-btn');
+        const modelsList = document.getElementById('models-list');
+        const apiKeyInput = document.getElementById('api-key-input');
+        const apiKeyGroup = document.getElementById('api-key-group');
+        const convertBtn = document.getElementById('convert-btn');
+        const abstractInput = document.getElementById('abstract-input');
+        const errorMessage = document.getElementById('error-message');
+        const resultPlain = document.getElementById('result-plain');
+        const result1000 = document.getElementById('result-1000');
+        const loadingSpinner = document.querySelector('.loading-spinner');
+
+        // Check for hardcoded keys and hide input if present
+        function checkConfig() {
+            const provider = providerSelect.value;
+
+            // Update default model hint based on provider
+            if (provider === 'gemini') {
+                if (!modelInput.value.includes('gemini')) modelInput.value = 'gemini-1.5-flash';
+                checkModelsBtn.style.display = 'inline-block';
+            } else {
+                if (!modelInput.value.includes('gpt')) modelInput.value = 'gpt-3.5-turbo';
+                checkModelsBtn.style.display = 'none'; // OpenAI doesn't support simple public listing quite the same way or requires complex auth
+            }
+
+            if (API_CONFIG[provider]) {
+                apiKeyGroup.style.display = 'none';
+            } else {
+                apiKeyGroup.style.display = 'block';
+            }
+        }
+
+        providerSelect.addEventListener('change', checkConfig);
+        checkConfig(); // Initial check
+
+        checkModelsBtn.addEventListener('click', async () => {
+            const provider = providerSelect.value;
+            let apiKey = API_CONFIG[provider] || apiKeyInput.value.trim();
+
+            if (!apiKey) {
+                alert('Please enter an API Key first.');
+                return;
+            }
+
+            modelsList.style.display = 'block';
+            modelsList.textContent = 'Fetching models...';
+
+            try {
+                if (provider === 'gemini') {
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    if (data.error) {
+                        throw new Error(data.error.message);
+                    }
+
+                    if (data.models) {
+                        const modelNames = data.models
+                            .filter(m => m.supportedGenerationMethods && m.supportedGenerationMethods.includes('generateContent'))
+                            .map(m => m.name.replace('models/', ''))
+                            .join(', ');
+                        modelsList.textContent = 'Available: ' + modelNames;
+                    } else {
+                        modelsList.textContent = 'No models found.';
+                    }
+                }
+            } catch (e) {
+                modelsList.textContent = 'Error: ' + e.message;
+            }
+        });
+
+        convertBtn.addEventListener('click', async () => {
+            const text = abstractInput.value.trim();
+            const provider = providerSelect.value;
+            const model = modelInput.value.trim();
+            let apiKey = API_CONFIG[provider];
+
+            if (!apiKey) {
+                apiKey = apiKeyInput.value.trim();
+            }
+
+            errorMessage.style.display = 'none';
+            resultPlain.textContent = 'Processing...';
+            result1000.textContent = 'Processing...';
+
+            if (!text) {
+                errorMessage.textContent = 'Please enter an abstract.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (!apiKey) {
+                errorMessage.textContent = 'Please provide an API Key.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                // We run both requests in parallel for speed
+                await Promise.all([
+                    generatePlainEnglish(text, provider, apiKey, model),
+                    generate1000Words(text, provider, apiKey, model)
+                ]);
+            } catch (error) {
+                console.error(error);
+                errorMessage.textContent = 'Error: ' + error.message;
+                errorMessage.style.display = 'block';
+                resultPlain.textContent = 'Failed.';
+                result1000.textContent = 'Failed.';
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        function setLoading(isLoading) {
+            convertBtn.disabled = isLoading;
+            loadingSpinner.style.display = isLoading ? 'inline-block' : 'none';
+        }
+
+        async function generatePlainEnglish(text, provider, apiKey, model) {
+            const prompt = `
+        You are an expert science communicator. 
+        Rewrite the following academic abstract into a plain-english summary suitable for a well-educated general public audience. 
+        Keep it concise but accurate.
+        
+        Abstract:
+        ${text}
+        `;
+
+            const result = await callAI(provider, apiKey, prompt, model);
+            resultPlain.textContent = result;
+        }
+
+        async function generate1000Words(text, provider, apiKey, model) {
+            let currentPrompt = `
+        You are a strict constraint-based rewriting engine.
+        
+        TASK: Rewrite the following academic abstract using ONLY words from the provided "Allowed Words List".
+        
+        RULES:
+        1. YOU MUST NOT use any word that is not in the Allowed Words List.
+        2. NO proper nouns (names of people, places, specific organizations). Replace them with generic terms from the list (e.g., replace "Kilauea" with "the mountain", "Hawaii" with "the island").
+        3. NO acronyms (e.g., replace "DAS" with "the group of lines").
+        4. If a word is not on the list, find a synonym that IS on the list.
+        5. Output ONLY the rewritten text.
+        
+        Allowed Words List:
+        ${COMMON_1000_WORDS}
+        
+        Abstract:
+        ${text}
+        `;
+            
+            const validWords = new Set(COMMON_1000_WORDS.split(', ').map(w => w.toLowerCase()));
+            let attempts = 0;
+            const maxAttempts = 3;
+            let result = "";
+            let finalValidatedHTML = "";
+
+            while (attempts < maxAttempts) {
+                if (attempts > 0) {
+                     result1000.textContent = `Refining... (Attempt ${attempts + 1}/${maxAttempts})`;
+                }
+                
+                result = await callAI(provider, apiKey, currentPrompt, model);
+                
+                // Validate
+                const resultWords = result.split(/\s+/);
+                const invalidWords = new Set();
+                
+                finalValidatedHTML = resultWords.map(word => {
+                    const cleanWord = word.toLowerCase().replace(/[.,!?;:()"]/g, '');
+                    if (cleanWord === '' || validWords.has(cleanWord) || !isNaN(cleanWord)) {
+                        return word;
+                    } else {
+                        invalidWords.add(word); // Add original word (case sensitive for display/learning) to set
+                        return `<span style="color: red; text-decoration: underline; cursor: help;" title="Not in allowed list">${word}</span>`;
+                    }
+                }).join(' ');
+
+                if (invalidWords.size === 0) {
+                    break; // Success!
+                }
+                
+                // If failed, update prompt with specific feedback for the next try
+                const invalidList = Array.from(invalidWords).join(', ');
+                currentPrompt = `
+                The previous attempt had forbidden words. Rewrite it again, but this time REPLACE the following forbidden words with valid words from the Allowed Words List:
+                Forbidden Words Found: ${invalidList}
+                
+                REMEMBER:
+                - NO Proper Nouns.
+                - NO Acronyms.
+                - ONLY words from the original Allowed Words List.
+                
+                Original Abstract:
+                ${text}
+                `;
+                
+                attempts++;
+            }
+
+            result1000.innerHTML = finalValidatedHTML;
+        }
+
+        async function callAI(provider, apiKey, prompt, model) {
+            if (provider === 'gemini') {
+                return callGemini(apiKey, prompt, model);
+            } else if (provider === 'openai') {
+                return callOpenAI(apiKey, prompt, model);
+            }
+        }
+
+        async function callGemini(apiKey, prompt, model) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: prompt }]
+                    }]
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error?.message || 'Gemini API Error');
+            }
+
+            if (data.candidates && data.candidates[0].content) {
+                return data.candidates[0].content.parts[0].text;
+            } else {
+                return "No output returned.";
+            }
+        }
+
+        async function callOpenAI(apiKey, prompt, model) {
+            const url = 'https://api.openai.com/v1/chat/completions';
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: model,
+                    messages: [
+                        { role: "system", content: "You are a helpful assistant." },
+                        { role: "user", content: prompt }
+                    ]
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error?.message || 'OpenAI API Error');
+            }
+
+            return data.choices[0].message.content;
+        }
+    });
+</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities Admin - Expedition Wrenches</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="content-container" style="max-width: 1000px; margin: 0 auto; padding: 2rem;">
+    <h1>Field Opportunities Admin</h1>
+    <p><a href="/tools/index.html">&larr; Back to Tools</a></p>
+
+    <div id="status-message" style="display: none; padding: 1rem; margin-bottom: 1rem; border-radius: 4px;"></div>
+
+    <div style="margin-bottom: 2rem; display: flex; justify-content: flex-end;">
+        <button id="add-btn"
+            style="background: #2e7d32; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">+
+            Add Opportunity</button>
+    </div>
+
+    <div id="opportunities-list">
+        Loading...
+    </div>
+
+    <div style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1rem; text-align: right;">
+        <button id="save-btn"
+            style="background: #0277bd; color: white; padding: 0.8rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1.1rem;">Save
+            All Changes</button>
+    </div>
+</div>
+
+<template id="row-template">
+    <div class="opportunity-row"
+        style="background: #f9f9f9; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+        <div
+            style="grid-column: 1 / -1; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+            <strong class="row-number" style="font-size: 1.1rem; color: #0277bd;">Opportunity #</strong>
+            <button class="remove-btn"
+                style="background: #c62828; color: white; border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer;">Remove</button>
+        </div>
+
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Type</label>
+            <input type="text" data-field="type" list="type-options" placeholder="Select or type..."
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Name</label>
+            <input type="text" data-field="name"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Host Institution</label>
+            <input type="text" data-field="host"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <!-- Dates Row -->
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">App Deadline
+                (Optional)</label>
+            <input type="date" data-field="app_deadline"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Start Date
+                (Optional)</label>
+            <input type="date" data-field="start_date"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">End Date
+                (Optional)</label>
+            <input type="date" data-field="end_date"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div class="form-group" style="grid-column: 1 / -1;">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Link</label>
+            <input type="url" data-field="link"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div class="form-group" style="grid-column: 1 / -1;">
+            <label style="display: block; font-size: 0.8rem; color: #666; font-weight: bold;">Comments
+                (Optional)</label>
+            <textarea data-field="comments"
+                style="width: 100%; padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; height: 60px; font-family: sans-serif;"></textarea>
+        </div>
+    </div>
+</template>
+
+<datalist id="type-options"></datalist>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const listContainer = document.getElementById('opportunities-list');
+        const tmpl = document.getElementById('row-template');
+        const statusMsg = document.getElementById('status-message');
+        const saveBtn = document.getElementById('save-btn');
+        const addBtn = document.getElementById('add-btn');
+        const datalist = document.getElementById('type-options');
+
+        let opportunities = [];
+
+        // Load data
+        try {
+            const response = await fetch('/opportunities.json');
+            if (response.ok) {
+                opportunities = await response.json();
+                updateTypeDatalist();
+                render();
+            } else {
+                listContainer.textContent = 'Error loading opportunities.';
+            }
+        } catch (e) {
+            listContainer.textContent = 'Error loading opportunities: ' + e.message;
+        }
+
+        function updateTypeDatalist() {
+            // Extract unique types
+            const uniqueTypes = new Set(opportunities.map(o => o.type).filter(Boolean));
+            datalist.innerHTML = '';
+            uniqueTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                datalist.appendChild(option);
+            });
+        }
+
+        function render() {
+            listContainer.innerHTML = '';
+            opportunities.forEach((op, index) => {
+                const clone = tmpl.content.cloneNode(true);
+                const row = clone.querySelector('.opportunity-row');
+
+                row.querySelector('.row-number').textContent = `Opportunity #${index + 1}`;
+
+                // Bind values
+                row.querySelector('[data-field="type"]').value = op.type || '';
+                row.querySelector('[data-field="name"]').value = op.name || '';
+                row.querySelector('[data-field="host"]').value = op.host || '';
+                row.querySelector('[data-field="app_deadline"]').value = op.app_deadline || '';
+                row.querySelector('[data-field="start_date"]').value = op.start_date || '';
+                row.querySelector('[data-field="end_date"]').value = op.end_date || '';
+                row.querySelector('[data-field="link"]').value = op.link || '';
+                row.querySelector('[data-field="comments"]').value = op.comments || '';
+
+                // Remove handler
+                row.querySelector('.remove-btn').addEventListener('click', () => {
+                    if (confirm('Are you sure you want to remove this opportunity?')) {
+                        opportunities.splice(index, 1);
+                        render();
+                    }
+                });
+
+                // Input handlers to update model
+                row.querySelectorAll('input, textarea').forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        op[e.target.dataset.field] = e.target.value;
+                    });
+                });
+
+                listContainer.appendChild(clone);
+            });
+        }
+
+        addBtn.addEventListener('click', () => {
+            opportunities.unshift({
+                type: "", name: "", host: "",
+                app_deadline: "", start_date: "", end_date: "",
+                link: "", comments: ""
+            });
+            render();
+        });
+
+        saveBtn.addEventListener('click', async () => {
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+            statusMsg.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/save_opportunities', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(opportunities)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    showStatus('Saved successfully! Site rebuild triggered.', 'success');
+                } else {
+                    showStatus('Error saving: ' + (result.message || 'Unknown error'), 'error');
+                }
+            } catch (e) {
+                showStatus('Network error: ' + e.message, 'error');
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save All Changes';
+            }
+        });
+
+        function showStatus(msg, type) {
+            statusMsg.textContent = msg;
+            statusMsg.style.display = 'block';
+            if (type === 'success') {
+                statusMsg.style.background = '#e8f5e9';
+                statusMsg.style.color = '#2e7d32';
+                statusMsg.style.border = '1px solid #c8e6c9';
+            } else {
+                statusMsg.style.background = '#ffebee';
+                statusMsg.style.color = '#c62828';
+                statusMsg.style.border = '1px solid #ffcdd2';
+            }
+        }
+    });
+</script>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

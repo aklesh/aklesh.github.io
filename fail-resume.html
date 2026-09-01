@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fail Resume - Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="resume-container" style="padding: 2rem 4rem; max-width: 1000px; margin: 0 auto;">
+    <h1 style="color: var(--navy); margin-bottom: 0.5rem;">Fail Resume</h1>
+    <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem; line-height: 1.6;">
+        A CV of setbacks, lessons learned, and operations retrospectives. Recognizing failure and learning from it is an
+        essential tool for any engineer, scientist, or explorer.
+    </p>
+    <p>
+        These tales - and the lessons learned from them - are how I learned to explore.
+    </p>
+    <div>
+        <h2>Musings on Failure</h2>
+        <p>
+            Over the course of a career, whether in school or at work, failures have provided both instruction and
+            opportunities. No one enjoys failing or having to report on a failure, often to those you respect. But
+            it is a fact that engineering success may come through or following an iterative set of failures.
+        </p>
+        <p>
+            This page serves a few purposes: It is a partial personal archive of failures over my career, which,
+            when tied to my more traditional resume, tells a more complete story of engineering and exploration.
+            Consider it a lesson in persistence.
+        </p>
+        <p>
+            It also tells some of the inspiration for some grand successes described in more detail elsewhere on the
+            site, such as the story of SpongeBob SpareParts, set to rescue NUI, but instead sparked the development
+            of several novel deep ocean vehicles. Many opportunities are sparked during times of failure - seize
+            them.
+        </p>
+        <p>
+            Finally, it is an acknowledgement that failures are unpleasant. They sting. They live with us. And no
+            one is immune.
+        </p>
+        <p>
+            But failures also can serve to inspire, to bolster, and to spur the next chapter. Perhaps by sharing a
+            few of my own failures and shortcomings, you may be inspired. Or, at least, comforted that someone else
+            has setbacks too.
+        </p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="resume-tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'technical-setbacks')">Fail Resume</button>
+        <button class="tab-btn" onclick="openTab(event, 'field-lessons')">Field Lessons</button>
+        <button class="tab-btn" onclick="openTab(event, 'operations-retrospectives')">Ops Retrospectives</button>
+    </div>
+
+    <!-- Technical Failures Tab -->
+    <div id="technical-setbacks" class="tab-content" style="display: block; padding: 2rem 0;">
+        <div
+            style="background: #fdfaf2; border-left: 4px solid #d97706; padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+            <h3 style="margin-top: 0; color: #b45309;">Why a "Fail Resume"?</h3>
+            <p style="margin: 0; line-height: 1.5; color: #78350f;">
+                In aerospace and marine exploration, we learn far more from our failures than our successes. This tab
+                logs failures over the course of a career - a tongue-in-cheek version of a resume - along with some
+                reflections beneath.
+            </p>
+        </div>
+
+        
+        <div class="resume-markdown-content">
+            <h2>EXPERIENCE</h2>
+<h3>Spacecraft and Vehicles Lost, Nearly-Lost or Not Launched</h3>
+<ul>
+<li>
+<p><strong><a href="https://www.nasa.gov/missions/small-satellite-missions/lunar-trailblazer/nasas-lunar-trailblazer-moon-mission-ends/">Lunar Trailblazer</a></strong> – Proj Sys Engineer (Lead) (2020-2025) Loss of spacecraft communications less than one day into flight. Built world-wide network of colleagues virtually overnight with optical, <a href="https://essopenarchive.org/doi/full/10.22541/essoar.175766936.63783749/v1">radar</a>, and RF assets to watch and track the spacecraft to augment the DSN.</p>
+</li>
+<li>
+<p><strong>Ocean Exploration / <a href="https://haconfrinatek.wordpress.com/wp-content/uploads/2020/01/cruise-report-hacon19.pdf">Nereid Under Ice</a></strong> – Ops team. Lost vehicle 4000m under sea-ice when handling rope was caught in a thruster. Built SpongeBob SpareParts for rescue. NUI recovered itself to the surface.</p>
+</li>
+<li>
+<p><strong><a href="https://www.jpl.nasa.gov/news/nasa-cubesats-steer-toward-mars/">MarCO</a></strong> – Chief Engineer (2014-2020). Propellant leak 11 days into the flight mission requiring new software and flight behaviors. <a href="https://www.popularmechanics.com/space/moon-mars/a25336341/small-satellite-insight-mars/">First CubeSat interplanetary flyby in Nov, 2018 within 100m and 1 sec of target.</a></p>
+</li>
+<li>
+<p><strong><a href="https://www.jpl.nasa.gov/missions/interplanetary-nano-spacecraft-pathfinder-in-relevant-environment-inspire/">INSPIRE</a></strong> – PI and Chief Engineer (2012-2014). Never flew. Launch slot was given to MarCO.</p>
+</li>
+<li>
+<p><strong><a href="https://digitalcommons.usu.edu/smallsat/2011/all2011/41/">RAX</a></strong> – Postdoc and Chief Engineer (2008-2010). RAX-1 lost 60 days into the mission due to a missing diode. Team fixed and <a href="https://digitalcommons.usu.edu/smallsat/2012/all2012/85/">launched RAX-2</a> less than a year later. </p>
+</li>
+</ul>
+<p>Spaceflight is hard. Many missions benefit from an iterative approach, where careful demonstration - sometimes with multiple flights - lead toward program success. Benchtop and end-to-end testing can lead to a fuller understanding of the system. It is important to understand how a widget may fit into the system whole and how the mission objectives tie back to performance of a thing. Importantly, designing for ops considerations should be on everyone&rsquo;s mind throughout the program.</p>
+<h2>PROGRAMS AND SCHOOLS NOT ATTENDED</h2>
+<ul>
+<li><strong>Postdoc:</strong> Naval Postgraduate School</li>
+<li><strong>Undergrad and Grad</strong> Massachusetts Institute of Technology</li>
+<li><strong>Undergrad</strong> California Institute of Technology</li>
+</ul>
+<p>Even though I did not attend these programs, I have built and maintain close collaborations with these institutions at personal and professional levels. Reach out, find a common interest - it is a small industry. The specific program you attend does not need to dictate your future.</p>
+<h2>MAJOR PROPOSALS DECLINED</h2>
+<ul>
+<li>
+<p>2024 NASA DALI - &ldquo;Enable Lunar Dense Array Seismology by Distributed Acoustic Sensing (DAS)&rdquo;</p>
+</li>
+<li>
+<p>2021 NASA PSTAR - &ldquo;A Buoyant Rover Investigation of the Ice-Water Interface in Arctic Lake and Sea Ice Environments in Preparation for Ocean Worlds&rdquo;</p>
+</li>
+<li>
+<p>2015 NASA Habitable Worlds - &ldquo;Seasonal Environmental Mapping and Characterization of Methane-Seeping Arctic Permafrost Lakes&rdquo;</p>
+</li>
+<li>
+<p>2015 NASA PSTAR - &ldquo;Europa Analog Field Campaign in Search of Life Signatures Under Extreme Conditions&rdquo;</p>
+</li>
+<li>
+<p>2012 NASA EDISON - &ldquo;SOLWISE: Sailing on Light with Interplanetary Science and Exploration&rdquo;</p>
+</li>
+</ul>
+<p>Numerous additional proposals declined by institutions such as NASA, Jet Propulsion Laboratory, Caltech, NOAA, NSF, US Air Force, US Navy, U. Michigan, and the Keck Research Program. These proposals spanned efforts of a few $k to $100M dollars.</p>
+<p>New ideas require new proposals and there are limited resources to go around. Each of these proposals laid the groundwork for future efforts and the feedback helped to tighten the ideas and gain different perspectives. Feedback is incredibly helpful and can challenge staid thinking.</p>
+<h2>PROFESSIONAL DISTINCTIONS &amp; AWARDS NOT GRANTED</h2>
+<ul>
+<li>
+<p>2019 <a href="https://www.aopa.org/news-and-media/all-news/2019/february/13/nominees-for-collier-trophy-announced">Collier Trophy for MarCO</a></p>
+</li>
+<li>
+<p>2018 SmallSat of the Year (MarCO)</p>
+</li>
+<li>2006 NSF Graduate Award</li>
+</ul>
+<p>Awards and distinctions are pleasant, but not required. The best award I have been given is often the quiet thanks or appreciation from colleagues for a job well done. These will more often lead to additional unique opportunities than any certificate or trophy.</p>
+<h2>EXPEDITIONS NOT TAKEN</h2>
+<ul>
+<li>2024 Iceland Glacier DAS Test Deployment</li>
+<li>2021 <a href="https://www.researchgate.net/publication/365059048_Hot_Vents_in_an_Ice-Covered_Ocean_-_HACON21_expedition">HACON21 Cruise</a></li>
+<li>2019 <a href="https://agu.confex.com/agu/fm19/meetingapp.cgi/Paper/512640">JIRP DAS Deployment</a></li>
+<li>8 Antarctic attempts from 2004-2018</li>
+</ul>
+<p>Things happen. Be persistent. And sometimes, you have to prioritize. As you build experience you&rsquo;ll find additional opportunities will open - but it helps if you let folks know you are interested in helping out.</p>
+<h2>SKILLS NOT COMPLETED</h2>
+<ul>
+<li>AAUS Diver</li>
+<li>Amateur Radio General / Extra</li>
+<li>Commercial Pilot&rsquo;s License</li>
+</ul>
+<p>While these skills were started, I have yet to complete them for a variety of reasons. That is ok. Life shouldn&rsquo;t be a checklist - chase your passions &amp; interests and opportunities to learn to learn or augment your skills will come.</p>
+        </div>
+        
+    </div>
+
+    <!-- Field Lessons Tab -->
+    <div id="field-lessons" class="tab-content" style="display: none; padding: 2rem 0;">
+        <div
+            style="background: #fdfaf2; border-left: 4px solid #d97706; padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+            <h3 style="margin-top: 0; color: #b45309;">Lessons from Extreme Environments</h3>
+            <p style="margin: 0; line-height: 1.5; color: #78350f;">
+                Deployments in the Arctic, Antarctica, and at sea test both the limits of human endurance and the
+                assumptions of laboratory engineering. This section documents field-testing mistakes and operational
+                workarounds.
+            </p>
+        </div>
+
+        
+        <div style="border: 1px dashed #ccc; padding: 3rem; text-align: center; border-radius: 8px; color: #999;">
+            <p style="font-size: 1.5rem; margin-top: 0;">🚧 Section Coming Soon</p>
+            <p style="margin-bottom: 0;">Refining logs from remote field stations, glacier crossings, and sea trials.
+            </p>
+        </div>
+        
+    </div>
+
+    <!-- Operations Retrospectives Tab -->
+    <div id="operations-retrospectives" class="tab-content" style="display: none; padding: 2rem 0;">
+        <div
+            style="background: #fdfaf2; border-left: 4px solid #d97706; padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+            <h3 style="margin-top: 0; color: #b45309;">Mission Ops & Team Decisions</h3>
+            <p style="margin: 0; line-height: 1.5; color: #78350f;">
+                Decisions made under stress in mission control or on ship decks dictate the outcome of deep space passes
+                and ocean launches. This tab contains candid retrospectives of planning and communications misses.
+            </p>
+        </div>
+
+        
+        <div style="border: 1px dashed #ccc; padding: 3rem; text-align: center; border-radius: 8px; color: #999;">
+            <p style="font-size: 1.5rem; margin-top: 0;">🚧 Section Coming Soon</p>
+            <p style="margin-bottom: 0;">Reviewing mission timelines, communications logs, and team debrief sessions.
+            </p>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

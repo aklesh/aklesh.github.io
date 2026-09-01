@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Edit Content</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="admin-container"
+    style="display: flex; min-height: 100vh; width: 100%; margin: 0; padding: 0; overflow: hidden;">
+    <!-- Sidebar -->
+    <div class="admin-sidebar"
+        style="width: 260px; border-right: 1px solid #eee; padding: 1.2rem 1rem; overflow-y: auto; position: fixed; top: 100px; left: 0; height: calc(100vh - 100px); z-index: 10001; background: white; box-sizing: border-box;">
+        <h2 style="font-size: 1rem; margin-bottom: 1rem; color: var(--navy);">Content Explorer</h2>
+        <button id="btn-open-dir" class="btn-primary"
+            style="width: 100%; margin-bottom: 1rem; padding: 0.6rem; background: var(--navy); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.85rem;">Open
+            Project Folder</button>
+        <div id="file-list" class="file-list">
+            <p style="color: #666; font-style: italic; font-size: 0.9rem;">Select the 'src/content' directory to begin.
+            </p>
+        </div>
+
+        <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem;">
+            <input type="checkbox" id="chk-build-all" style="cursor: pointer;">
+            <label for="chk-build-all"
+                style="font-size: 0.75rem; color: #444; cursor: pointer; user-select: none;">Build all (include
+                ignored)</label>
+        </div>
+
+        <button id="btn-rebuild" class="btn-primary"
+            style="width: 100%; margin-top: 0.5rem; padding: 0.6rem; background: #d97706; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.85rem;">🔨
+            Rebuild Site</button>
+
+        <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;">
+
+        <h2 style="font-size: 1rem; margin-bottom: 0.8rem; color: var(--navy);">Key Picker</h2>
+        <input type="text" id="key-search" placeholder="Search keys..."
+            style="width: 100%; padding: 0.4rem; border: 1px solid #eee; border-radius: 4px; margin-bottom: 0.8rem; font-size: 0.85rem;">
+        <div id="key-list" style="max-height: 300px; overflow-y: auto;">
+            <p style="color: #666; font-style: italic; font-size: 0.75rem;">Keys will appear here after build.</p>
+        </div>
+
+        <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;">
+
+        <h2 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--navy);">Snippets</h2>
+        <p style="font-size: 0.75rem; color: #888; margin-bottom: 0.6rem;">Copy a ready-made block to paste into a
+            .md file.</p>
+        <button id="btn-copy-figure-snippet" class="btn-snippet"
+            style="width: 100%; margin-bottom: 0.5rem; padding: 0.45rem 0.6rem; background: #fff; color: var(--navy); border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.8rem; text-align: left; display: flex; align-items: center; gap: 0.4rem;">🖼️
+            Copy Figure Snippet</button>
+        <button id="btn-copy-gallery-snippet" class="btn-snippet"
+            style="width: 100%; margin-bottom: 0.5rem; padding: 0.45rem 0.6rem; background: #fff; color: var(--navy); border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.8rem; text-align: left; display: flex; align-items: center; gap: 0.4rem;">🎞️
+            Copy Gallery Snippet</button>
+        <button id="btn-copy-video-snippet" class="btn-snippet"
+            style="width: 100%; margin-bottom: 0.5rem; padding: 0.45rem 0.6rem; background: #fff; color: var(--navy); border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.8rem; text-align: left; display: flex; align-items: center; gap: 0.4rem;">🎬
+            Copy YouTube Video Snippet</button>
+        <button id="btn-copy-vimeo-snippet" class="btn-snippet"
+            style="width: 100%; padding: 0.45rem 0.6rem; background: #fff; color: var(--navy); border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.8rem; text-align: left; display: flex; align-items: center; gap: 0.4rem;">🎥
+            Copy Vimeo Video Snippet</button>
+
+        <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;">
+
+        <h2 style="font-size: 1rem; margin-bottom: 0.8rem; color: var(--navy);">Image Browser</h2>
+        <input type="text" id="image-search" placeholder="Search images..."
+            style="width: 100%; padding: 0.4rem; border: 1px solid #eee; border-radius: 4px; margin-bottom: 0.8rem; font-size: 0.85rem;">
+        <div id="image-list" style="max-height: 400px; overflow-y: auto;">
+            <p style="color: #666; font-style: italic; font-size: 0.75rem;">Images will appear after opening project
+                folder.</p>
+        </div>
+    </div>
+
+    <!-- Main View -->
+    <div class="admin-main"
+        style="flex: 1; margin-left: 260px; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: calc(100vh - 100px); position: relative; z-index: 1; margin-top: 20px;">
+
+        <!-- Browser Support Warning -->
+        <div id="browser-warning"
+            style="display: none; background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; text-align: left; max-width: 600px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem;">❌ Browser Not Supported</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">The <strong>File System Access API</strong> is not
+                supported by your current browser (likely Safari or Firefox).</p>
+            <p style="font-size: 0.9rem;">To use the administrative interface, please use a Chromium-based browser like:
+            </p>
+            <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+                <li><strong>Google Chrome</strong></li>
+                <li><strong>Microsoft Edge</strong></li>
+                <li><strong>Brave</strong></li>
+            </ul>
+        </div>
+
+        <!-- Protocol Warning -->
+        <div id="protocol-warning"
+            style="display: none; background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; text-align: left; max-width: 600px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem;">⚠️ Browser Security Restriction</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">The <strong>File System Access API</strong> and
+                <strong>StackEdit</strong> integration are restricted when using the <code>file://</code> protocol.
+            </p>
+            <p style="font-size: 0.9rem;">Please run the local server to use the administrative tools:</p>
+            <code
+                style="display: block; background: #f8f9fa; padding: 0.8rem; border-radius: 4px; margin: 0.5rem 0; color: #333;">python3 serve_admin.py</code>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Then navigate to <a href="http://localhost:8000/admin.html"
+                    style="color: #0056b3; font-weight: bold;">http://localhost:8000/admin.html</a></p>
+        </div>
+
+        <div id="debug-info"
+            style="display: none; background: #e2e3e5; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; font-family: monospace; font-size: 0.8rem; text-align: left; max-width: 600px;">
+            <strong>Debug Info:</strong><br>
+            Secure Context: <span id="debug-secure">Unknown</span><br>
+            Origin: <span id="debug-origin">Unknown</span><br>
+            API Support: <span id="debug-api">Unknown</span>
+        </div>
+
+        <div id="welcome-msg">
+            <h1 style="color: var(--navy); margin-bottom: 1rem;">Administrative Interface</h1>
+            <p style="max-width: 600px; line-height: 1.6; color: #444;">Select a markdown file from the sidebar to start
+                editing. This tool allows you to modify your site's content directly from the browser.</p>
+            <p style="margin-top: 1rem;"><a href="/sample-style.html" target="_blank"
+                    style="color: var(--navy); font-weight: bold; text-decoration: underline; text-transform: none; font-size: 0.95rem;">View
+                    New Style Preview (Review Board) &rarr;</a></p>
+            <div
+                style="margin-top: 2rem; padding: 1.5rem; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; text-align: left; max-width: 500px;">
+                <h3 style="margin-top: 0; font-size: 1rem;">How it works:</h3>
+                <ul style="font-size: 0.9rem; color: #555; padding-left: 1.2rem;">
+                    <li>Click <strong>Open Project Folder</strong> and select your <code>src/content</code> directory.
+                    </li>
+                    <li>Browser will request permission to see and edit your local files.</li>
+                    <li>Select any <code>.md</code> file from the sidebar.</li>
+                    <li>Click <strong>Open StackEdit</strong> to launch the professional markdown editor.</li>
+                    <li>Changes are saved back to your disk automatically when you close the editor or finish a session.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="editor-ui" style="display: none; width: 100%; max-width: 800px;">
+            <div style="background: #f4f7f9; padding: 2rem; border-radius: 12px; border: 1px dashed var(--navy);">
+                <h2 id="current-filename" style="color: var(--navy); margin-bottom: 0.5rem;">Filename.md</h2>
+                <p style="color: #666; margin-bottom: 2rem;">Ready to edit locally. Building the site will apply your
+                    changes publicly.</p>
+                <button id="btn-edit" class="btn-primary"
+                    style="padding: 1rem 2rem; font-size: 1.1rem; background: var(--navy); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: transform 0.2s;">Open
+                    StackEdit Editor</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Input Modal -->
+<div id="admin-modal" class="admin-modal-overlay">
+    <div class="admin-modal">
+        <h3 id="modal-title">Enter Name</h3>
+        <p id="modal-desc" style="font-size: 0.8rem; color: #666; margin-bottom: 1.2rem;"></p>
+        <input type="text" id="modal-input" placeholder="Type here...">
+        <div class="admin-modal-actions">
+            <button id="btn-modal-cancel" class="btn-modal-cancel">Cancel</button>
+            <button id="btn-modal-confirm" class="btn-modal-confirm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Context Menu for Rename -->
+<div id="file-context-menu"
+    style="display: none; position: fixed; z-index: 10002; background: white; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 4px 0;">
+    <div id="ctx-rename" style="padding: 8px 16px; cursor: pointer; font-size: 0.9rem; color: #333;"
+        onmouseover="this.style.backgroundColor='#f0f4f8'" onmouseout="this.style.backgroundColor='white'">
+        Rename File
+    </div>
+</div>
+
+<!-- Hidden textarea for StackEdit integration -->
+<textarea id="hidden-textarea" style="display: none;"></textarea>
+
+<style>
+    .admin-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .file-list-item {
+        padding: 0.05rem 0.3rem;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: all 0.1s;
+        font-size: 0.85rem;
+        line-height: 1.1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #555;
+        text-decoration: none;
+        margin-bottom: 0;
+        border: 1px solid transparent;
+    }
+
+    .delete-btn {
+        opacity: 0;
+        color: #e53e3e;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: opacity 0.2s;
+        cursor: pointer;
+    }
+
+    .file-list-item:hover .delete-btn {
+        opacity: 1;
+    }
+
+    .delete-btn:hover {
+        background: #fff5f5;
+    }
+
+    .file-list-item:hover {
+        background: #f0f4f8;
+        border-color: #d1d9e6;
+        padding-left: 0.5rem;
+    }
+
+    .file-list-item.active {
+        background: var(--navy);
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .file-dir-title {
+        font-weight: bold;
+        margin-top: 1rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #aaa;
+        border-bottom: 1px solid #f5f5f5;
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-add-file {
+        background: #38a169;
+        color: white;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        line-height: 1;
+        transition: transform 0.2s;
+        border: none;
+    }
+
+    .btn-add-file:hover {
+        transform: scale(1.2);
+        background: #2f855a;
+    }
+
+    .key-item {
+        padding: 0.05rem 0.3rem;
+        cursor: pointer;
+        border-radius: 2px;
+        font-size: 0.8rem;
+        line-height: 1.1;
+        margin-bottom: 0;
+        border: 1px solid transparent;
+        background: #fff;
+    }
+
+    .key-item:hover {
+        background: #eef2f7;
+        border-color: #cbd5e0;
+    }
+
+    .key-item .key-code {
+        font-family: monospace;
+        color: #e53e3e;
+        font-weight: bold;
+    }
+
+    .key-item .key-title {
+        display: block;
+        color: #718096;
+        font-size: 0.7rem;
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .btn-primary:hover {
+        filter: brightness(1.2);
+        transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+
+    /* Snippet Buttons */
+    .btn-snippet:hover {
+        background: #f0f4f8 !important;
+        border-color: #cbd5e0 !important;
+    }
+
+    .btn-snippet.copied {
+        background: #d4edda !important;
+        border-color: #28a745 !important;
+        color: #1a7a37 !important;
+    }
+
+    /* Image Browser Styles */
+    .image-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+    }
+
+    .image-item:hover {
+        background: #f0f4f8;
+        border-color: #cbd5e0;
+    }
+
+    .image-item.copied {
+        background: #d4edda;
+        border-color: #28a745;
+    }
+
+    .image-thumbnail {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        flex-shrink: 0;
+    }
+
+    .image-name {
+        flex: 1;
+        font-size: 0.75rem;
+        color: #555;
+        word-break: break-word;
+        line-height: 1.2;
+    }
+
+    /* Modal Styles */
+    .admin-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 20000;
+    }
+
+    .admin-modal {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .admin-modal h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: var(--navy);
+        font-size: 1.1rem;
+    }
+
+    .admin-modal input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 1.2rem;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+
+    .admin-modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+
+    .btn-modal-cancel {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.85rem;
+    }
+
+    .btn-modal-confirm {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: var(--navy);
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: bold;
+    }
+
+    /* Side-by-side Editor Support */
+    /* Aggressively target the StackEdit containers to force them to the right */
+    div.stackedit-container {
+        position: fixed !important;
+        top: 100px !important;
+        left: 300px !important;
+        /* Matches sidebar width */
+        width: calc(100% - 300px) !important;
+        height: calc(100% - 100px) !important;
+        z-index: 10000 !important;
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    div.stackedit-iframe-container,
+    iframe.stackedit-iframe {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        border-left: 2px solid var(--navy) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Ensure the sidebar stays on top and pinned */
+    .admin-sidebar {
+        scrollbar-width: thin;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    }
+</style>
+
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+<script src="https://unpkg.com/stackedit-js@1.0.7/docs/lib/stackedit.min.js"></script>
+<script>
+    let directoryHandle;
+    let currentFileHandle;
+    let stackedit;
+    let isRefreshing = false;
+    try {
+        stackedit = new Stackedit();
+    } catch (e) {
+        console.warn('Stackedit library not loaded yet or failed to initialize:', e);
+    }
+
+    const btnOpenDir = document.getElementById('btn-open-dir');
+    const fileList = document.getElementById('file-list');
+    const welcomeMsg = document.getElementById('welcome-msg');
+    const protocolWarning = document.getElementById('protocol-warning');
+    const browserWarning = document.getElementById('browser-warning');
+    const editorUi = document.getElementById('editor-ui');
+    const currentFilename = document.getElementById('current-filename');
+    const btnEdit = document.getElementById('btn-edit');
+    const hiddenTextarea = document.getElementById('hidden-textarea');
+    const keyList = document.getElementById('key-list');
+    const keySearch = document.getElementById('key-search');
+
+    let allKeys = {};
+
+    // Load keys
+    async function initKeys() {
+        try {
+            const resp = await fetch('keys.json');
+            if (resp.ok) {
+                allKeys = await resp.json();
+                renderKeys();
+            }
+        } catch (e) {
+            console.warn('Could not load keys.json. Run build.py first.');
+        }
+    }
+
+    function renderKeys(filter = '') {
+        keyList.innerHTML = '';
+        const sortedKeys = Object.keys(allKeys).sort();
+
+        sortedKeys.forEach(key => {
+            const data = allKeys[key];
+            if (key.toLowerCase().includes(filter.toLowerCase()) ||
+                data.title.toLowerCase().includes(filter.toLowerCase())) {
+
+                const item = document.createElement('div');
+                item.className = 'key-item';
+                item.title = `Source: ${data.source}`;
+                item.innerHTML = `
+                    <div class="key-code">@${key}</div>
+                    <div class="key-title">${data.title}</div>
+                `;
+                item.onclick = () => {
+                    const linkCode = `(@${key})`;
+                    navigator.clipboard.writeText(linkCode).then(() => {
+                        const originalCode = item.querySelector('.key-code').textContent;
+                        item.querySelector('.key-code').textContent = 'Copied!';
+                        item.querySelector('.key-code').style.color = '#38a169';
+                        setTimeout(() => {
+                            item.querySelector('.key-code').textContent = originalCode;
+                            item.querySelector('.key-code').style.color = '#e53e3e';
+                        }, 1000);
+                    });
+                };
+                keyList.appendChild(item);
+            }
+        });
+    }
+
+    keySearch.addEventListener('input', (e) => {
+        renderKeys(e.target.value);
+    });
+
+    initKeys();
+
+    // Image Browser
+    const imageList = document.getElementById('image-list');
+    const imageSearch = document.getElementById('image-search');
+    let allImages = [];
+
+    async function scanGalleryImages() {
+        try {
+            // Fetch the list of images from the server
+            const resp = await fetch('/api/gallery/list');
+            if (!resp.ok) {
+                imageList.innerHTML = '<p style="color: #999; font-size: 0.75rem;">Gallery API not available.</p>';
+                return;
+            }
+
+            const galleryData = await resp.json();
+            allImages = galleryData.map(item => ({
+                name: item.filename,
+                url: `/dist/gallery/${item.filename}`
+            }));
+
+            renderImages();
+        } catch (e) {
+            console.warn('Could not load gallery images:', e);
+            imageList.innerHTML = '<p style="color: #999; font-size: 0.75rem;">Unable to load gallery images.</p>';
+        }
+    }
+
+    function renderImages(filter = '') {
+        imageList.innerHTML = '';
+
+        if (allImages.length === 0) {
+            imageList.innerHTML = '<p style="color: #999; font-size: 0.75rem;">No images found in gallery.</p>';
+            return;
+        }
+
+        const filtered = allImages.filter(img =>
+            img.name.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        filtered.forEach(img => {
+            const item = document.createElement('div');
+            item.className = 'image-item';
+            item.title = `Click to copy markdown: ![alt](gallery/${img.name})`;
+
+            const thumbnail = document.createElement('img');
+            thumbnail.className = 'image-thumbnail';
+            thumbnail.src = img.url;
+            thumbnail.alt = img.name;
+
+            const nameSpan = document.createElement('div');
+            nameSpan.className = 'image-name';
+            nameSpan.textContent = img.name;
+
+            item.appendChild(thumbnail);
+            item.appendChild(nameSpan);
+
+            item.onclick = () => {
+                const markdown = `![alt text](/gallery/${img.name})`;
+                navigator.clipboard.writeText(markdown).then(() => {
+                    item.classList.add('copied');
+                    nameSpan.textContent = '✓ Copied!';
+                    setTimeout(() => {
+                        item.classList.remove('copied');
+                        nameSpan.textContent = img.name;
+                    }, 1500);
+                });
+            };
+
+            imageList.appendChild(item);
+        });
+    }
+
+    imageSearch.addEventListener('input', (e) => {
+        renderImages(e.target.value);
+    });
+
+    // Load images on page load
+    scanGalleryImages();
+
+    // Snippet Clipboard Buttons
+    const figureSnippet = `<figure class="body-photo-figure">
+<img src="/gallery/your-folder/your-image.large.webp" alt="Describe what's in the photo" class="body-photo">
+<figcaption class="body-photo-caption">
+Your caption text goes here.
+<a class="photo-credit-link" href="https://example.com/source" target="_blank" rel="noopener">Credit: Photographer Name</a>
+</figcaption>
+</figure>`;
+
+    const gallerySnippet = `<div class="field-note-gallery">
+<button class="gallery-arrow gallery-arrow-left" aria-label="Previous image"
+    onclick="this.nextElementSibling.scrollBy({left: -336, behavior: 'smooth'})">&#10094;</button>
+<div class="gallery-track">
+
+<figure class="gallery-item">
+<img src="/gallery/samplebay/dawn_launch.large.webp" alt="Skiff launching at dawn from Sample Bay">
+<figcaption>Skiff launch at first light, Sample Bay.
+<a class="photo-credit-link" href="https://example.com/credit-one" target="_blank" rel="noopener">Credit: Jamie Alvarez</a>
+</figcaption>
+</figure>
+
+<figure class="gallery-item">
+<img src="/gallery/samplebay/rov_recovery.large.webp" alt="Recovering the ROV after a dive">
+<figcaption>Hauling the ROV back aboard after a 40-minute dive.
+<a class="photo-credit-link" href="https://example.com/credit-two" target="_blank" rel="noopener">Credit: Priya Natarajan</a>
+</figcaption>
+</figure>
+
+<figure class="gallery-item">
+<img src="/gallery/samplebay/ice_core.large.webp" alt="Core sample pulled from the shorefast ice">
+<figcaption>A two-meter core, still steaming in the cold air.
+<a class="photo-credit-link" href="https://example.com/credit-three" target="_blank" rel="noopener">Credit: Dana Whitfield</a>
+</figcaption>
+</figure>
+
+</div>
+<button class="gallery-arrow gallery-arrow-right" aria-label="Next image"
+    onclick="this.previousElementSibling.scrollBy({left: 336, behavior: 'smooth'})">&#10095;</button>
+</div>`;
+
+    const videoSnippet = `<div class="media-featured-video-block">
+    <div class="media-featured-video-embed">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Describe the video here"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="media-featured-video-body">
+        <div class="media-featured-video-title">Descriptive Video Title</div>
+        <p class="media-featured-video-desc">
+            A short description of what's happening in the video. Full version <a
+                href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" rel="noopener">here</a>.
+        </p>
+    </div>
+</div>`;
+
+    const vimeoSnippet = `<div class="media-featured-video-block">
+    <div class="media-featured-video-embed">
+        <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?h=YOUR_PRIVACY_HASH" title="Describe the video here"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="media-featured-video-body">
+        <div class="media-featured-video-title">Descriptive Video Title</div>
+        <p class="media-featured-video-desc">
+            A short description of what's happening in the video. Full version <a
+                href="https://vimeo.com/YOUR_VIDEO_ID" target="_blank" rel="noopener">here</a>.
+        </p>
+    </div>
+</div>`;
+
+    function copySnippetToClipboard(button, text, label) {
+        navigator.clipboard.writeText(text).then(() => {
+            const original = button.innerHTML;
+            button.textContent = `✓ Copied ${label} Snippet!`;
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = original;
+                button.classList.remove('copied');
+            }, 1500);
+        }).catch(err => {
+            console.error('Clipboard write failed:', err);
+            alert('Could not copy to clipboard: ' + err.message);
+        });
+    }
+
+    document.getElementById('btn-copy-figure-snippet').addEventListener('click', function () {
+        copySnippetToClipboard(this, figureSnippet, 'Figure');
+    });
+
+    document.getElementById('btn-copy-gallery-snippet').addEventListener('click', function () {
+        copySnippetToClipboard(this, gallerySnippet, 'Gallery');
+    });
+
+    document.getElementById('btn-copy-video-snippet').addEventListener('click', function () {
+        copySnippetToClipboard(this, videoSnippet, 'YouTube');
+    });
+
+    document.getElementById('btn-copy-vimeo-snippet').addEventListener('click', function () {
+        copySnippetToClipboard(this, vimeoSnippet, 'Vimeo');
+    });
+
+    // Debug Info
+    document.getElementById('debug-secure').textContent = window.isSecureContext ? 'YES' : 'NO';
+    document.getElementById('debug-origin').textContent = window.location.origin;
+    document.getElementById('debug-api').textContent = typeof window.showDirectoryPicker;
+    if (window.location.search.includes('debug=1')) {
+        document.getElementById('debug-info').style.display = 'block';
+    }
+
+    // Check compatibility
+    if (!window.showDirectoryPicker) {
+        browserWarning.style.display = 'block';
+        btnOpenDir.disabled = true;
+        btnOpenDir.style.opacity = '0.5';
+        btnOpenDir.style.cursor = 'not-allowed';
+    } else if (window.location.protocol === 'file:') {
+        protocolWarning.style.display = 'block';
+    }
+
+    btnOpenDir.addEventListener('click', async () => {
+        console.log('Open Directory button clicked');
+        try {
+            // Request readwrite mode upfront to trigger permission prompt immediately
+            directoryHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+            console.log('Directory selected:', directoryHandle.name);
+            await refreshFileList();
+        } catch (err) {
+            console.error('Error opening directory:', err);
+            alert('CRITICAL ERROR: ' + err.name + '\n' + err.message + '\n\nPlease check if you are on http://localhost:8000 and have granted permissions.');
+        }
+    });
+
+    async function refreshFileList() {
+        if (isRefreshing || !directoryHandle) return;
+        isRefreshing = true;
+        try {
+            fileList.innerHTML = '';
+            await scanDirectory(directoryHandle, fileList);
+        } catch (err) {
+            console.error('Refresh error:', err);
+        } finally {
+            isRefreshing = false;
+        }
+    }
+
+    const contextMenu = document.getElementById('file-context-menu');
+    let contextTargetHandle = null;
+    let contextTargetElement = null;
+
+    function showContextMenu(e, handle, element) {
+        e.preventDefault();
+        contextTargetHandle = handle;
+        contextTargetElement = element;
+
+        contextMenu.style.display = 'block';
+        contextMenu.style.left = `${e.pageX}px`;
+        contextMenu.style.top = `${e.pageY}px`;
+
+        // Hide menu when clicking elsewhere
+        const hideMenu = () => {
+            contextMenu.style.display = 'none';
+            document.removeEventListener('click', hideMenu);
+        };
+        setTimeout(() => document.addEventListener('click', hideMenu), 10);
+    }
+
+    async function scanDirectory(handle, container, path = '') {
+        // Collect directories and files separately for better sorting
+        const dirs = [];
+        const files = [];
+
+        for await (const entry of handle.values()) {
+            if (entry.kind === 'directory') {
+                dirs.push(entry);
+            } else if (entry.name.endsWith('.md')) {
+                files.push(entry);
+            }
+        }
+
+        // Sort both arrays
+        dirs.sort((a, b) => a.name.localeCompare(b.name));
+        files.sort((a, b) => a.name.localeCompare(b.name));
+
+        for (const entry of dirs) {
+            const subContainer = document.createElement('div');
+            const title = document.createElement('div');
+            title.className = 'file-dir-title';
+            title.innerHTML = `<span>${entry.name}</span> <button class="btn-add-file" title="Create new file in ${entry.name}">+</button>`;
+
+            // Add click handler to the + button
+            const addBtn = title.querySelector('.btn-add-file');
+            addBtn.onclick = (e) => {
+                e.stopPropagation();
+                createNewFileInFolder(entry);
+            };
+
+            subContainer.appendChild(title);
+            container.appendChild(subContainer);
+            await scanDirectory(entry, subContainer, `${path}${entry.name}/`);
+        }
+
+        for (const entry of files) {
+            const item = document.createElement('div');
+            item.className = 'file-list-item';
+
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = entry.name;
+            nameSpan.style.flex = "1";
+            nameSpan.onclick = (e) => openFile(entry, item);
+            nameSpan.oncontextmenu = (e) => showContextMenu(e, entry, item);
+            item.appendChild(nameSpan);
+
+            const delBtn = document.createElement('span');
+            delBtn.className = 'delete-btn';
+            delBtn.innerHTML = '🗑️';
+            delBtn.onclick = async (e) => {
+                e.stopPropagation();
+                if (confirm(`Are you sure you want to delete "${entry.name}"? This cannot be undone.`)) {
+                    try {
+                        await handle.removeEntry(entry.name);
+                        await refreshFileList();
+                        if (currentFileHandle && currentFileHandle.name === entry.name) {
+                            editorUi.style.display = 'none';
+                            welcomeMsg.style.display = 'block';
+                            currentFileHandle = null;
+                        }
+                    } catch (err) {
+                        alert('Error deleting file: ' + err.message);
+                    }
+                }
+            };
+            item.appendChild(delBtn);
+
+            container.appendChild(item);
+        }
+    }
+
+    async function openFile(handle, element) {
+        currentFileHandle = handle;
+        try {
+            const file = await handle.getFile();
+            const content = await file.text();
+
+            hiddenTextarea.value = content;
+            currentFilename.textContent = handle.name;
+
+            welcomeMsg.style.display = 'none';
+            editorUi.style.display = 'block';
+
+            // Update active state in sidebar
+            document.querySelectorAll('.file-list-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        } catch (err) {
+            console.error('Error reading file:', err);
+            alert('Could not read file. Make sure you have granted sufficient permissions.');
+        }
+    }
+
+    btnEdit.addEventListener('click', () => {
+        stackedit.openFile({
+            name: currentFileHandle.name,
+            content: {
+                text: hiddenTextarea.value
+            }
+        });
+    });
+
+    async function saveFile() {
+        if (!currentFileHandle) return;
+
+        try {
+            const writable = await currentFileHandle.createWritable();
+            await writable.write(hiddenTextarea.value);
+            await writable.close();
+            console.log('File saved successfully');
+        } catch (err) {
+            console.error('Error saving file:', err);
+            alert('Failed to save file. Check console for details. You might need to grant write permissions.');
+        }
+    }
+
+    stackedit.on('fileChange', (file) => {
+        hiddenTextarea.value = file.content.text;
+        saveFile();
+    });
+
+    // Custom Modal Logic
+    const adminModal = document.getElementById('admin-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalInput = document.getElementById('modal-input');
+    const btnModalCancel = document.getElementById('btn-modal-cancel');
+    const btnModalConfirm = document.getElementById('btn-modal-confirm');
+    let modalCallback = null;
+
+    function openModal(title, desc, defaultValue, callback) {
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        modalInput.value = defaultValue;
+        modalCallback = callback;
+        adminModal.style.display = 'flex';
+        modalInput.focus();
+        modalInput.select();
+    }
+
+    function closeModal() {
+        adminModal.style.display = 'none';
+        modalCallback = null;
+    }
+
+    btnModalCancel.onclick = closeModal;
+    btnModalConfirm.onclick = () => {
+        if (modalCallback) modalCallback(modalInput.value);
+        closeModal();
+    };
+    modalInput.onkeydown = (e) => {
+        if (e.key === 'Enter') btnModalConfirm.onclick();
+        if (e.key === 'Escape') closeModal();
+    };
+
+    document.getElementById('ctx-rename').onclick = async () => {
+        if (!contextTargetHandle) return;
+
+        const oldName = contextTargetHandle.name;
+
+        openModal(
+            `Rename File`,
+            `Enter a new name for "${oldName}":`,
+            oldName,
+            async (newName) => {
+                if (newName && newName !== oldName) {
+                    try {
+                        await contextTargetHandle.move(newName);
+                        await refreshFileList();
+                        if (currentFileHandle && currentFileHandle.name === oldName) {
+                            currentFilename.textContent = newName;
+                        }
+                    } catch (err) {
+                        console.error('Error renaming file:', err);
+                        alert('Rename failed: ' + err.message);
+                    }
+                }
+            }
+        );
+    };
+
+    async function createNewFileInFolder(folderHandle) {
+        const dateStr = new Date().toISOString().split('T')[0];
+        const defaultName = `new-file-${dateStr}.md`;
+
+        openModal(
+            `Create New File`,
+            `Creating in folder: ${folderHandle.name}. Be sure to include the .md extension.`,
+            defaultName,
+            async (name) => {
+                if (!name) return;
+                if (!name.endsWith('.md')) {
+                    alert('File must have .md extension');
+                    return;
+                }
+
+                try {
+                    // Check if file exists
+                    try {
+                        await folderHandle.getFileHandle(name);
+                        alert('A file with that name already exists.');
+                        return;
+                    } catch (e) { }
+
+                    let template = '';
+                    if (folderHandle.name === 'blog') {
+                        template = `---
+title: ${name.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+date: ${dateStr}
+keywords: expedition, exploration
+lat: 0.000
+long: 0.000
+image: blog_north_ridge.png
+---
+
+# New Expedition Record
+
+Start writing your expedition notes here...
+`;
+                    } else if (folderHandle.name === 'gear') {
+                        template = `---
+title: ${name.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+date: ${dateStr}
+sticky: false
+image: /blog_north_ridge.png
+keywords: gear, equipment
+---
+
+# ${name.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} Review
+
+...
+`;
+                    } else {
+                        template = `---
+title: ${name.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+---
+
+# ${name.replace('.md', '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+`;
+                    }
+
+                    const newFileHandle = await folderHandle.getFileHandle(name, { create: true });
+                    const writable = await newFileHandle.createWritable();
+                    await writable.write(template);
+                    await writable.close();
+
+                    await refreshFileList();
+
+                    // Find the new item and open it
+                    setTimeout(() => {
+                        const items = document.querySelectorAll('.file-list-item');
+                        for (const item of items) {
+                            if (item.textContent.includes(name)) {
+                                openFile(newFileHandle, item);
+                                break;
+                            }
+                        }
+                    }, 500);
+                } catch (err) {
+                    console.error(`Error creating file:`, err);
+                    alert(`Could not create file: ${err.message}`);
+                }
+            }
+        );
+    }
+
+    // Show Rebuild button handler
+    const btnRebuild = document.getElementById('btn-rebuild');
+    btnRebuild.addEventListener('click', async () => {
+
+        const originalText = btnRebuild.textContent;
+        btnRebuild.disabled = true;
+        btnRebuild.textContent = '⏳ Building...';
+        btnRebuild.style.opacity = '0.6';
+
+        try {
+            const chkBuildAll = document.getElementById('chk-build-all');
+            const buildAll = chkBuildAll ? chkBuildAll.checked : false;
+            console.log('Sending rebuild request, buildAll:', buildAll);
+            const resp = await fetch('/api/rebuild', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ build_all: buildAll })
+            });
+
+            console.log('Response status:', resp.status);
+            const result = await resp.json();
+            console.log('Response data:', result);
+
+            if (result.status === 'success') {
+                btnRebuild.textContent = '✓ Built!';
+                btnRebuild.style.background = '#38a169';
+                setTimeout(() => {
+                    btnRebuild.textContent = originalText;
+                    btnRebuild.style.background = '#d97706';
+                    btnRebuild.disabled = false;
+                    btnRebuild.style.opacity = '1';
+                }, 2000);
+            } else {
+                throw new Error(result.message || 'Build failed');
+            }
+        } catch (err) {
+            console.error('Rebuild error:', err);
+            alert(`Build failed: ${err.message}\n\nCheck the server console for details.`);
+            btnRebuild.textContent = '✗ Failed';
+            btnRebuild.style.background = '#dc2626';
+            setTimeout(() => {
+                btnRebuild.textContent = originalText;
+                btnRebuild.style.background = '#d97706';
+                btnRebuild.disabled = false;
+                btnRebuild.style.opacity = '1';
+            }, 3000);
+        }
+    });
+</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

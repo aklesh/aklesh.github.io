@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expeditions & Launches - Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div style="padding: 2rem 4rem; max-width: 1200px; margin: 0 auto;">
+    <!-- NOTE: 1200px here, not the site's usual 900-1000px content width
+         (see media.html) — the map+sidebar layout genuinely needs the
+         extra room. Worth a design-review pass to confirm this deviation
+         is acceptable rather than assuming it. -->
+    <h1>Expeditions &amp; Launches</h1>
+
+    <div class="intro-section" style="margin-bottom: 1.5rem;">
+        <p style="font-size: 1.1rem; max-width: 900px; line-height: 1.6;">
+            Every field campaign and mission referenced on this site.
+            Toggle between a map and a timeline — selecting an entry in either view
+            highlights it in the other.
+        </p>
+    </div>
+
+    <div class="expo-controls">
+        <div class="expo-view-toggle">
+            <button id="expoBtnMap" class="active" type="button">Map</button>
+            <button id="expoBtnTimeline" type="button">Timeline</button>
+        </div>
+        <div class="expo-filters" id="expoFilters">
+            <div class="expo-chip active" data-cat="space"><span class="expo-dot"></span>Space Systems</div>
+            <div class="expo-chip active" data-cat="ocean"><span class="expo-dot"></span>Ocean &amp; Ice</div>
+            <div class="expo-chip active" data-cat="earth"><span class="expo-dot"></span>Earth Science</div>
+        </div>
+    </div>
+
+    <div class="expo-stage">
+        <div id="expoMapView">
+            <div id="expoMap"></div>
+        </div>
+        <div id="expoTimelineView">
+            <div class="expo-timeline-track" id="expoTimelineTrack"></div>
+        </div>
+        <div class="expo-panel">
+            <h2 id="expoPanelLabel">All Expeditions</h2>
+            <div id="expoEntryList"></div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+    // Data is embedded at build time by Jinja (see load_expeditions() /
+    // build_pages() in build.py) — no client-side fetch, so this works over
+    // file:// as well as the real deployed site, and there's no separate
+    // JSON asset to keep in sync. This is metadata only (title, dates, coords,
+    // an image PATH as a string) — never image bytes, so this is not
+    // "preloading" the gallery. See selectEntry() below for where an <img>
+    // element actually gets created, on demand, per the lazy-load requirement.
+    const expeditions = [{"category": "space", "date": "2001-08-01", "date_display": "Aug 2001", "description": "High-school-built, kindergarten-designed payload flown on STS-106 via Washington University\u0027s ARIA program.", "id": "aria", "image": "/gallery/expeditions/aria.jpg", "lat": 28.57, "link": "/projects/marco.html", "lng": -80.65, "path": [], "title": "Project ARIA-1 Shuttle Payload"}, {"category": "space", "date": "2005-06-01", "date_display": "Jul 2005", "description": "Microgravity flights onboard NASA\u0027s C-9 \"Vomit Comet\" in 2005 and 2006 exploring how to remove air bubbles from syringes in microgravity.", "id": "spacebubbles", "image": "/gallery/expeditions/aria.jpg", "lat": 29.61, "link": "[SpaceBubbles 2006](https://ntrs.nasa.gov/api/citations/20080015863/downloads/20080015863.pdf)", "lng": -96.16, "path": [], "title": "SpaceBubbles - NASA Reduced Gravity Student Opportunities Program (RGSOP)"}, {"category": "space", "date": "2008-10-30", "date_display": "Oct 2008", "description": "Endurance record for a fuel-cell powered UAV - 10 hours, 15 min, 4 sec.", "id": "solarbubbles", "image": "/gallery/expeditions/solarbubbles.jpg", "lat": 42.01, "link": "[Fuel Cell Flight](https://news.umich.edu/adaptive-materials-inc-and-michigan-students-set-record-fuel-cell-powered-radio-controlled-airplane-flight/)", "lng": -83.68, "path": [], "title": "SolarBubbles - Solar Powered UAV Program - Fuel Cell Endurance Flight"}, {"category": "space", "date": "2010-11-19", "date_display": "2010-2011", "description": "First NSF-funded CubeSat mission, studying ionospheric turbulence from Kodiak, Alaska.", "id": "rax", "image": "/gallery/expeditions/rax.jpg", "lat": 57.79, "link": "/projects/rax.html", "lng": -152.41, "path": [], "title": "RAX-1 \u0026 RAX-2"}, {"category": "space", "date": "2018-11-26", "date_display": "Nov 26, 2018", "description": "Twin CubeSats relay InSight\u0027s Mars landing back to Earth in near-real time, operated from JPL.", "id": "marco-edl", "image": "/gallery/expeditions/marco-edl.jpg", "lat": 34.2, "link": "/projects/marco.html", "lng": -118.17, "path": [], "title": "MarCO Entry, Descent \u0026 Landing"}, {"category": "earth", "date": "2019-07-01", "date_display": "Jul 2019", "description": "First DAS-on-ice deployment, with the Juneau Icefield Research Program, Alaska.", "id": "taku", "image": "/gallery/expeditions/taku.jpg", "lat": 58.42, "link": "/projects/das.html", "lng": -134.05, "path": [], "title": "Taku Glacier DAS Trial"}, {"category": "ocean", "date": "2019-11-01", "date_display": "Nov-Dec 2019", "description": "First Antarctic trial of the under-ice rover, with the Australian Antarctic Division.", "id": "bruie-casey", "image": "/gallery/expeditions/bruie-casey.jpg", "lat": -66.28, "link": "/projects/bruie.html", "lng": 110.53, "path": [], "title": "BRUIE at Casey Station"}, {"category": "ocean", "date": "2021-05-01", "date_display": "May 2021", "description": "Two-week technology demo mapping seafloor and testing eDNA sampling, Port Canaveral to Norfolk.", "id": "orpheus-okeanos", "image": "/gallery/expeditions/orpheus-okeanos.jpg", "lat": 29.5, "link": "/projects/orpheus.html", "lng": -79.0, "path": [], "title": "Orpheus / NOAA Okeanos Explorer"}, {"category": "ocean", "date": "2022-08-01", "date_display": "Aug 2022", "description": "2,400m dive in HOV Alvin following its depth-rating recertification, Aleutian Trench.", "id": "alvin-sve", "image": "/gallery/expeditions/alvin-sve.jpg", "lat": 51.5, "link": "/projects/deep-ocean.html", "lng": 179.5, "path": [], "title": "Alvin Science Verification Expedition"}, {"category": "earth", "date": "2023-01-01", "date_display": "2023", "description": "3,000-channel DAS array along the caldera rim -- Andy\u0027s own Cal Poly Pomona M.S. thesis.", "id": "kilauea", "image": "/gallery/expeditions/kilauea.jpg", "lat": 19.41, "link": "/projects/das.html", "lng": -155.29, "path": [], "title": "Kilauea DAS Thesis Fieldwork"}, {"category": "earth", "date": "2025-01-01", "date_display": "Jan 2025", "description": "Same DAS technology and team applied to map post-fire mudflows in Pasadena.", "id": "eaton-fire", "image": "/gallery/expeditions/eaton-fire.jpg", "lat": 34.19, "link": "/projects/das.html", "lng": -118.13, "path": [], "title": "Eaton Fire Mudflow Mapping"}, {"category": "space", "date": "2025-02-26", "date_display": "Feb 26, 2025", "description": "NASA lunar water-mapping mission -- reached space, lost contact the following day.", "id": "ltb-launch", "image": "/gallery/expeditions/ltb-launch.jpg", "lat": 28.57, "link": "/projects/marco.html", "lng": -80.65, "path": [], "title": "Lunar Trailblazer Launch"}, {"category": "ocean", "date": "2025-08-12", "date_display": "Aug 2025", "description": "Twelve-day voyage aboard SSV Corwith Cramer, deploying a BlueROV and BlueBoat near Cashes Ledge, rerouted to Boston ahead of Hurricane Erin.", "id": "sea-education", "image": "/gallery/expeditions/sea-education.jpg", "lat": 41.52, "link": "/courses.html", "lng": -70.67, "path": [[41.52, -70.67], [42.9, -68.9], [42.36, -71.05]], "title": "SEA Education Marine Robotics Voyage"}, {"category": "ocean", "date": "2025-10-15", "date_display": "Oct-Nov 2025", "description": "Ten-week remote deployment under Sukok Lake -- the \"Friggin\u0027 Laser Beams\" field season.", "id": "sukok-fall", "image": "/gallery/expeditions/sukok-fall.jpg", "lat": 71.04, "link": "/projects/bruie.html", "lng": -156.81, "path": [], "title": "BRUIE Overwinter Deployment"}, {"category": "earth", "date": "2025-11-22", "date_display": "Nov-Dec 2025", "description": "DAS grounding-zone imaging on Union Glacier, Antarctica -- the \"Blue Ice\" field season.", "id": "glass", "image": "/gallery/expeditions/glass.jpg", "lat": -79.77, "link": "/projects/das.html", "lng": -83.26, "path": [], "title": "GLASS -- Constellation Inlet"}, {"category": "ocean", "date": "2026-05-13", "date_display": "May 2026", "description": "Six-day ice recovery in -20F windchill -- the caribou-and-Starlink story.", "id": "caribou", "image": "/gallery/expeditions/caribou.jpg", "lat": 71.04, "link": "/field-notes.html", "lng": -156.81, "path": [], "title": "BRUIE Recovery Expedition"}];
+
+    const EXPO_CAT_COLOR = { space: '#000080', ocean: '#0e7c86', earth: '#c2611a' };
+    let expoActiveCats = new Set(['space', 'ocean', 'earth']);
+    let expoSelectedId = null;
+    let expoMarkers = {};
+    let expoPolylines = {}; // id -> L.Polyline, only present for entries with a `path`
+    let expoDefaultBounds = null; // computed once, below, from the full unfiltered dataset
+
+    // zoomControl:false -- replaced with a custom control below so a third
+    // "reset view" button can sit between + and -, which Leaflet's built-in
+    // zoom control has no supported option for.
+    const expoMap = L.map('expoMap', {
+        scrollWheelZoom: false,
+        zoomControl: false
+    });
+
+    L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_2i9n_1_35eca0fe581b705538ed7f8e',
+        {
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }
+    ).addTo(expoMap);
+
+    function expoMakeIcon(cat, isSelected) {
+        const color = EXPO_CAT_COLOR[cat] || '#888';
+        const size = isSelected ? 18 : 12;
+        return L.divIcon({
+            className: '',
+            html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.35);"></div>`,
+            iconSize: [size, size], iconAnchor: [size / 2, size / 2]
+        });
+    }
+
+    expeditions.forEach(e => {
+        if (e.lat == null || e.lng == null) return; // skip anything with unparseable coordinates rather than crash
+        const m = L.marker([e.lat, e.lng], { icon: expoMakeIcon(e.category, false) });
+        m.bindPopup(`<b>${e.title}</b><br>${e.date_display}<br>${e.description}`);
+        m.on('click', () => expoSelectEntry(e.id));
+        expoMarkers[e.id] = m;
+
+        // Dashed route line, colored to match the entry's category dot.
+        // Only created for entries that actually have a `path` (e.g. a ship's
+        // voyage) -- most entries are a single point and get no polyline.
+        if (e.path && e.path.length > 1) {
+            const line = L.polyline(e.path, {
+                color: EXPO_CAT_COLOR[e.category] || '#888',
+                weight: 2.5,
+                opacity: 0.75,
+                dashArray: '6, 6',
+            });
+            line.on('click', () => expoSelectEntry(e.id));
+            expoPolylines[e.id] = line;
+        }
+    });
+
+    // Default view = the bounds of every expedition (not just the currently
+    // filtered subset), so the reset button always returns to the same fixed
+    // view regardless of which category chips happen to be active. Includes
+    // path waypoints, not just each entry's primary marker point -- otherwise
+    // a voyage that ranges far from its anchor point could get clipped out of
+    // the initial/default view. fitBounds naturally sizes to fit BOTH
+    // dimensions of the container -- since the map panel here is wider than
+    // it is tall, fitting to bounds is what makes the full vertical (latitude)
+    // extent visible, rather than a fixed zoom level that might crop the
+    // northern/southern-most points off screen.
+    const expoAllCoords = [];
+    expeditions.forEach(e => {
+        if (e.lat != null && e.lng != null) expoAllCoords.push([e.lat, e.lng]);
+        if (e.path) e.path.forEach(p => expoAllCoords.push(p));
+    });
+    if (expoAllCoords.length > 0) {
+        expoDefaultBounds = L.latLngBounds(expoAllCoords);
+        expoMap.fitBounds(expoDefaultBounds, { padding: [28, 28] });
+    } else {
+        expoMap.setView([20, 10], 2); // fallback if the data file is ever empty
+    }
+
+    function expoResetView() {
+        if (expoDefaultBounds) {
+            expoMap.fitBounds(expoDefaultBounds, { padding: [28, 28] });
+        }
+    }
+
+    // Custom control: zoom in / reset / zoom out, in one visual group.
+    // Reuses Leaflet's own .leaflet-control-zoom-in/-out classes for the two
+    // zoom buttons so they keep Leaflet's default look with no extra CSS;
+    // only .expo-control-reset (the middle button) needs its own small style,
+    // added in style.css.
+    const ExpoZoomControl = L.Control.extend({
+        options: { position: 'topleft' },
+        onAdd: function (map) {
+            const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+
+            const zoomInBtn = L.DomUtil.create('a', 'leaflet-control-zoom-in', container);
+            zoomInBtn.innerHTML = '+';
+            zoomInBtn.href = '#';
+            zoomInBtn.title = 'Zoom in';
+
+            const resetBtn = L.DomUtil.create('a', 'expo-control-reset', container);
+            resetBtn.innerHTML = '&#9678;'; // simple target/reset glyph, no icon font dependency
+            resetBtn.href = '#';
+            resetBtn.title = 'Reset view';
+
+            const zoomOutBtn = L.DomUtil.create('a', 'leaflet-control-zoom-out', container);
+            zoomOutBtn.innerHTML = '&minus;';
+            zoomOutBtn.href = '#';
+            zoomOutBtn.title = 'Zoom out';
+
+            L.DomEvent.on(zoomInBtn, 'click', L.DomEvent.stop).on(zoomInBtn, 'click', () => map.zoomIn());
+            L.DomEvent.on(resetBtn, 'click', L.DomEvent.stop).on(resetBtn, 'click', expoResetView);
+            L.DomEvent.on(zoomOutBtn, 'click', L.DomEvent.stop).on(zoomOutBtn, 'click', () => map.zoomOut());
+
+            return container;
+        }
+    });
+    expoMap.addControl(new ExpoZoomControl());
+
+    const expoListEl = document.getElementById('expoEntryList');
+    const expoTrackEl = document.getElementById('expoTimelineTrack');
+    const expoPanelLabel = document.getElementById('expoPanelLabel');
+
+    function expoVisible() {
+        return expeditions
+            .filter(e => expoActiveCats.has(e.category))
+            .sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    }
+
+    function expoYearOf(e) { return (e.date || '').slice(0, 4); }
+
+    // ---------- lazy image loading ----------
+    // Only ever called from expoSelectEntry(). Nothing preloads at render time.
+    function expoInsertImageIfSelected(id) {
+        const e = expeditions.find(x => x.id === id);
+        if (!e || !e.image) return;
+        const slot = document.querySelector(`.expo-entry-image-slot[data-for="${id}"]`);
+        if (!slot) return;
+        slot.innerHTML = '';
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.alt = e.title;
+        img.className = 'expo-entry-image';
+        img.src = e.image; // <-- the only place any image is actually requested
+        slot.appendChild(img);
+    }
+
+    function expoRenderAll() {
+        Object.values(expoMarkers).forEach(m => expoMap.removeLayer(m));
+        Object.values(expoPolylines).forEach(l => expoMap.removeLayer(l));
+        const vis = expoVisible();
+        vis.forEach(e => {
+            if (expoMarkers[e.id]) expoMarkers[e.id].addTo(expoMap);
+            if (expoPolylines[e.id]) expoPolylines[e.id].addTo(expoMap);
+        });
+
+        expoPanelLabel.textContent = `${vis.length} Expedition${vis.length === 1 ? '' : 's'}`;
+
+        expoListEl.innerHTML = '';
+        vis.forEach(e => {
+            const div = document.createElement('div');
+            div.className = 'expo-entry' + (e.id === expoSelectedId ? ' selected' : '');
+            div.innerHTML = `
+            <div class="expo-entry-top"><span class="expo-dot" style="background:${EXPO_CAT_COLOR[e.category]}"></span>
+                <span class="expo-entry-date">${e.date_display}</span></div>
+            <div class="expo-entry-title">${e.title}</div>
+            <div class="expo-entry-image-slot" data-for="${e.id}"></div>
+            <p class="expo-entry-desc">${e.description}</p>
+            <a class="expo-entry-link" href="${e.link}">View project &rarr;</a>`;
+            div.addEventListener('click', (ev) => {
+                if (ev.target.tagName === 'A') return;
+                expoSelectEntry(e.id);
+            });
+            expoListEl.appendChild(div);
+        });
+
+        if (expoSelectedId) expoInsertImageIfSelected(expoSelectedId);
+
+        expoTrackEl.innerHTML = '';
+        let lastYear = null;
+        vis.forEach(e => {
+            const y = expoYearOf(e);
+            if (y !== lastYear) {
+                const yh = document.createElement('div');
+                yh.className = 'expo-t-year';
+                yh.textContent = y;
+                expoTrackEl.appendChild(yh);
+                lastYear = y;
+            }
+            const div = document.createElement('div');
+            div.className = 'expo-entry' + (e.id === expoSelectedId ? ' selected' : '');
+            div.style.marginBottom = '10px';
+            div.innerHTML = `
+            <div class="expo-entry-top"><span class="expo-dot" style="background:${EXPO_CAT_COLOR[e.category]}"></span>
+                <span class="expo-entry-date">${e.date_display}</span></div>
+            <div class="expo-entry-title">${e.title}</div>
+            <p class="expo-entry-desc">${e.description}</p>`;
+            div.addEventListener('click', () => expoSelectEntry(e.id));
+            expoTrackEl.appendChild(div);
+        });
+    }
+
+    function expoSelectEntry(id) {
+        expoSelectedId = id;
+        Object.entries(expoMarkers).forEach(([mid, m]) => {
+            const e = expeditions.find(x => x.id === mid);
+            if (!e) return;
+            const isSel = mid === id;
+            m.setIcon(expoMakeIcon(e.category, isSel));
+            // Bring the selected marker's dot to the top of the stack. Leaflet
+            // doesn't reorder markers on click by default -- setZIndexOffset is
+            // the supported way to force one marker above its neighbors
+            // regardless of latitude-based default stacking order.
+            m.setZIndexOffset(isSel ? 1000 : 0);
+        });
+        // Same idea for route lines: bump the selected one visually (heavier,
+        // more opaque) and bring it in front of any overlapping routes.
+        // bringToFront() is the correct method here, not setZIndexOffset --
+        // that's a Marker/icon-layer API; polylines are SVG paths and use
+        // Leaflet's Path.bringToFront() for stacking instead.
+        Object.entries(expoPolylines).forEach(([lid, line]) => {
+            const isSel = lid === id;
+            line.setStyle({ weight: isSel ? 4.5 : 2.5, opacity: isSel ? 1 : 0.75 });
+            if (isSel) line.bringToFront();
+        });
+        const e = expeditions.find(x => x.id === id);
+        if (e && expoMarkers[id] && document.getElementById('expoMapView').style.display !== 'none') {
+            expoMap.flyTo([e.lat, e.lng], 5, { duration: 0.6 });
+            expoMarkers[id].openPopup();
+        }
+        expoRenderAll();
+
+        // Scroll whichever list is actually visible to reveal the selection.
+        // Deliberately scoped to each container's own selected entry rather than
+        // a single global `.expo-entry.selected` lookup -- the timeline track
+        // and the side panel each render their own separate element with that
+        // same class, and a global querySelector only returns the first DOM
+        // match. Since the timeline track sits before the panel in the HTML,
+        // that global lookup could silently target the timeline's (possibly
+        // hidden, display:none) copy instead of the panel that's actually on
+        // screen, which is why this appeared unreliable.
+        const panelSel = document.querySelector('#expoEntryList .expo-entry.selected');
+        if (panelSel) panelSel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+
+        if (expoTimelineViewEl.classList.contains('active')) {
+            const timelineSel = document.querySelector('#expoTimelineTrack .expo-entry.selected');
+            if (timelineSel) timelineSel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+    }
+
+    document.querySelectorAll('.expo-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const cat = chip.dataset.cat;
+            if (expoActiveCats.has(cat)) { expoActiveCats.delete(cat); chip.classList.remove('active'); }
+            else { expoActiveCats.add(cat); chip.classList.add('active'); }
+            expoRenderAll();
+        });
+    });
+
+    const expoBtnMap = document.getElementById('expoBtnMap');
+    const expoBtnTimeline = document.getElementById('expoBtnTimeline');
+    const expoMapViewEl = document.getElementById('expoMapView');
+    const expoTimelineViewEl = document.getElementById('expoTimelineView');
+
+    expoBtnMap.addEventListener('click', () => {
+        expoBtnMap.classList.add('active'); expoBtnTimeline.classList.remove('active');
+        expoMapViewEl.style.display = '';
+        expoTimelineViewEl.classList.remove('active');
+        setTimeout(() => { expoMap.invalidateSize(); }, 50);
+    });
+    expoBtnTimeline.addEventListener('click', () => {
+        expoBtnTimeline.classList.add('active'); expoBtnMap.classList.remove('active');
+        expoMapViewEl.style.display = 'none';
+        expoTimelineViewEl.classList.add('active');
+    });
+
+    expoRenderAll();
+</script>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

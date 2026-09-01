@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Preview - Andrew Klesh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+<!-- Link to isolated sample-style.css -->
+<link rel="stylesheet" href="/css/sample-style.css">
+<style>
+    /* Override base header/footer for this preview page only */
+    body {
+        background-color: var(--bg-dark) !important;
+        color: var(--text-primary) !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+    .site-header {
+        background: rgba(11, 15, 25, 0.8) !important;
+        border-bottom: 1px solid var(--border-glass) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+    .site-header .logo {
+        color: var(--text-primary) !important;
+        font-family: 'Outfit', sans-serif !important;
+    }
+    .site-header a {
+        color: var(--text-primary) !important;
+    }
+    .site-header a:hover {
+        color: var(--space-cyan) !important;
+        text-decoration: none !important;
+    }
+    .dropdown-content {
+        background: #111827 !important;
+        border: 1px solid var(--border-glass) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    }
+    .dropdown-content a {
+        color: var(--text-muted) !important;
+    }
+    .dropdown-content a:hover {
+        color: var(--space-cyan) !important;
+        background: rgba(255,255,255,0.02) !important;
+    }
+    .dropdown-header {
+        color: var(--space-cyan) !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem 0.25rem 1rem;
+    }
+    footer div {
+        border-top: 1px solid var(--border-glass) !important;
+        color: var(--text-muted) !important;
+    }
+    footer div a {
+        color: var(--space-cyan) !important;
+    }
+</style>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="sample-body">
+    <div class="preview-container">
+        
+        <!-- Style Header -->
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <span class="hero-tag">Aesthetic Preview</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">Proposed Design Language</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                A slate-dark theme designed to unify space and ocean environments, utilizing clean grids, subtle gradients, and custom components.
+            </p>
+        </div>
+
+        <!-- 1. Hero Section Showcase -->
+        <div class="section-title">01. Profile Hero Section</div>
+        <div class="hero-box">
+            <div class="hero-content">
+                <span class="hero-tag">Field Engineering & Exploration</span>
+                <h2 class="hero-title">Exploring Extreme Environments</h2>
+                <p class="hero-desc">
+                    Designing systems, electronics, and navigation for scientific exploration from the sub-ice depths of polar oceans to interplanetary deep space. Developing low-cost CubeSats, submersibles, and vulcanic fiber networks.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#" class="accent-btn style-btn">Download Resume PDF</a>
+                    <a href="#" class="secondary-btn style-btn">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                🛰️
+            </div>
+        </div>
+
+        <!-- 2. Tabs Interface Showcase -->
+        <div class="section-title">02. CV Tab Interface</div>
+        <div style="margin-bottom: 4rem;">
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                Polished tabs matching the Resume page navigation, showing the space-cyan active state and dark glass backing.
+            </p>
+            <div class="preview-tabs">
+                <button class="preview-tab-btn active">Professional Resume</button>
+                <button class="preview-tab-btn">Climbing Resume</button>
+                <button class="preview-tab-btn">Complete CV</button>
+            </div>
+        </div>
+
+        <!-- 3. Project Cards Showcase -->
+        <div class="section-title">03. Project & Blog Cards</div>
+        <div class="cards-grid">
+            
+            <!-- Card 1: Space -->
+            <div class="glass-card">
+                <div class="card-image-wrapper">
+                    <div class="card-image-mock">📡</div>
+                    <span class="card-tag">Space Systems</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">MarCO: Interplanetary CubeSats</h3>
+                        <div class="card-meta">Launch: 2018 | Chief Engineer</div>
+                        <p class="card-desc">
+                            Demonstrated the first deep space communication relay on briefcase-sized spacecraft, providing real-time telemetry support during Mars InSight landing.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">CubeSat</span>
+                        <span class="badge">Mars</span>
+                        <span class="badge">Deep Space</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Ocean -->
+            <div class="glass-card">
+                <div class="card-image-wrapper">
+                    <div class="card-image-mock">❄️</div>
+                    <span class="card-tag">Ocean & Ice</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">BRUIE: Under-Ice Rover</h3>
+                        <div class="card-meta">Testing: Antarctica | Engineering Lead</div>
+                        <p class="card-desc">
+                            Buoyant exploration vehicle crawling the ice-water interface to simulate ocean worlds chemistry surveys in frozen lakes and polar waters.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge">Robotics</span>
+                        <span class="badge">Antarctica</span>
+                        <span class="badge">Ocean Worlds</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. Opportunities Table Showcase -->
+        <div class="section-title">04. Opportunities Table</div>
+        <div class="table-wrapper">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Deadline</th>
+                        <th>Program Dates</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Host</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 700; color: var(--space-cyan);">2024-02-01</td>
+                        <td>Jun 01 - Jul 15</td>
+                        <td>Field Camp</td>
+                        <td style="font-weight: 600;">Geology Field Camp</td>
+                        <td>South Dakota School of Mines</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 700; color: var(--space-cyan);">2024-03-31</td>
+                        <td>Jun 01 - Aug 25</td>
+                        <td>Internship</td>
+                        <td style="font-weight: 600;">JPL Summer Internship</td>
+                        <td>Jet Propulsion Laboratory</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 5. Bookshelf References Showcase -->
+        <div class="section-title">05. References Bookshelf</div>
+        <div class="bookshelf-grid">
+            
+            <div class="book-card">
+                <span class="book-type">Memoirs / Biographies</span>
+                <h3 class="book-title">Every Tool's a Hammer: Life Is What You Make It</h3>
+                <span class="book-author">Adam Savage (2019)</span>
+            </div>
+
+            <div class="book-card" style="--accent-gold: var(--space-cyan);">
+                <span class="book-type" style="color: var(--space-cyan); border-color: rgba(56, 189, 248, 0.2); background: rgba(56, 189, 248, 0.05);">Field Guides</span>
+                <h3 class="book-title">SAS Survival Handbook, Third Edition</h3>
+                <span class="book-author">John 'Lofty' Wiseman (2014)</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

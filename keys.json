@@ -1,0 +1,787 @@
+{
+  "isler2024high": {
+    "source": "publications.html",
+    "title": "High-resolution bathymetry coupled with 3D models of hydrothermal vents from opportunistically-acquired imagery: Aurora vent field, Arctic Ocean",
+    "type": "publication"
+  },
+  "wu2024fiber": {
+    "source": "publications.html",
+    "title": "Fiber Seismic Network on the Moon",
+    "type": "publication"
+  },
+  "malphrus2021interplanetary": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSat Missions",
+    "type": "publication"
+  },
+  "hallinan2021farside": {
+    "source": "publications.html",
+    "title": "FARSIDE: A Low Radio Frequency Interferometric Array on the Lunar Farside",
+    "type": "publication"
+  },
+  "krasner2021reconstruction": {
+    "source": "publications.html",
+    "title": "Reconstruction of Entry, Descent, and Landing Communications for the InSight Mars Lander",
+    "type": "publication"
+  },
+  "aguzzi2020exo": {
+    "source": "publications.html",
+    "title": "Exo-ocean exploration with Deep-Sea Sensor and Platform Technologies",
+    "type": "publication"
+  },
+  "tardivel2018technology": {
+    "source": "publications.html",
+    "title": "Technology Enabling Interplanetary Trajectories for NanoSpacecraft",
+    "type": "publication"
+  },
+  "lightholder2017asteroid": {
+    "source": "publications.html",
+    "title": "Asteroid Origins Satellite (AOSAT) I: An On-Orbit Centrifuge Science Laboratory",
+    "type": "publication"
+  },
+  "asphaug2017cubesat": {
+    "source": "publications.html",
+    "title": "A CubeSat Centrifuge for Long Duration Milligravity Research",
+    "type": "publication"
+  },
+  "tardivel2017average": {
+    "source": "publications.html",
+    "title": "Average Daily Radiation Dose as a Function of Altitude, Latitude, and Shielding",
+    "type": "publication"
+  },
+  "liewer2014fractionated": {
+    "source": "publications.html",
+    "title": "A Fractionated Space Weather Base at L5 using CubeSats and Solar Sails",
+    "type": "publication"
+  },
+  "staehle2013interplanetary": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSats: Opening the Solar System to a Broad Community at Lower Cost",
+    "type": "publication"
+  },
+  "spangelo2013design": {
+    "source": "publications.html",
+    "title": "Design and Implementation of the GPS Subsystem for the Radio Aurora eXplorer",
+    "type": "publication"
+  },
+  "springmann2012attitude": {
+    "source": "publications.html",
+    "title": "The Attitude Determination System of the RAX Satellite",
+    "type": "publication"
+  },
+  "spangelo2012models": {
+    "source": "publications.html",
+    "title": "Models and Tools to Evaluate Space Communication Network Capacity",
+    "type": "publication"
+  },
+  "klesh2009optimalarticle": {
+    "source": "publications.html",
+    "title": "Optimal cooperative thermalling of unmanned aerial vehicles",
+    "type": "publication"
+  },
+  "klesh2009solar": {
+    "source": "publications.html",
+    "title": "Solar-Powered Aircraft: Energy-Optimal Path Planning and Perpetual Endurance",
+    "type": "publication"
+  },
+  "klesh2009optimalOpt": {
+    "source": "publications.html",
+    "title": "Optimal cooperative thermalling of unmanned aerial vehicles",
+    "type": "publication"
+  },
+  "vanderfeen2024bruie": {
+    "source": "publications.html",
+    "title": "Towards Sonar-Based Obstacle Avoidance for The Buoyant Rover for Under-Ice Exploration (BRUIE)",
+    "type": "publication"
+  },
+  "bird2024inverting": {
+    "source": "publications.html",
+    "title": "Inverting for Dike Geometry with Temporal Seismic Velocity Changes in the Rejkjanes Peninsula's 2023-2024 Eruption Sequence",
+    "type": "publication"
+  },
+  "zhai2024assessing": {
+    "source": "publications.html",
+    "title": "Assessing the Feasibility of Fiber-Optic Sensing for Lunar Seismic Monitoring Using Terrestrial South Pole as an Analog",
+    "type": "publication"
+  },
+  "li2024imaging": {
+    "source": "publications.html",
+    "title": "Imaging Magma Plumbing Dynamics Using Low-frequency DAS Measurements",
+    "type": "publication"
+  },
+  "jakuba2024auv": {
+    "source": "publications.html",
+    "title": "Exploring the Aurora Vent Field: 4000m Under Ice with the NUI Hybrid Remotely Operated Vehicle",
+    "type": "publication"
+  },
+  "german2024exploring": {
+    "source": "publications.html",
+    "title": "Exploring Hydrogen-Rich Venting Beneath an Ice-Covered Ocean\u2013On Earth",
+    "type": "publication"
+  },
+  "jakuba2024four": {
+    "source": "publications.html",
+    "title": "Four Thousand Meters Under Ice: Exploring Ice-Covered Chemosynthetic Ecosystems at the Aurora Vent Field with the NUI Hybrid Remotely Operated Vehicle",
+    "type": "publication"
+  },
+  "klesh2023agu": {
+    "source": "publications.html",
+    "title": "Improving Knowledge of Lava Pathways at Kilauea Using Distributed Acoustic Sensing",
+    "type": "publication"
+  },
+  "bowles2023els": {
+    "source": "publications.html",
+    "title": "The Lunar Thermal Mapper Instrument foor the Lunar Trailblazer Mission",
+    "type": "publication"
+  },
+  "bowles2023thermal": {
+    "source": "publications.html",
+    "title": "The Lunar Trailblazer Mission: Understanding the Moon's Water",
+    "type": "publication"
+  },
+  "shank2022agu": {
+    "source": "publications.html",
+    "title": "Advancing Autonomous Underwater Vehicle Robotics for Full-Ocean Depth Exploration and Research",
+    "type": "publication"
+  },
+  "hardgrove2022agu": {
+    "source": "publications.html",
+    "title": "The Lunar Polar Hydrogen Mapper (LunaH-Map) Mission, Launch and Early Operations",
+    "type": "publication"
+  },
+  "ehlmann2021lunarnesf": {
+    "source": "publications.html",
+    "title": "Lunar Trailblazer: A Pioneering Smallsat for Lunar Water and Lunar Geology",
+    "type": "publication"
+  },
+  "ehlmann2021lunar": {
+    "source": "publications.html",
+    "title": "Lunar Trailblazer: A Pioneering Smallsat for Lunar Water and Lunar Geology",
+    "type": "publication"
+  },
+  "karrenbach2020rapid": {
+    "source": "publications.html",
+    "title": "Rapid deployment of distributed acoustic sensing systems to track earthquake activity",
+    "type": "publication"
+  },
+  "ehlmann2020trailblazer": {
+    "source": "publications.html",
+    "title": "Lunar Trailblazer: A Pioneering Small Satellite for Lunar Water and Lunar Geology",
+    "type": "publication"
+  },
+  "okino2020opportunistic": {
+    "source": "publications.html",
+    "title": "Opportunistic Arraying",
+    "type": "publication"
+  },
+  "oudrhiri2020marco": {
+    "source": "publications.html",
+    "title": "MarCO Radio Occultation: How the First Interplanetary Cubesat Can Help Improve Future Missions",
+    "type": "publication"
+  },
+  "ehlmann2020sservi": {
+    "source": "publications.html",
+    "title": "Lunar Trailblazer: A Pioneering Small Satellite for Lunar Water and Lunar Geology",
+    "type": "publication"
+  },
+  "hardgrove2020lunar": {
+    "source": "publications.html",
+    "title": "The Lunar Polar Hydrogen Mapper (LunaH-Map) Mission: Low-Altitude Hydrogen Mapping of the Lunar South Pole With a Very Small Spacecraft",
+    "type": "publication"
+  },
+  "klesh2019marcocospar": {
+    "source": "publications.html",
+    "title": "MarCO: Trailblazing Interplanetary Small Science",
+    "type": "publication"
+  },
+  "shank2019development": {
+    "source": "publications.html",
+    "title": "Development of a New Class of Autonomous Underwater Vehicle (AUV), Orpheus, for the Exploration of Ocean World Analogues",
+    "type": "publication"
+  },
+  "sternberg2019attitude": {
+    "source": "publications.html",
+    "title": "Attitude Control System for the Mars Cube One Spacecraft",
+    "type": "publication"
+  },
+  "klesh2019marco": {
+    "source": "publications.html",
+    "title": "MarCO: Flight Review and Lessons Learned",
+    "type": "publication"
+  },
+  "oudrhiri2019radio": {
+    "source": "publications.html",
+    "title": "Radio Occultation Results from MarCO, The First Interplanetary Cubesat Mission",
+    "type": "publication"
+  },
+  "robo2019ice": {
+    "source": "publications.html",
+    "title": "DAS on Ice: Insights gained from deploying several Kilometers of Fiber Optic Cable on Taku Glacier, Alaska",
+    "type": "publication"
+  },
+  "fenty2019heterogenous": {
+    "source": "publications.html",
+    "title": "Heterogenous System for In Situ Measurements from within Ice Shelf Cavities to Improve Predictions of Sea Level Rise",
+    "type": "publication"
+  },
+  "li2019monitor": {
+    "source": "publications.html",
+    "title": "Monitor Aftershocks of the 2019 Ridgecrest Earthquakes with DAS Arrays",
+    "type": "publication"
+  },
+  "baker2019marco": {
+    "source": "publications.html",
+    "title": "MarCO: The First Interplanetary CubeSats",
+    "type": "publication"
+  },
+  "krasner2019edl": {
+    "source": "publications.html",
+    "title": "EDL Communications Featuring MarCO CubeSats",
+    "type": "publication"
+  },
+  "klesh2019marcoIAC": {
+    "source": "publications.html",
+    "title": "MarCO: Flight Results from the First Interplanetary CubeSat Mission",
+    "type": "publication"
+  },
+  "klesh2018SmallSat": {
+    "source": "publications.html",
+    "title": "MarCO: Early Operations of the First CubeSats to Mars",
+    "type": "publication"
+  },
+  "klesh2018early": {
+    "source": "publications.html",
+    "title": "Early Flight Results of the MarCO Spacecraft",
+    "type": "publication"
+  },
+  "klesh2018marcoLPSC": {
+    "source": "publications.html",
+    "title": "MarCO: Mars Cube One\u2014Lessons Learned from Readying the First Interplanetary Cubesats for Flight",
+    "type": "publication"
+  },
+  "clement2018planetary": {
+    "source": "publications.html",
+    "title": "Planetary Protection Strategy and Implementation for MarCO, the First Interplanetary CubeSat Mission",
+    "type": "publication"
+  },
+  "klesh2018marco": {
+    "source": "publications.html",
+    "title": "MarCO: Preparing for Interplanetary Flight with Small Spacecraft",
+    "type": "publication"
+  },
+  "castano2018heterogenous": {
+    "source": "publications.html",
+    "title": "Heterogenous System for In Situ Measurements from within Ice Shelf Cavities to Improve Predictions of Sea Level Rise",
+    "type": "publication"
+  },
+  "klesh2018marcoAGU": {
+    "source": "publications.html",
+    "title": "MarCO: Flight Status and Lessons Learned",
+    "type": "publication"
+  },
+  "boening2018new": {
+    "source": "publications.html",
+    "title": "A New Two-Vehicle Autonomous System for Mapping Ice Shelf Cavities",
+    "type": "publication"
+  },
+  "klesh2018marcoCSW": {
+    "source": "publications.html",
+    "title": "MarCO: Mars Cube One",
+    "type": "publication"
+  },
+  "ehlmann2018mars": {
+    "source": "publications.html",
+    "title": "Mars Nano Orbiter: A CubeSat for Mars System Science",
+    "type": "publication"
+  },
+  "schoolcraft2017marco": {
+    "source": "publications.html",
+    "title": "MarCO: Interplanetary Mission Development on a CubeSat Scale",
+    "type": "publication"
+  },
+  "ehlmann2017mars": {
+    "source": "publications.html",
+    "title": "Mars NanoOrbiter: A CubeSat for Mars System Science",
+    "type": "publication"
+  },
+  "hardgrove2016lunarcospar": {
+    "source": "publications.html",
+    "title": "LunaH-Map (Lunar Polar Hydrogen Mapper): Orbital Neutron Spectroscopy from a 6U CubeSat",
+    "type": "publication"
+  },
+  "klesh2016marcocubesat": {
+    "source": "publications.html",
+    "title": "MarCO: Ready for Flight",
+    "type": "publication"
+  },
+  "hardgrove2016lunariac": {
+    "source": "publications.html",
+    "title": "The Lunar Polar Hydrogen Mapper (LunaH-Map) CubeSat Mission",
+    "type": "publication"
+  },
+  "hardgrove2016lunar": {
+    "source": "publications.html",
+    "title": "The Lunar Polar Hydrogen Mapper (LunaH-Map) CubeSat Mission",
+    "type": "publication"
+  },
+  "baker2016small": {
+    "source": "publications.html",
+    "title": "Small Spacecraft for Planetary Science",
+    "type": "publication"
+  },
+  "klesh2016inspire": {
+    "source": "publications.html",
+    "title": "INSPIRE and MarCO \u2013 Technology Development for the First Deep Space CubeSats",
+    "type": "publication"
+  },
+  "klesh2016marco": {
+    "source": "publications.html",
+    "title": "MarCO\u2013Ready for Launch",
+    "type": "publication"
+  },
+  "tardivel2015cubesats": {
+    "source": "publications.html",
+    "title": "CubeSats for the Exploration and In-Situ Investigation of Asteroids",
+    "type": "publication"
+  },
+  "klesh2015inspirecubesat": {
+    "source": "publications.html",
+    "title": "INSPIRE and Beyond: Deep Space CubeSats at JPL",
+    "type": "publication"
+  },
+  "santo2015adapting": {
+    "source": "publications.html",
+    "title": "Adapting a Sophisticated Ground Data System for use by a Deep Space CubeSat Mission",
+    "type": "publication"
+  },
+  "klesh2015inspire": {
+    "source": "publications.html",
+    "title": "Deep Space Small Satellites and INSPIRE",
+    "type": "publication"
+  },
+  "tardivel2015landing": {
+    "source": "publications.html",
+    "title": "Landing MASCOT on Asteroid 1999 JU3: Solutions for Deploying Nanosats to Small-Body Surfaces",
+    "type": "publication"
+  },
+  "castillo2015decadal": {
+    "source": "publications.html",
+    "title": "Decadal Survey and Exploration Science with Next Generation Low Cost Small Platforms",
+    "type": "publication"
+  },
+  "klesh2015marco": {
+    "source": "publications.html",
+    "title": "Marco: Cubesats to Mars in 2016",
+    "type": "publication"
+  },
+  "spangelo2015SmallSat": {
+    "source": "publications.html",
+    "title": "JPL's Advanced CubeSat Concepts for Deep Space Exploration",
+    "type": "publication"
+  },
+  "sherwood2015planetary": {
+    "source": "publications.html",
+    "title": "Planetary CubeSats Come of Age",
+    "type": "publication"
+  },
+  "spangelo2015CubeSat": {
+    "source": "publications.html",
+    "title": "JPL's Advanced CubeSat Concepts for Interplanetary Science and Exploration Missions",
+    "type": "publication"
+  },
+  "matheus2014methane": {
+    "source": "publications.html",
+    "title": "Methane Sources in Arctic Thermokarst Lake Sediments on the North Slope of Alaska",
+    "type": "publication"
+  },
+  "castillo2014decadal": {
+    "source": "publications.html",
+    "title": "Decadal and SKG Science with Next Generation Low Cost Small Platforms",
+    "type": "publication"
+  },
+  "klesh2014inspireIAC": {
+    "source": "publications.html",
+    "title": "INSPIRE: Interplanetary NanoSpacecraft Pathfinder in a Relevant Environment",
+    "type": "publication"
+  },
+  "klesh2014inspirecubesat": {
+    "source": "publications.html",
+    "title": "INSPIRE: Interplanetary NanoSpacecraft Pathfinder in a Relevant Environment",
+    "type": "publication"
+  },
+  "quach2014adapting": {
+    "source": "publications.html",
+    "title": "Adapting a Large-Scale Multi-Mission Ground System for Low-Cost CubeSats",
+    "type": "publication"
+  },
+  "liewer2013fractionatedsolar": {
+    "source": "publications.html",
+    "title": "A Fractionated Space Weather Base at L5 Using CubeSats and Solar Sails",
+    "type": "publication"
+  },
+  "castillo2013dareinterplanetary": {
+    "source": "publications.html",
+    "title": "Next Generation SmallSat \u2013 Dare to Explore Where No Craft Has Gone Before",
+    "type": "publication"
+  },
+  "halatek2013cubesats": {
+    "source": "publications.html",
+    "title": "CubeSats and Europa: Focused Science with Disposable Spacecraft",
+    "type": "publication"
+  },
+  "castillo2013dare": {
+    "source": "publications.html",
+    "title": "Next Generation SmallSat \u2013 Dare to Explore Where No Craft Has Gone Before",
+    "type": "publication"
+  },
+  "klesh2013inspirelpcm": {
+    "source": "publications.html",
+    "title": "INSPIRE: Interplanetary NanoSpacecraft Pathfinder in a Relevant Environment",
+    "type": "publication"
+  },
+  "klesh2013inspirecubesat": {
+    "source": "publications.html",
+    "title": "INSPIRE: Interplanetary NanoSpacecraft Pathfinder in a Relevant Environment",
+    "type": "publication"
+  },
+  "cutler2013precursor": {
+    "source": "publications.html",
+    "title": "A Precursor Mission for Deep Space Cubesats",
+    "type": "publication"
+  },
+  "klesh2013phobos": {
+    "source": "publications.html",
+    "title": "Simulation and Analysis of a Phobos-Anchored Tether",
+    "type": "publication"
+  },
+  "klesh2013applicability": {
+    "source": "publications.html",
+    "title": "Applicability of Nano-Spacecraft to Deep Space Explorationeep Space Exploration",
+    "type": "publication"
+  },
+  "klesh2013inspire": {
+    "source": "publications.html",
+    "title": "INSPIRE: Interplanetary NanoSpacecraft Pathfinder in Relevant Environment",
+    "type": "publication"
+  },
+  "marchis2013origami": {
+    "source": "publications.html",
+    "title": "Origami NanoSat Telescopes: Planetary Astronomy's Future unfolds",
+    "type": "publication"
+  },
+  "berisford2013remote": {
+    "source": "publications.html",
+    "title": "Remote Under-Ice Roving in Alaska with the Buoyant Rover for Under-Ice Exploration",
+    "type": "publication"
+  },
+  "lazio2013interplanetary": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSat Architecture and Missions",
+    "type": "publication"
+  },
+  "liewer2013fractionated": {
+    "source": "publications.html",
+    "title": "A Fractionated Space Weather Base at L5 using CubeSats & Solar Sails",
+    "type": "publication"
+  },
+  "staehle2012interplanetarycubesats": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSats: Some Missions Feasible Sooner Than Expected",
+    "type": "publication"
+  },
+  "staehle2012missions": {
+    "source": "publications.html",
+    "title": "Missions Enabled by an Interplanetary CubeSat Architecture",
+    "type": "publication"
+  },
+  "klesh2011applicability": {
+    "source": "publications.html",
+    "title": "Applicability of NanoSatellites to Small Body Exploration",
+    "type": "publication"
+  },
+  "klesh2012secondary": {
+    "source": "publications.html",
+    "title": "Secondary NanoSpacecraft Survey of the Martian Moons",
+    "type": "publication"
+  },
+  "klesh2012applicationsACM": {
+    "source": "publications.html",
+    "title": "Applications of NanoSatellites to Small-Body Exploration",
+    "type": "publication"
+  },
+  "staehle2012solar": {
+    "source": "publications.html",
+    "title": "Solar Sails: From Interplanetary CubeSats for Remote Sensing to Phobos Sample Return to Clipper Ships for Pre-Placing Human Exploration Equipment in Mars Orbit",
+    "type": "publication"
+  },
+  "strange2012interplanetary": {
+    "source": "publications.html",
+    "title": "Interplanetary Sample Canister for Mars Sample Return",
+    "type": "publication"
+  },
+  "klesh2012applicability": {
+    "source": "publications.html",
+    "title": "Applicability of Nanosatellites to Deep Space Exploration",
+    "type": "publication"
+  },
+  "klesh2012cyber": {
+    "source": "publications.html",
+    "title": "Cyber-Physical Challenges for Space Systems",
+    "type": "publication"
+  },
+  "klesh2012applications": {
+    "source": "publications.html",
+    "title": "Applications of NanoSats to Small Body Exploration",
+    "type": "publication"
+  },
+  "staehle2012interplanetarySPACE": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSat Architecture and Missions",
+    "type": "publication"
+  },
+  "klesh2012science": {
+    "source": "publications.html",
+    "title": "Science-Driven NanoSats Design for Deep Space",
+    "type": "publication"
+  },
+  "bekker2012grifex": {
+    "source": "publications.html",
+    "title": "GRIFEX Payload Data System Architecture for On-Orbit Focal Plane Array Evaluation",
+    "type": "publication"
+  },
+  "pingree2012cove": {
+    "source": "publications.html",
+    "title": "COVE, MARINA, and the Future of On-Board Processing (OBP) Platforms for CubeSat Science Missions",
+    "type": "publication"
+  },
+  "berisford2012buoyant": {
+    "source": "publications.html",
+    "title": "Buoyant Rover for Under-Ice Exploration",
+    "type": "publication"
+  },
+  "klesh2012nano": {
+    "source": "publications.html",
+    "title": "Nano-Satellite Secondary Spacecraft on Deep Space Missions",
+    "type": "publication"
+  },
+  "klesh2012solwise": {
+    "source": "publications.html",
+    "title": "SolWise: Sailing On Light With Interplanetary Science and Exploration",
+    "type": "publication"
+  },
+  "staehle2012interplanetary": {
+    "source": "publications.html",
+    "title": "Interplanetary CubeSats: Opening the Solar System to a Broad Community at Lower Cost",
+    "type": "publication"
+  },
+  "cocaud2011reducing": {
+    "source": "publications.html",
+    "title": "Reducing the Uncertainty of Hayabusa's Landing Position on Itokawa",
+    "type": "publication"
+  },
+  "klesh2011improving": {
+    "source": "publications.html",
+    "title": "Improving Surface Exploration for Small-Body Objects",
+    "type": "publication"
+  },
+  "klesh2011navigation": {
+    "source": "publications.html",
+    "title": "Improved Navigation Techniques for Asteroid Landers and Impactors",
+    "type": "publication"
+  },
+  "klesh2011trajectory": {
+    "source": "publications.html",
+    "title": "Trajectory Reconstruction of the IKAROS DCAM2",
+    "type": "publication"
+  },
+  "klesh2011autonomous": {
+    "source": "publications.html",
+    "title": "Autonomous Path Planning for Multi-Vehicle Wide-Baseline Stereo",
+    "type": "publication"
+  },
+  "klesh2010guidance": {
+    "source": "publications.html",
+    "title": "Guidance and Control of Hoppers for Small Body Surface Exploration",
+    "type": "publication"
+  },
+  "kleshpath": {
+    "source": "publications.html",
+    "title": "Path Planning for Distributed Rover Science",
+    "type": "publication"
+  },
+  "cutler2010radio": {
+    "source": "publications.html",
+    "title": "The Radio Aurora Explorer\u2013A Bistatic Radar Mission to Measure Space Weather Phenomenon",
+    "type": "publication"
+  },
+  "spangelo2010position": {
+    "source": "publications.html",
+    "title": "Position and Time System for the RAX Small Satellite Mission",
+    "type": "publication"
+  },
+  "senatore2010concept": {
+    "source": "publications.html",
+    "title": "Concept, Design, and Prototyping of XSAS: A High Power Extendable Solar Array for CubeSat Applications",
+    "type": "publication"
+  },
+  "klesh2010exploiting": {
+    "source": "publications.html",
+    "title": "Exploiting the Link: Improving Satellite Communication Through Higher Elevation Links",
+    "type": "publication"
+  },
+  "trabert2010extendable": {
+    "source": "publications.html",
+    "title": "The Extendable Solar Array System: A Modular NanoSatellite Power System",
+    "type": "publication"
+  },
+  "jaffer2010using": {
+    "source": "publications.html",
+    "title": "Using a Virtual Ground Station as a Tool for Supporting Higher Education",
+    "type": "publication"
+  },
+  "jaffer2010project": {
+    "source": "publications.html",
+    "title": "Project Agora: Simultaneously Downloading a Satellite Signal Around the World",
+    "type": "publication"
+  },
+  "klesh2009exploiting": {
+    "source": "publications.html",
+    "title": "Exploiting the Link: Improving CubeSat Communications through the use of Software Defined Radios",
+    "type": "publication"
+  },
+  "klesh2009comparison": {
+    "source": "publications.html",
+    "title": "A Comparison of Mars Precursor Missions: Lunar and Arctic",
+    "type": "publication"
+  },
+  "cutler2009michigan": {
+    "source": "publications.html",
+    "title": "Michigan Nanosat Pipeline",
+    "type": "publication"
+  },
+  "dontchev2009inlab": {
+    "source": "publications.html",
+    "title": "In-Lab Testing for Attitude Determination and Control",
+    "type": "publication"
+  },
+  "klesh2009asteroid": {
+    "source": "publications.html",
+    "title": "Asteroid Deflection through Rotational Fragmentation",
+    "type": "publication"
+  },
+  "klesh2009shotput": {
+    "source": "publications.html",
+    "title": "SHOTPUT Sample Return: Examining the Compositional Gradient of Small-Body Objects",
+    "type": "publication"
+  },
+  "atkins2009reconfigurable": {
+    "source": "publications.html",
+    "title": "A Reconfigurable Flight Management System for Small-Scale Unmanned Air Systems",
+    "type": "publication"
+  },
+  "hyun2009robotic": {
+    "source": "publications.html",
+    "title": "Robotic Exploration with Non-Isotropic Sensors",
+    "type": "publication"
+  },
+  "klesh2009dynamically": {
+    "source": "publications.html",
+    "title": "Dynamically Driven Helmholtz Cage for Experimental Magnetic Attitude Determination",
+    "type": "publication"
+  },
+  "klesh2009optimal": {
+    "source": "publications.html",
+    "title": "Optimal Path Planning for Uncertain Exploration",
+    "type": "publication"
+  },
+  "klesh2009shotputIEEE": {
+    "source": "publications.html",
+    "title": "SHOTPUT: A JPL Planetary Summer Science School study",
+    "type": "publication"
+  },
+  "spangelo2009periodic": {
+    "source": "publications.html",
+    "title": "Periodic Energy-Optimal Path Planning for Solar-Powered Aircraft",
+    "type": "publication"
+  },
+  "hasan2009distributed": {
+    "source": "publications.html",
+    "title": "Distributed Heterogeneous Control of Mini-Flying Machines and Ground Robots",
+    "type": "publication"
+  },
+  "bellerose2009internal": {
+    "source": "publications.html",
+    "title": "Internal Asteroid Composition through Distributed Sensing",
+    "type": "publication"
+  },
+  "budney2008shotput": {
+    "source": "publications.html",
+    "title": "SHOTPUT: A Mission Proposal to Study Composition and Origins of Small Bodies in the Outer Solar System Through Fly-By and Impactor Science",
+    "type": "publication"
+  },
+  "springmann2008designing": {
+    "source": "publications.html",
+    "title": "Designing a New Frontiers-class Trojan/Centaur Reconnaissance Mission: A JPL Planetary Science Summer School Study",
+    "type": "publication"
+  },
+  "klesh2008path": {
+    "source": "publications.html",
+    "title": "Path Planning for Cooperative Time-Optimal Information Collection",
+    "type": "publication"
+  },
+  "klesh2008real": {
+    "source": "publications.html",
+    "title": "Real-time path Planning for Time-Optimal Exploration",
+    "type": "publication"
+  },
+  "klesh2008solarbubbles": {
+    "source": "publications.html",
+    "title": "SolarBubbles: An Autonomous Solar-Powered UAV",
+    "type": "publication"
+  },
+  "hedrick2008control": {
+    "source": "publications.html",
+    "title": "Control of Mobile Sensor Networks: A State-of-the-Art Review",
+    "type": "publication"
+  },
+  "klesh2007energy": {
+    "source": "publications.html",
+    "title": "Energy-Optimal Path Planning for Solar-Powered Aircraft in Level Flight",
+    "type": "publication"
+  },
+  "klesh2007solar": {
+    "source": "publications.html",
+    "title": "Solar-Powered Unmanned Aerial Vehicles on Mars: Perpetual Endurance",
+    "type": "publication"
+  },
+  "klesh2001": {
+    "source": "publications.html",
+    "title": "Project Aria \u2013 Aria 1 \u2013 Observations of Passive Experiments in Space",
+    "type": "publication"
+  },
+  "hardgrove2023lpsc": {
+    "source": "publications.html",
+    "title": "The Lunar Polar Hydrogen Mapper (LunaH-Map) Mission, Launch and Early Operations",
+    "type": "publication"
+  },
+  "ehlmann2022agu": {
+    "source": "publications.html",
+    "title": "Lunar Trailblazer: A Pioneering Smallsat for Lunar Water and Lunar Geology",
+    "type": "publication"
+  },
+  "leichty2013positive": {
+    "source": "publications.html",
+    "title": "Positive-Buoyancy Rover for Under Ice Mobility",
+    "type": "publication"
+  },
+  "brittcommunity": {
+    "source": "publications.html",
+    "title": "Asteroids",
+    "type": "publication"
+  },
+  "klesh2009optimalthesis": {
+    "source": "publications.html",
+    "title": "Optimal Exploration Systems",
+    "type": "publication"
+  }
+}

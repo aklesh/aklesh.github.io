@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+<!-- Cropper.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <h1>Index Gallery Management</h1>
+    <p>Select images to display on the homepage. Click thumbnail for preview.</p>
+
+    <div id="status-msg" style="display: none; padding: 1rem; margin-bottom: 1rem; border-radius: 4px;"></div>
+
+    <div class="gallery-controls" style="margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center;">
+        <button id="btn-save" class="btn-primary"
+            style="padding: 0.8rem 1.5rem; background: var(--navy); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">Save
+            Changes</button>
+
+        <div style="margin-left: auto; display: flex; gap: 0.5rem; align-items: center;">
+            <span style="color: #666; font-size: 0.9rem; margin-right: 0.5rem;">Upload New Images:</span>
+            <input type="file" id="file-upload" multiple accept="image/*" style="display: none;">
+            <button onclick="document.getElementById('file-upload').click()"
+                style="padding: 0.8rem 1.5rem; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                Select Images
+            </button>
+            <button id="btn-upload" disabled
+                style="padding: 0.8rem 1.5rem; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; opacity: 0.5;">
+                Upload
+            </button>
+        </div>
+    </div>
+
+    <div id="gallery-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;">
+        <!-- Items injected by JS -->
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; justify-content: center; align-items: center;">
+    <img id="lightbox-img" src="" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+    <span id="close-lightbox"
+        style="position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer;">&times;</span>
+</div>
+
+<!-- Context Menu -->
+<div id="context-menu" class="context-menu">
+    <div class="context-item" onclick="openEditorFromMenu()">Edit Image</div>
+    <div class="context-item" onclick="deleteFromMenu()">Delete</div>
+</div>
+
+<!-- Editor Modal -->
+<div id="editor-modal" class="modal-overlay">
+    <div class="modal-content editor-modal-content">
+        <span class="modal-close" onclick="closeEditor()">&times;</span>
+        <h2 class="modal-title">Edit Image: <span id="editor-filename-display"></span></h2>
+
+        <div class="editor-layout">
+            <div class="cropper-container">
+                <img id="editor-img" src="">
+            </div>
+
+            <div class="editor-toolbar">
+                <div class="toolbar-group">
+                    <button class="tool-btn" onclick="cropper.zoom(0.1)" title="Zoom In">+</button>
+                    <button class="tool-btn" onclick="cropper.zoom(-0.1)" title="Zoom Out">-</button>
+                    <button class="tool-btn" onclick="cropper.rotate(-90)" title="Rotate Left">↺</button>
+                    <button class="tool-btn" onclick="cropper.rotate(90)" title="Rotate Right">↻</button>
+                    <button class="tool-btn" onclick="cropper.reset()" title="Reset">Reload</button>
+                </div>
+                <div class="toolbar-group">
+                    <span style="font-size: 0.8rem; color: #666;">Aspect Ratio:</span>
+                    <button class="tool-btn tiny" onclick="cropper.setAspectRatio(NaN)">Free</button>
+                    <button class="tool-btn tiny" onclick="cropper.setAspectRatio(1)">1:1</button>
+                    <button class="tool-btn tiny" onclick="cropper.setAspectRatio(4/3)">4:3</button>
+                    <button class="tool-btn tiny" onclick="cropper.setAspectRatio(16/9)">16:9</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-controls">
+            <div class="info-panel">
+                <h3>Image Info</h3>
+                <p>Original Resolution: <span id="info-resolution">-</span></p>
+                <p>Zoom Level: <span id="info-zoom">-</span></p>
+                <p>Current Filesize: <span id="info-filesize">-</span></p>
+            </div>
+
+            <div class="control-group">
+                <label for="rename-input">Rename Filename:</label>
+                <input type="text" id="rename-input" class="form-control">
+            </div>
+
+            <div class="control-group">
+                <label for="resolution-range">Resolution Scale: <span id="res-val">100</span>% <span
+                        style="color: #666; font-size: 0.8rem;">(Result: <span
+                            id="info-res-result">-</span>)</span></label>
+                <input type="range" id="resolution-range" min="10" max="100" value="100"
+                    oninput="document.getElementById('res-val').textContent = this.value; debounceUpdateSize();">
+            </div>
+
+            <div class="control-group">
+                <label for="quality-range">JPEG Quality: <span id="quality-val">90</span>% <span
+                        style="color: #666; font-size: 0.8rem;">(Est: <span
+                            id="info-est-filesize">-</span>)</span></label>
+                <input type="range" id="quality-range" min="10" max="100" value="90"
+                    oninput="document.getElementById('quality-val').textContent = this.value; debounceUpdateSize();">
+            </div>
+
+            <div class="editor-actions">
+                <button class="btn-primary" onclick="saveEditorChanges()">Save & Overwrite</button>
+                <button id="btn-save-copy" class="btn-primary" style="background: #28a745;" onclick="saveAsCopy()">Save
+                    as Copy</button>
+                <button class="btn-secondary" onclick="closeEditorCheckingDirty()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+    .gallery-card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .thumb-container {
+        height: 150px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .thumb-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .checkbox-wrapper input {
+        margin-right: 0.5rem;
+        transform: scale(1.2);
+    }
+
+    .caption-input {
+        width: 100%;
+        padding: 0.4rem;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        font-size: 0.85rem;
+    }
+
+    .gallery-card {
+        cursor: grab;
+    }
+
+    .gallery-card.dragging {
+        opacity: 0.5;
+        border: 2px dashed #000080;
+        cursor: grabbing;
+    }
+
+    .gallery-card.drag-over {
+        border: 2px solid #28a745;
+        transform: scale(1.02);
+    }
+
+    /* Context Menu Styles */
+    .context-menu {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 11000;
+        min-width: 150px;
+        padding: 0.5rem 0;
+    }
+
+    .context-item {
+        padding: 0.6rem 1rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+
+    .context-item:hover {
+        background: #f4f4f4;
+        color: var(--navy);
+    }
+
+    /* Editor Modal Styles */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10500;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .editor-modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 1000px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .editor-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .cropper-container {
+        border: 1px solid #eee;
+        background: #fafafa;
+        min-height: 400px;
+        height: 60vh;
+        /* Fixed height for scaling */
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .editor-toolbar {
+        display: flex;
+        gap: 1rem;
+        padding: 0.5rem;
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        border-top: none;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .toolbar-group {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+    }
+
+    .tool-btn {
+        padding: 0.4rem 0.8rem;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .tool-btn:hover {
+        background: #eee;
+    }
+
+    .tool-btn.tiny {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+    .editor-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .info-panel {
+        background: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+        border: 1px solid #eee;
+    }
+
+    .info-panel h3 {
+        margin-top: 0;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .info-panel p {
+        margin: 0.3rem 0;
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-top: 0.4rem;
+    }
+
+    .editor-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: auto;
+    }
+
+    .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        background: #eee;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .editor-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+<script>
+    const grid = document.getElementById('gallery-grid');
+    const btnSave = document.getElementById('btn-save');
+    const statusMsg = document.getElementById('status-msg');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.getElementById('close-lightbox');
+
+    // Image Editor & Context Menu
+    const contextMenu = document.getElementById('context-menu');
+    const editorModal = document.getElementById('editor-modal');
+    const editorImg = document.getElementById('editor-img');
+    const editorFilenameDisplay = document.getElementById('editor-filename-display');
+    const renameInput = document.getElementById('rename-input');
+    const qualityRange = document.getElementById('quality-range');
+    const infoResolution = document.getElementById('info-resolution');
+    const infoZoom = document.getElementById('info-zoom');
+    const infoFilesize = document.getElementById('info-filesize');
+    const infoEstFilesize = document.getElementById('info-est-filesize');
+    const infoResResult = document.getElementById('info-res-result');
+    const resolutionRange = document.getElementById('resolution-range');
+    let cropper = null;
+    let currentEditingFilename = '';
+    let isDirty = false;
+
+    // Load Data
+    async function loadGallery() {
+        grid.innerHTML = '<p>Loading...</p>';
+        try {
+            const resp = await fetch('/api/gallery/list');
+            const data = await resp.json();
+            renderGrid(data);
+        } catch (e) {
+            grid.innerHTML = '<p style="color: red;">Error loading gallery data.</p>';
+            console.error(e);
+        }
+    }
+
+    function renderGrid(items) {
+        grid.innerHTML = '';
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'gallery-card';
+            card.innerHTML = `
+                <div class="thumb-container" onclick="openLightbox('${item.filename}')">
+                    <img src="/dist/gallery/${item.filename}" alt="${item.filename}">
+                    <button class="btn-copy" onclick="event.stopPropagation(); copyLink('${item.filename}')" title="Copy Markdown Link"
+                        style="position: absolute; top: 5px; left: 5px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 4px; padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <button class="btn-delete" onclick="event.stopPropagation(); deleteImage('${item.filename}')" 
+                        style="position: absolute; top: 5px; right: 5px; background: rgba(255,0,0,0.8); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">&times;</button>
+                </div>
+                <div class="card-body">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="check-${item.filename}" ${item.active ? 'checked' : ''}>
+                        <label for="check-${item.filename}" style="font-weight: bold; cursor: pointer;">Show on Home</label>
+                    </div>
+                    <label style="font-size: 0.8rem; color: #666;">Caption (HTML allowed):</label>
+                    <textarea class="caption-input" id="cap-${item.filename}" rows="3">${item.caption || ''}</textarea>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+        enableDragAndDrop();
+        enableContextMenu();
+    }
+
+    // Save Data
+    btnSave.addEventListener('click', async () => {
+        btnSave.disabled = true;
+        btnSave.textContent = 'Saving...';
+
+        const cards = document.querySelectorAll('.gallery-card');
+        const data = [];
+
+        cards.forEach(card => {
+            const filename = card.querySelector('img').alt;
+            const active = card.querySelector('input[type="checkbox"]').checked;
+            const caption = card.querySelector('textarea').value;
+
+            data.push({
+                filename,
+                active,
+                caption
+            });
+        });
+
+        try {
+            const resp = await fetch('/api/gallery/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const res = await resp.json();
+
+            if (res.status === 'success') {
+                showStatus('Gallery saved and site rebuilt!', 'success');
+            } else {
+                showStatus('Error saving: ' + res.message, 'error');
+            }
+        } catch (e) {
+            showStatus('Network error occurred.', 'error');
+            console.error(e);
+        } finally {
+            btnSave.disabled = false;
+            btnSave.textContent = 'Save Changes';
+        }
+    });
+
+    function showStatus(msg, type) {
+        statusMsg.style.display = 'block';
+        statusMsg.textContent = msg;
+        statusMsg.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+        statusMsg.style.color = type === 'success' ? '#155724' : '#721c24';
+        setTimeout(() => { statusMsg.style.display = 'none'; }, 3000);
+    }
+
+    // Upload Logic
+    const fileInput = document.getElementById('file-upload');
+    const uploadBtn = document.getElementById('btn-upload');
+
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+            uploadBtn.disabled = false;
+            uploadBtn.style.opacity = '1';
+            uploadBtn.textContent = `Upload ${fileInput.files.length} Image(s)`;
+        }
+    });
+
+    uploadBtn.addEventListener('click', async () => {
+        uploadBtn.disabled = true;
+        uploadBtn.textContent = 'Uploading...';
+
+        const files = Array.from(fileInput.files);
+        const images = [];
+
+        for (const file of files) {
+            const data = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.readAsDataURL(file);
+            });
+            images.push({ filename: file.name, data: data });
+        }
+
+        try {
+            const resp = await fetch('/api/gallery/upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ images })
+            });
+            const res = await resp.json();
+            if (res.status === 'success') {
+                showStatus(`Uploaded ${res.count} images!`, 'success');
+                fileInput.value = '';
+                uploadBtn.disabled = true;
+                uploadBtn.style.opacity = '0.5';
+                uploadBtn.textContent = 'Upload';
+                loadGallery(); // Reload grid
+            } else {
+                showStatus('Upload failed: ' + res.message, 'error');
+            }
+        } catch (e) {
+            showStatus('Network error during upload.', 'error');
+            console.error(e);
+        } finally {
+            if (fileInput.files.length > 0) {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = 'Upload';
+            }
+        }
+    });
+
+    // Delete Logic
+    window.deleteImage = async (filename) => {
+        if (!confirm(`Are you sure you want to delete ${filename}? This cannot be undone.`)) return;
+
+        try {
+            const resp = await fetch('/api/gallery/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filename })
+            });
+            const res = await resp.json();
+            if (res.status === 'success') {
+                showStatus('Image deleted.', 'success');
+                loadGallery();
+            } else {
+                showStatus('Delete failed: ' + res.message, 'error');
+            }
+        } catch (e) {
+            showStatus('Network error during delete.', 'error');
+            console.error(e);
+        }
+    };
+
+    // Copy Link Logic
+    window.copyLink = (filename) => {
+        const path = `/gallery/${filename}`;
+        // Try to copy to clipboard
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(path).then(() => {
+                showStatus('Copied path: ' + path, 'success');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                prompt("Copy this link:", path);
+            });
+        } else {
+            prompt("Copy this link:", path);
+        }
+    };
+
+    // Drag and Drop Logic
+    function enableDragAndDrop() {
+        const cards = document.querySelectorAll('.gallery-card');
+
+        cards.forEach(card => {
+            card.setAttribute('draggable', 'true');
+
+            card.addEventListener('dragstart', (e) => {
+                card.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+            });
+
+            card.addEventListener('dragend', () => {
+                card.classList.remove('dragging');
+                document.querySelectorAll('.gallery-card').forEach(c => c.classList.remove('drag-over'));
+            });
+
+            card.addEventListener('dragenter', (e) => {
+                e.preventDefault();
+                if (card !== document.querySelector('.dragging')) {
+                    card.classList.add('drag-over');
+                }
+            });
+
+            card.addEventListener('dragleave', () => {
+                card.classList.remove('drag-over');
+            });
+
+            card.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            });
+
+            card.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggingCard = document.querySelector('.dragging');
+                if (draggingCard && draggingCard !== card) {
+                    const cardArray = Array.from(grid.children);
+                    const dragIndex = cardArray.indexOf(draggingCard);
+                    const dropIndex = cardArray.indexOf(card);
+
+                    if (dragIndex < dropIndex) {
+                        grid.insertBefore(draggingCard, card.nextSibling);
+                    } else {
+                        grid.insertBefore(draggingCard, card);
+                    }
+                }
+                card.classList.remove('drag-over');
+            });
+        });
+    }
+
+    // Lightbox
+    window.openLightbox = (filename) => {
+        lightboxImg.src = `/dist/gallery/${filename}`;
+        lightbox.style.display = 'flex';
+    };
+
+    closeLightbox.onclick = () => {
+        lightbox.style.display = 'none';
+    };
+
+    lightbox.onclick = (e) => {
+        if (e.target === lightbox) lightbox.style.display = 'none';
+    };
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (editorModal.style.display === 'flex') {
+                closeEditorCheckingDirty();
+            } else {
+                lightbox.style.display = 'none';
+            }
+        }
+    });
+
+    loadGallery();
+
+    // Context Menu Logic
+    function enableContextMenu() {
+        const cards = document.querySelectorAll('.gallery-card');
+        cards.forEach(card => {
+            card.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                currentEditingFilename = card.querySelector('img').alt;
+
+                contextMenu.style.display = 'block';
+                contextMenu.style.left = `${e.pageX}px`;
+                contextMenu.style.top = `${e.pageY}px`;
+            });
+        });
+    }
+
+    document.addEventListener('click', () => {
+        contextMenu.style.display = 'none';
+    });
+
+    window.openEditorFromMenu = async () => {
+        const filename = currentEditingFilename;
+        editorFilenameDisplay.textContent = filename;
+        renameInput.value = filename;
+
+        // Modal & Cropper
+        editorModal.style.display = 'flex';
+
+        if (cropper) {
+            cropper.destroy();
+        }
+
+        // Set onload BEFORE src to avoid race condition
+        editorImg.onload = () => {
+            if (typeof Cropper === 'undefined') {
+                alert("Error: Cropper library failed to load. Check template blocks.");
+                return;
+            }
+
+            cropper = new Cropper(editorImg, {
+                aspectRatio: NaN, // Free crop
+                autoCropArea: 1,
+                viewMode: 1, // Restrict crop box to not exceed the size of the canvas
+                responsive: true,
+                restore: false,
+                checkCrossOrigin: false,
+                modal: true,
+                guides: true,
+                center: true,
+                highlight: true,
+                background: true,
+                ready() {
+                    // Update initial resolution and zoom
+                    infoResolution.textContent = `${editorImg.naturalWidth} x ${editorImg.naturalHeight}`;
+                    updateZoomDisplay();
+                    updateEstimatedSize();
+                },
+                zoom(event) {
+                    // event.detail.ratio is the current zoom ratio
+                    updateZoomDisplay(event.detail.ratio);
+                },
+                cropend() {
+                    isDirty = true;
+                    updateEstimatedSize();
+                }
+            });
+        };
+
+        // Track rename input
+        renameInput.oninput = () => { isDirty = true; };
+        // Track quality range
+        qualityRange.onchange = () => { isDirty = true; };
+        // Track resolution range
+        resolutionRange.onchange = () => { isDirty = true; };
+
+        editorImg.src = `/dist/gallery/${filename}?t=${new Date().getTime()}`;
+
+        // Fetch filesize
+        try {
+            const resp = await fetch(`/dist/gallery/${filename}`, { method: 'HEAD' });
+            const size = resp.headers.get('content-length');
+            if (size) {
+                infoFilesize.textContent = formatBytes(parseInt(size));
+            }
+        } catch (e) { console.error(e); }
+    };
+
+    let sizeDebounceTimer;
+    window.debounceUpdateSize = () => {
+        clearTimeout(sizeDebounceTimer);
+        sizeDebounceTimer = setTimeout(updateEstimatedSize, 300);
+    };
+
+    function updateEstimatedSize() {
+        if (!cropper) return;
+        const quality = parseInt(qualityRange.value) / 100;
+        const scale = parseInt(resolutionRange.value) / 100;
+
+        try {
+            const cropData = cropper.getData();
+            const targetWidth = Math.round(cropData.width * scale);
+            const targetHeight = Math.round(cropData.height * scale);
+
+            infoResResult.textContent = `${targetWidth} x ${targetHeight}`;
+
+            const canvas = cropper.getCroppedCanvas({
+                width: targetWidth,
+                height: targetHeight
+            });
+
+            if (!canvas) return;
+            canvas.toBlob((blob) => {
+                if (blob) {
+                    infoEstFilesize.textContent = formatBytes(blob.size);
+                }
+            }, 'image/jpeg', quality);
+        } catch (e) {
+            console.error("Error estimating size:", e);
+            infoEstFilesize.textContent = "Error";
+        }
+    }
+
+    function updateZoomDisplay(ratio) {
+        if (!cropper) return;
+        // If ratio not provided, get from cropper
+        const r = ratio || cropper.getData().scaleX || 1; // Simplification, cropper might not expose direct ratio in a simple way without zooming
+
+        // Better: use getCanvasData to see displayed vs natural
+        const canvasData = cropper.getCanvasData();
+        const currentRatio = canvasData.width / canvasData.naturalWidth;
+        const percentage = Math.round(currentRatio * 100);
+
+        infoZoom.textContent = `${percentage}% required to fit`;
+    }
+
+    window.closeEditor = () => {
+        editorModal.style.display = 'none';
+        if (cropper) {
+            cropper.destroy();
+            cropper = null;
+        }
+        isDirty = false;
+    };
+
+    window.closeEditorCheckingDirty = () => {
+        if (isDirty) {
+            if (confirm("You have unsaved changes. Are you sure you want to close?")) {
+                closeEditor();
+            }
+        } else {
+            closeEditor();
+        }
+    };
+
+    window.saveEditorChanges = async () => {
+        const newFilename = renameInput.value.trim();
+        const quality = parseInt(qualityRange.value) / 100;
+        const scale = parseInt(resolutionRange.value) / 100;
+
+        if (!newFilename) return alert("Filename cannot be empty");
+
+        const btn = document.querySelector('.editor-actions .btn-primary');
+        const originalText = btn.textContent;
+        btn.textContent = 'Saving...';
+        btn.disabled = true;
+
+        try {
+            // 1. Handle Crop, Res & Quality
+            const cropData = cropper.getData();
+            const canvas = cropper.getCroppedCanvas({
+                width: Math.round(cropData.width * scale),
+                height: Math.round(cropData.height * scale)
+            });
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+
+            // If filename changed, we should rename first or just upload with new name and delete old one?
+            if (newFilename !== currentEditingFilename) {
+                const renResp = await fetch('/api/gallery/rename', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ old_filename: currentEditingFilename, new_filename: newFilename })
+                });
+                const renRes = await renResp.json();
+                if (renRes.status !== 'success') throw new Error(renRes.message || "Rename failed");
+            }
+
+            // 2. Upload the new image data
+            const upResp = await fetch('/api/gallery/upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    images: [{ filename: newFilename, data: dataUrl }]
+                })
+            });
+            const upRes = await upResp.json();
+
+            if (upRes.status === 'success') {
+                showStatus('Image updated successfully!', 'success');
+                isDirty = false;
+                closeEditor();
+                loadGallery();
+            } else {
+                throw new Error(upRes.message || "Update failed");
+            }
+
+        } catch (e) {
+            showStatus('Error: ' + e.message, 'error');
+            console.error(e);
+        } finally {
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
+    };
+
+    window.saveAsCopy = async () => {
+        let suggestedName = currentEditingFilename;
+        const parts = suggestedName.split('.');
+        if (parts.length > 1) {
+            const ext = parts.pop();
+            suggestedName = parts.join('.') + '_copy.' + ext;
+        } else {
+            suggestedName += '_copy';
+        }
+
+        const newFilename = prompt("Enter filename for the new copy:", suggestedName);
+        if (!newFilename) return;
+
+        const quality = parseInt(qualityRange.value) / 100;
+        const scale = parseInt(resolutionRange.value) / 100;
+        const btn = document.getElementById('btn-save-copy');
+        const originalText = btn.textContent;
+        btn.textContent = 'Saving...';
+        btn.disabled = true;
+
+        try {
+            const cropData = cropper.getData();
+            const canvas = cropper.getCroppedCanvas({
+                width: Math.round(cropData.width * scale),
+                height: Math.round(cropData.height * scale)
+            });
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+
+            const upResp = await fetch('/api/gallery/upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    images: [{ filename: newFilename, data: dataUrl }]
+                })
+            });
+            const upRes = await upResp.json();
+
+            if (upRes.status === 'success') {
+                showStatus('Copy saved successfully!', 'success');
+                isDirty = false;
+                closeEditor();
+                loadGallery();
+            } else {
+                throw new Error(upRes.message || "Save copy failed");
+            }
+        } catch (e) {
+            showStatus('Error: ' + e.message, 'error');
+            console.error(e);
+        } finally {
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
+    };
+
+    window.deleteFromMenu = () => {
+        if (currentEditingFilename) {
+            deleteImage(currentEditingFilename);
+        }
+    };
+
+    function formatBytes(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

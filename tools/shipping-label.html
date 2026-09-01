@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Klesh - Field Engineering</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+
+<div class="label-tool-container">
+
+    <div class="label-tool-header">
+        <span class="note-tag">Internal tool</span>
+        <h1>Shipping label sheet</h1>
+        <p>Build a sheet of 4×6&Prime; shipping labels, four to a page, for outgoing field gear. Print directly or
+            export a PDF.</p>
+        <p class="label-tool-privacy-note">
+            <i class="ti ti-shield-lock" aria-hidden="true"></i>
+            Everything here — the label queue and any saved recipients — stays in this browser. Nothing is sent to a
+            server.
+        </p>
+    </div>
+
+    <div class="label-tool-grid">
+
+        <!-- Form panel -->
+        <div class="label-tool-panel">
+            <h2 class="label-tool-section-title">Add a label</h2>
+            <form id="labelForm">
+                <div class="form-group">
+                    <label for="f_name">Recipient name</label>
+                    <input type="text" id="f_name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="f_addr1">Address line 1 <span
+                            style="text-transform:none;letter-spacing:normal;font-weight:400;">(company /
+                            institution)</span></label>
+                    <input type="text" id="f_addr1" placeholder="University of California">
+                </div>
+                <div class="form-group">
+                    <label for="f_addr2">Address line 2 <span
+                            style="text-transform:none;letter-spacing:normal;font-weight:400;">(M/S, dept,
+                            suite)</span></label>
+                    <input type="text" id="f_addr2" placeholder="M/S 12345">
+                </div>
+                <div class="form-group">
+                    <label for="f_addr3">Street address</label>
+                    <input type="text" id="f_addr3" placeholder="12345 Down Street" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="f_city">City</label>
+                        <input type="text" id="f_city" placeholder="Greenville" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="f_state">State / prov.</label>
+                        <input type="text" id="f_state" placeholder="CA">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="f_zip">Postal code</label>
+                    <input type="text" id="f_zip" placeholder="91101">
+                </div>
+                <div class="form-group">
+                    <label for="f_country">Country</label>
+                    <input type="text" id="f_country" placeholder="United States" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="f_phone">Contact phone</label>
+                        <input type="text" id="f_phone" placeholder="+1 555 010 1234" required>
+                    </div>
+                    <div class="form-group boxnum-group">
+                        <label for="f_box">Box # <span
+                                style="text-transform:none;letter-spacing:normal;font-weight:400;">(optional)</span></label>
+                        <input type="text" id="f_box" placeholder="1 of 3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="f_copies">Copies of this label</label>
+                    <input type="number" id="f_copies" min="1" max="20" value="1">
+                    <p class="form-hint">To label multiple boxes, add this recipient once per box and change
+                        "Box #" each time (e.g. 1 of 3, 2 of 3, 3 of 3).</p>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                        <i class="ti ti-plus" aria-hidden="true"></i> Add label to sheet
+                    </button>
+                    <button type="button" id="saveLibraryBtn" class="btn">
+                        <i class="ti ti-device-floppy" aria-hidden="true"></i> Save to library
+                    </button>
+                </div>
+            </form>
+
+            <div class="label-tool-library">
+                <h2 class="label-tool-section-title">Saved recipients <span class="count-badge"
+                        id="libraryCount"></span></h2>
+                <p class="form-hint" style="margin:0 0 10px;">Saved on this device only. Pick "Add to sheet" to queue
+                    one for printing.</p>
+                <div id="libraryList"></div>
+            </div>
+
+            <div class="label-tool-queue">
+                <h2 class="label-tool-section-title">Queued labels</h2>
+                <div id="queueList"></div>
+            </div>
+
+            <button type="button" id="clearAllBtn" class="btn"
+                style="width:100%;justify-content:center;margin-top:10px;">
+                <i class="ti ti-trash" aria-hidden="true"></i> Clear all
+            </button>
+        </div>
+
+        <!-- Preview -->
+        <div class="label-tool-preview">
+            <div class="label-tool-toolbar no-print">
+                <div class="count" id="toolbarCount">0 labels &middot; 0 sheets</div>
+                <div class="toolbar-btns">
+                    <button type="button" id="printBtn" class="btn">
+                        <i class="ti ti-printer" aria-hidden="true"></i> Print
+                    </button>
+                    <button type="button" id="pdfBtn" class="btn-primary">
+                        <i class="ti ti-download" aria-hidden="true"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+            <div class="label-tool-sheets" id="sheetsContainer"></div>
+        </div>
+
+    </div>
+
+    <p class="label-tool-credit no-print">
+        Print export uses
+        <a href="https://html2canvas.hertzen.com/" target="_blank" rel="noopener noreferrer">html2canvas</a>
+        and
+        <a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener noreferrer">jsPDF</a>,
+        loaded from cdnjs.
+    </p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    (function () {
+        const state = { labels: [] };
+        let editIndex = null;
+        let editLibraryId = null;
+        const LIBRARY_KEY = 'shippingLabelLibrary_v1';
+
+        const form = document.getElementById('labelForm');
+        const queueList = document.getElementById('queueList');
+        const libraryList = document.getElementById('libraryList');
+        const libraryCount = document.getElementById('libraryCount');
+        const sheetsContainer = document.getElementById('sheetsContainer');
+        const toolbarCount = document.getElementById('toolbarCount');
+
+        function loadLibrary() {
+            try {
+                const raw = window.localStorage.getItem(LIBRARY_KEY);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (err) {
+                console.warn('Could not read saved recipients from this browser:', err);
+                return [];
+            }
+        }
+
+        function persistLibrary() {
+            try {
+                window.localStorage.setItem(LIBRARY_KEY, JSON.stringify(library));
+            } catch (err) {
+                console.warn('Could not save recipients to this browser:', err);
+                alert('This recipient was added but could not be saved locally (your browser may be blocking local storage).');
+            }
+        }
+
+        let library = loadLibrary();
+
+        function fieldVals() {
+            return {
+                name: document.getElementById('f_name').value.trim(),
+                addr1: document.getElementById('f_addr1').value.trim(),
+                addr2: document.getElementById('f_addr2').value.trim(),
+                addr3: document.getElementById('f_addr3').value.trim(),
+                city: document.getElementById('f_city').value.trim(),
+                state: document.getElementById('f_state').value.trim(),
+                zip: document.getElementById('f_zip').value.trim(),
+                country: document.getElementById('f_country').value.trim(),
+                phone: document.getElementById('f_phone').value.trim(),
+                box: document.getElementById('f_box').value.trim(),
+            };
+        }
+
+        function resetForm() {
+            form.reset();
+            document.getElementById('f_copies').value = 1;
+            editIndex = null;
+            editLibraryId = null;
+            form.querySelector('button[type="submit"]').innerHTML = '<i class="ti ti-plus" aria-hidden="true"></i> Add label to sheet';
+            document.getElementById('saveLibraryBtn').innerHTML = '<i class="ti ti-device-floppy" aria-hidden="true"></i> Save to library';
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const vals = fieldVals();
+            if (!vals.name || !vals.addr3 || !vals.city || !vals.country || !vals.phone) {
+                return;
+            }
+            if (editIndex !== null) {
+                state.labels[editIndex] = vals;
+            } else {
+                const copies = Math.max(1, Math.min(20, parseInt(document.getElementById('f_copies').value, 10) || 1));
+                for (let i = 0; i < copies; i++) {
+                    state.labels.push(Object.assign({}, vals));
+                }
+            }
+            resetForm();
+            render();
+        });
+
+        document.getElementById('clearAllBtn').addEventListener('click', function () {
+            if (state.labels.length && !confirm('Remove all queued labels?')) return;
+            state.labels = [];
+            resetForm();
+            render();
+        });
+
+        function saveCurrentToLibrary() {
+            const vals = fieldVals();
+            if (!vals.name || !vals.addr3 || !vals.city || !vals.country || !vals.phone) {
+                alert('Fill in at least name, street address, city, country, and phone before saving.');
+                return;
+            }
+            if (editLibraryId) {
+                const idx = library.findIndex(e => e.id === editLibraryId);
+                if (idx !== -1) {
+                    library[idx] = Object.assign({ id: editLibraryId }, vals);
+                }
+                persistLibrary();
+                renderLibrary();
+                resetForm();
+            } else {
+                const entry = Object.assign(
+                    { id: 'lib_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7) },
+                    vals
+                );
+                library.push(entry);
+                persistLibrary();
+                renderLibrary();
+            }
+        }
+
+        function editLibraryEntry(id) {
+            const entry = library.find(e => e.id === id);
+            if (!entry) return;
+            document.getElementById('f_name').value = entry.name || '';
+            document.getElementById('f_addr1').value = entry.addr1 || '';
+            document.getElementById('f_addr2').value = entry.addr2 || '';
+            document.getElementById('f_addr3').value = entry.addr3 || '';
+            document.getElementById('f_city').value = entry.city || '';
+            document.getElementById('f_state').value = entry.state || '';
+            document.getElementById('f_zip').value = entry.zip || '';
+            document.getElementById('f_country').value = entry.country || '';
+            document.getElementById('f_phone').value = entry.phone || '';
+            document.getElementById('f_box').value = entry.box || '';
+            editIndex = null;
+            editLibraryId = id;
+            form.querySelector('button[type="submit"]').innerHTML = '<i class="ti ti-plus" aria-hidden="true"></i> Add label to sheet';
+            document.getElementById('saveLibraryBtn').innerHTML = '<i class="ti ti-device-floppy" aria-hidden="true"></i> Update saved recipient';
+            document.getElementById('f_name').focus();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function addLibraryEntryToQueue(id) {
+            const entry = library.find(e => e.id === id);
+            if (!entry) return;
+            const vals = Object.assign({}, entry);
+            delete vals.id;
+            state.labels.push(vals);
+            render();
+        }
+
+        function deleteLibraryEntry(id) {
+            library = library.filter(e => e.id !== id);
+            persistLibrary();
+            renderLibrary();
+        }
+
+        document.getElementById('saveLibraryBtn').addEventListener('click', saveCurrentToLibrary);
+
+        libraryList.addEventListener('click', function (e) {
+            const btn = e.target.closest('button[data-lib-act]');
+            if (!btn) return;
+            const id = btn.getAttribute('data-id');
+            const act = btn.getAttribute('data-lib-act');
+            if (act === 'edit') editLibraryEntry(id);
+            if (act === 'add') addLibraryEntryToQueue(id);
+            if (act === 'del') {
+                if (confirm('Remove this saved recipient from this browser?')) deleteLibraryEntry(id);
+            }
+        });
+
+        function renderLibrary() {
+            libraryCount.textContent = library.length ? `(${library.length})` : '';
+            if (!library.length) {
+                libraryList.innerHTML = '<div class="label-tool-empty-note">No saved recipients yet. Fill out the form and choose "Save to library" to reuse it later.</div>';
+                return;
+            }
+            libraryList.innerHTML = library.map(l => `
+      <div class="queue-item">
+        <div class="qi-top">
+          <div>
+            <div class="qi-name">${esc(l.name)}</div>
+            <div class="qi-addr">${esc(l.addr3)}, ${esc(l.city)}${l.state ? ', ' + esc(l.state) : ''} ${esc(l.zip)}<br>${esc(l.country)}</div>
+          </div>
+        </div>
+        <div class="qi-actions">
+          <button type="button" class="btn" data-lib-act="edit" data-id="${esc(l.id)}">Edit</button>
+          <button type="button" class="btn" data-lib-act="add" data-id="${esc(l.id)}">Add to sheet</button>
+          <button type="button" class="btn qi-delete" data-lib-act="del" data-id="${esc(l.id)}">Delete</button>
+        </div>
+      </div>
+    `).join('');
+        }
+
+        function editLabel(idx) {
+            const l = state.labels[idx];
+            document.getElementById('f_name').value = l.name;
+            document.getElementById('f_addr1').value = l.addr1;
+            document.getElementById('f_addr2').value = l.addr2;
+            document.getElementById('f_addr3').value = l.addr3;
+            document.getElementById('f_city').value = l.city;
+            document.getElementById('f_state').value = l.state;
+            document.getElementById('f_zip').value = l.zip;
+            document.getElementById('f_country').value = l.country;
+            document.getElementById('f_phone').value = l.phone;
+            document.getElementById('f_box').value = l.box;
+            editIndex = idx;
+            editLibraryId = null;
+            document.getElementById('saveLibraryBtn').innerHTML = '<i class="ti ti-device-floppy" aria-hidden="true"></i> Save to library';
+            form.querySelector('button[type="submit"]').innerHTML = '<i class="ti ti-device-floppy" aria-hidden="true"></i> Save changes';
+            document.getElementById('f_name').focus();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function duplicateLabel(idx) {
+            const copy = Object.assign({}, state.labels[idx]);
+            state.labels.splice(idx + 1, 0, copy);
+            render();
+        }
+
+        function deleteLabel(idx) {
+            state.labels.splice(idx, 1);
+            if (editIndex === idx) resetForm();
+            render();
+        }
+
+        function esc(s) {
+            const d = document.createElement('div');
+            d.textContent = s == null ? '' : s;
+            return d.innerHTML;
+        }
+
+        function renderQueue() {
+            if (!state.labels.length) {
+                queueList.innerHTML = '<div class="label-tool-empty-note">No labels queued yet. Fill out the form above to add your first label.</div>';
+                return;
+            }
+            queueList.innerHTML = state.labels.map((l, idx) => `
+      <div class="queue-item">
+        <div class="qi-top">
+          <div>
+            <div class="qi-name">${esc(l.name)}</div>
+            <div class="qi-addr">${esc(l.addr3)}, ${esc(l.city)}${l.state ? ', ' + esc(l.state) : ''} ${esc(l.zip)}<br>${esc(l.country)}</div>
+          </div>
+          ${l.box ? `<div class="qi-box">BOX ${esc(l.box)}</div>` : ''}
+        </div>
+        <div class="qi-actions">
+          <button type="button" class="btn" data-act="edit" data-idx="${idx}">Edit</button>
+          <button type="button" class="btn" data-act="dup" data-idx="${idx}">Duplicate</button>
+          <button type="button" class="btn qi-delete" data-act="del" data-idx="${idx}">Delete</button>
+        </div>
+      </div>
+    `).join('');
+        }
+
+        queueList.addEventListener('click', function (e) {
+            const btn = e.target.closest('button[data-act]');
+            if (!btn) return;
+            const idx = parseInt(btn.getAttribute('data-idx'), 10);
+            const act = btn.getAttribute('data-act');
+            if (act === 'edit') editLabel(idx);
+            if (act === 'dup') duplicateLabel(idx);
+            if (act === 'del') deleteLabel(idx);
+        });
+
+        function labelCellHTML(l) {
+            if (!l) {
+                return `<div class="label-cell empty"><div class="label-inner"><div class="label-rotate">Empty slot</div></div></div>`;
+            }
+            const lines = [];
+            if (l.addr1) lines.push(l.addr1);
+            if (l.addr2) lines.push(l.addr2);
+            lines.push(l.addr3);
+            const cityLine = [l.city, l.state].filter(Boolean).join(', ') + (l.zip ? ' ' + l.zip : '');
+            const boxTag = l.box
+                ? `<span class="box-tag">BOX ${esc(l.box)}</span>`
+                : `<span class="box-tag placeholder">/</span>`;
+            return `
+      <div class="label-cell">
+        <div class="label-inner">
+          <div class="label-rotate">
+            <div class="label-head">
+              <span class="ship-to-tag">Ship To</span>
+              ${boxTag}
+            </div>
+            <div class="label-body">
+              <div class="lb-name">${esc(l.name)}</div>
+              ${lines.map(ln => `<div class="lb-line">${esc(ln)}</div>`).join('')}
+              <div class="lb-line">${esc(cityLine)}</div>
+              <div class="lb-country">${esc(l.country)}</div>
+            </div>
+            <div class="label-foot">
+              <span><span class="foot-tag">Tel</span>${esc(l.phone)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+        }
+
+        function renderSheets() {
+            if (!state.labels.length) {
+                sheetsContainer.innerHTML = `
+        <div class="label-tool-empty-state">
+          <i class="ti ti-package" aria-hidden="true"></i>
+          Your label sheet preview will appear here.<br>Add a recipient on the left to get started.
+        </div>`;
+                return;
+            }
+            const perSheet = 4;
+            const sheetCount = Math.ceil(state.labels.length / perSheet);
+            let html = '';
+            for (let s = 0; s < sheetCount; s++) {
+                const chunk = state.labels.slice(s * perSheet, s * perSheet + perSheet);
+                while (chunk.length < perSheet) chunk.push(null);
+                html += `<div class="sheet-caption no-print">Sheet ${s + 1} of ${sheetCount}</div>`;
+                html += `<div class="sheet" id="sheet-${s}">
+          <div class="center-crossline-h"></div>
+          <div class="center-crossline-v"></div>
+          ${chunk.map(labelCellHTML).join('')}
+        </div>`;
+            }
+            sheetsContainer.innerHTML = html;
+        }
+
+        function updateCounts() {
+            const n = state.labels.length;
+            const sheets = Math.ceil(n / 4) || 0;
+            toolbarCount.textContent = `${n} label${n !== 1 ? 's' : ''} · ${sheets} sheet${sheets !== 1 ? 's' : ''}`;
+        }
+
+        function render() {
+            renderQueue();
+            renderSheets();
+            updateCounts();
+        }
+
+        document.getElementById('printBtn').addEventListener('click', function () {
+            if (!state.labels.length) { alert('Add at least one label first.'); return; }
+            window.print();
+        });
+
+        document.getElementById('pdfBtn').addEventListener('click', async function () {
+            if (!state.labels.length) { alert('Add at least one label first.'); return; }
+            const btn = this;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = 'Generating PDF…';
+            btn.disabled = true;
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ unit: 'in', format: 'letter', orientation: 'portrait' });
+                const sheets = document.querySelectorAll('.sheet');
+                for (let i = 0; i < sheets.length; i++) {
+                    const canvas = await html2canvas(sheets[i], { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
+                    const imgData = canvas.toDataURL('image/png');
+                    if (i > 0) pdf.addPage('letter', 'portrait');
+                    pdf.addImage(imgData, 'PNG', 0, 0, 8.5, 11);
+                }
+                pdf.save('shipping-labels.pdf');
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong generating the PDF. Please try Print instead.');
+            } finally {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }
+        });
+
+        renderLibrary();
+        render();
+    })();
+</script>
+
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

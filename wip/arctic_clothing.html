@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arctic Clothing - Field Notes</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EL3G889MK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2EL3G889MK');
+</script>
+
+<body>
+    <header class="site-header">
+    <div class="site-header-inner">
+        <div class="logo"><a href="/">Andrew Klesh</a></div>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="site-nav">
+            <ul>
+                <li><a href="/field-notes.html">Field Notes</a></li>
+                <li class="dropdown">
+                    <a href="/projects.html">Projects ▾ <span class="menu-badge wip">WIP</span></a>
+                    <div class="dropdown-content">
+                        <a href="/projects.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">All
+                            Projects &rarr;</a>
+                        <div class="dropdown-header">Space Systems</div>
+                        <a href="/projects/marco.html">MarCO (Interplanetary)</a>
+                        <a href="/projects/inspire.html">INSPIRE (Deep Space)</a>
+                        <a href="/projects/rax.html">RAX (LEO)</a>
+
+                        <div class="dropdown-header">Ocean & Ice</div>
+                        <a href="/projects/orpheus.html">Orpheus (Hadal AUV)</a>
+                        <a href="/projects/bruie.html">Buoyant Rover</a>
+                        <a href="/projects/deep-ocean.html">Deep Ocean Expeditions</a>
+                        <a href="/projects/glacier-mountain.html">Glacier & Mountain</a>
+
+                        <div class="dropdown-header">Earth Science</div>
+                        <a href="/projects/das.html">DAS (Seismic/Volcano)</a>
+                        <a href="/projects/geology.html">Geology & Volcanology</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Gear / Tools ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/gear.html">Gear & Kits</a>
+                        <a href="/tools.html">Software Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/for-students.html">For Students ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/courses.html">Courses</a>
+                        <a href="/opportunities.html">Opportunities</a>
+                        <!--<a href="/life-in-field.html">Life in the Field</a>-->
+                        <a href="/references.html">References</a>
+                        <a href="/pay-it-forward.html">Pay It Forward</a>
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="/wip/index.html" style="color: #d97706; font-weight: bold;">WIP ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/wip/index.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">WIP
+                            Index &rarr;</a>
+                        
+                        <a href="/wip/arctic_clothing.html">Arctic Clothing</a>
+                        
+                        <a href="/wip/denali.html">Denali</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#">About ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/meet-andy.html"
+                            style="font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Meet
+                            Andy →</a>
+                        <a href="/resume.html">Resume</a>
+                        <a href="/fail-resume.html">Fail Resume</a>
+                        <a href="/open-research.html">Active Research</a>
+                        <a href="/publications.html">Publications</a>
+                        <a href="/media.html">Media</a>
+                        <a href="/this-website.html">This Website</a>
+                        <a href="/contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        
+<div class="page-head">
+    <h1 style="font-size: 2.2rem;">Arctic Clothing</h1>
+    
+    
+    
+
+<button class="notes-toggle" id="notesDrawerToggle" aria-expanded="false" aria-controls="notesDrawerPanel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+    </svg>
+    All Notes <span class="count">(0)</span>
+</button>
+
+<div class="drawer-backdrop" id="notesDrawerBackdrop"></div>
+<nav class="drawer" id="notesDrawerPanel" aria-label="All Notes">
+    <div class="drawer-head">
+        <h2>All Notes</h2>
+        <button class="drawer-close" id="notesDrawerClose" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    <div class="drawer-list">
+        
+    </div>
+</nav>
+
+<script>
+    (function () {
+        var notesDrawerToggleBtn = document.getElementById('notesDrawerToggle');
+        var notesDrawerEl = document.getElementById('notesDrawerPanel');
+        var notesDrawerBackdropEl = document.getElementById('notesDrawerBackdrop');
+        var notesDrawerCloseBtn = document.getElementById('notesDrawerClose');
+
+        if (!notesDrawerToggleBtn || !notesDrawerEl || !notesDrawerBackdropEl || !notesDrawerCloseBtn) {
+            return;
+        }
+
+        function openNotesDrawer() {
+            notesDrawerEl.classList.add('open');
+            notesDrawerBackdropEl.classList.add('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeNotesDrawer() {
+            notesDrawerEl.classList.remove('open');
+            notesDrawerBackdropEl.classList.remove('open');
+            notesDrawerToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        notesDrawerToggleBtn.addEventListener('click', function () {
+            notesDrawerEl.classList.contains('open') ? closeNotesDrawer() : openNotesDrawer();
+        });
+        notesDrawerCloseBtn.addEventListener('click', closeNotesDrawer);
+        notesDrawerBackdropEl.addEventListener('click', closeNotesDrawer);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeNotesDrawer();
+        });
+    })();
+</script>
+</div>
+
+<main class="notes-main">
+    <article class="blog-post">
+        <header style="margin-bottom: 3rem; border-bottom: 2px solid var(--navy); padding-bottom: 1.5rem;">
+            <div style="color: #666; font-size: 0.9rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <span>&#128197; Draft</span>
+                
+                
+            </div>
+        </header>
+
+
+        <div class="blog-content" style="font-size: 1.1rem; line-height: 1.6; color: #333;">
+            <hr />
+<hr />
+<p>title: Arctic Clothing
+date: 2026-08-14
+sticky: false
+image: /gallery/EDC_Open.JPG
+keywords: clothing, arctic</p>
+<hr />
+<h1>Overview</h1>
+<p>It&rsquo;s cold in the arctic. It&rsquo;s also unbearably hot, steamy, and sweaty when you are working in a glacial bowl with sunlight reflecting upward, providing sunburns inside your nostrils.</p>
+<p>My clothing selection has evolved with experience gained and with investment opportunity. During my first few trips to the arctic, I was over-layering (I counted 11 upper layers at one point) with inefficient intent for each layer - and I felt cold.</p>
+<p>Below, I&rsquo;ll discuss not only what is included in the kit and why, but will provide some of the tools that have been removed from kit along with the justification.</p>
+<p>If you&rsquo;d like to jump straight to the inventory list of the kit, click <a href="#EDC">here</a>. While I have provided Amazon links for ease of use, I do not receive affiliate credit.</p>
+<h2>General Philosophy</h2>
+<p>This kit is designed to handle most problems encountered during scientific expeditions. While larger or heavier tools may be required at times, it is rare that my role requires them without having larger kits nearby.</p>
+<p>Sockets and drivers have been sized for most of the systems my teams and I generally work with, including robotic systems, basic automotive repair, electronics.</p>
+<p>I prefer parts and cabling to work from extremely cold to extremely hot temperatures. While the Fluke LCD can get sluggish in the cold, it has never stopped working. If I know we&rsquo;ll spend extended time in the cold, I&rsquo;ll replace its batteries with Energizer Lithium primary cells, but alkalines are usually not a problem. Similarly, I&rsquo;ve now replaced all PVC-insulated cabling with silicone-insulated cabling to better survive the environment.</p>
+<p>This kit is not meant to solve every problem. When creating it, I thought through the most common types of problems we&rsquo;ve previously encountered and what the minimum necessary equipment was to work through the issue. Not all solutions would be optimal or even easy (having to open up crates with many screws would take awhile), but they would be solvable. I keep lists during expeditions of what tool I wish I had (or what tools others love) so that I can decide afterward whether it should be included.</p>
+<p>Its important to understand what tools might be available both early and late in an expedition - those times where most gear is either still packed or has already been packed for shipping. Having the necessary cutters to slice open the shipping straps or having a sharpie for last minute labeling is important.</p>
+<p>In general, I try and make my kits nestable - what I carry on my person is augmented by this EDC, which itself may be augmented by a backpack in the field or a tool kit in the lab. Unlike a home shop, it may not be feasible to have &ldquo;first-order-retrievability&rdquo; and many copies of the same tool simply due to logistics.</p>
+<p>Ultimately, think through your own kit and why you are including the tools that you are. Try it out and alter as necessary.</p>
+<h2>Every Day Carry Kit Inventory</h2>
+<p><strong><a href="https://www.amazon.com/dp/B06Y5X9PY8">Rite in the Rain Weatherproof Mini-Stapled Notebook, Universal Pattern, 3.25&rdquo;x4.625&rdquo;</a></strong>
+There are innumerable reasons to have a notebook in the field, whether notes, designs, or sketches. These often come as a 3-pack and can slide into your pocket when needed. Rite-in-the-Rain (and other waterproof paper) works well with pencils or pens, but be careful not to use water-soluble inks or it might run. I prefer the universal pattern, but normal lined paper is available as well.</p>
+<p><strong><a href="https://www.amazon.com/dp/B000A0S4YY">Sharpie Fine Point Permanent Marker</a></strong>
+Permanent markers are great for labeling of tape or shipping boxes. You can use them to write on glass (removable with alcohol wipes), but they tend not to work as well on wet or cold surfaces.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0DR8PGP8K">USB-C Fast Charging &amp; Data Cable 4ft</a></strong>
+A USB-C cable is required for the portable soldering iron, but be sure to get a data-capable cable rather than charge-only for other uses. Many cables have a PVC or other plastic insulation - silicone will work better in cold environments as it will remain flexible and not crack. This particular cable is pretty thick - I&rsquo;m hoping that will prevent damage from over-flexing.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0B4CJ7X8F">RovyVon 4th SB-C Aurora A8 Flashlight</a></strong>
+This small usb-chargeable flashlight has both a forward light as well as a side light. Several versions are available, including inclusion of a red light or an UV light. It also has a magnetic side clip which can attach the light to the brim of a hat.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0F7R9DQHY">Wera Tool-Check Plus 2</a></strong>
+This is a very useful kit, however I no longer carry the full socket and bit set due to size. The short screwdriver is the sole item still in the EDC.</p>
+<p><strong><a href="https://www.amazon.com/dp/B08XTW2Q2D">Wera Long Arm Hex Key Set</a></strong>
+Both the <a href="https://www.amazon.com/dp/B08XTW2Q2D">SAE</a> and <a href="https://www.amazon.com/dp/B009ODV0OE">metric</a> sets are useful. I&rsquo;ve included the smaller sizes (SAE: thru 3/16&rdquo;, Metric: thru 5mm). Since these are ball head, be careful about cranking on them.</p>
+<p><strong><a href="https://www.amazon.com/dp/B002DAHO0Y">Maxpedition E.D.C. Pocket Organizer</a></strong>
+This size of organizer makes it easier to fit into a backpack or larger bag, but with all this gear, it will no longer fit in a pocket. There are velcro labeling points, but I&rsquo;ve found most labels tend to catch on the edges of other items when in a backpack.</p>
+<p><strong><a href="https://www.amazon.com/dp/B000FKFUL4">Gerber Gear Ripstop Knife, Stainless Steel</a></strong>
+When at all possible, stick with stainless steel (or other non-corroding metals) for easy use in a variety of environments. Skeleton knives make for easy cleaning and good grip, but be sure the blade has a solid lock. I also like the thin nature of knife as I attach it by the clip on the back of the EDC for easy access.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0FCH6MGM9">Rite in the Rain Weatherproof Durable Black Plastic Clicker Pen</a></strong>
+Any waterproof pen will work well - I carry a Fisher Space-Tec pen, but I&rsquo;ve had a hard time finding a link to these.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0B44WXHR4">Metal Mechanical Pencil Set 0.7mm</a></strong>
+Pencils work equally well in wet (or no-gravity) environments, however the eraser will not always work well on waterproof paper. Plastic mechanical pencils have a tendency to break or shatter, hence the need to go metal.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0009VM66Q">Mini Pry-Bar, 5 1/2 inch</a></strong>
+The mini pry-bar is useful for opening wooden crates and removing staples, however, it can flex. I&rsquo;m looking for alternatives.</p>
+<p><strong><a href="https://www.amazon.com/dp/B096X6SG13">Pinecil Smart Mini Portable Soldering Iron</a></strong>
+A USB-powered soldering iron is incredibly flexible - it can be powered by a wall-wart, a battery pack, or even a laptop. This model allows for temperature setting and control. Different tips can be used, but I&rsquo;ve found the default version to work well. I often will pack a coil of leaded solder in the kit as well.</p>
+<p><strong><a href="https://www.amazon.com/dp/B09J95YPXF">Precision Tweezers, Stainless Steel</a></strong>
+Whether for electronic debugging or working with small mechanical parts, tweezers are extremely useful. Keep the tip protector if feasible or create another with tape or some foam.</p>
+<p><strong><a href="https://www.amazon.com/dp/B000V6W5QU">Klein Wire Stripper and Cutter</a></strong>
+I prefer the feel and use of these simple wire strippers and cutters, but be careful what material you try and cut. Hardened materials may damage the cutter. When stripping wire, there is a good chance that you&rsquo;ll cut some of the wire strands, however these fit well in the kit and serve better than a blade to strip wire.</p>
+<p><strong><a href="https://www.amazon.com/dp/B09NX72765">Klein Impact Driver 7-in-1 SAE Socket Set</a></strong>
+A socket set is infinitely useful - this one allows for compact storage. Several of the sockets are the right size for hose clamp bolts, though they can be tricky to use in a drill. Consider the size of bolts you might use on an expedition and assure you have the appropriate sockets included.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0F13JQL51">Kaiweets Silicone Multimeter Test Leads</a></strong>
+Most multimeters come with PVC insulated wiring which becomes brittle and inflexible in the cold. I&rsquo;ve been switching several of my multimeters to these silicone leads to avoid this problem and the leads seem to hold up well, though they are not as compact as more standard leads.</p>
+<p><strong><a href="https://www.amazon.com/dp/B00HEAMLCO">Fluke 106 Palm-Sized Digital Multimeter</a></strong>
+While there are more compact multimeters, they&rsquo;ve tended to lack in ruggedness. The Fluke has an ammeter included, which is not always standard.</p>
+<p><strong><a href="https://www.amazon.com/dp/B07F42ZF9B">Prestacycle Pro T-Handle Ratchet and Extension</a></strong>
+This compact ratchet handle works well with the sockets and drill bits in this kit and can double as a t-handle.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0FM3KFSF6">6&rdquo; Machinist Metal Ruler (Standard / Metric)</a></strong>
+Like other pieces in the kit, there is a need for both standard and metric. Luckily, this ruler has both. I do wish it had flats on both ends.</p>
+<p><strong><a href="https://www.amazon.com/dp/B09T98PM99">49-Pack Screwdriver Bit Set</a></strong>
+This screwdriver set works with both the Wera screwdriver handle and the T-Handle ratchet and contains a variety of the most useful bits in thin silicone organizers, which can be carried in an organizer pocket.</p>
+<p><strong><a href="https://www.amazon.com/dp/B005EXOJZK">Knipex 6&rdquo; 86 03 150 Pliers</a></strong>
+These unique pliers size themselves to the dimensions of the bolt or feature to be turned. They have flat jaws, which are great for avoiding marking materials - tape can also be applied to further provide protection.</p>
+<p><strong><a href="https://www.amazon.com/dp/B0D7QVFHBQ">Stainless Steel Bandage Shears</a></strong> While not as robust as trauma shears, these are fairly strong and easily fit in the kit.</p>
+<p><strong>Orange Stick</strong>
+I carry a 6&rdquo; wooden orange stick with wedges on either side, however I have been unable to find a good link for them (most online have rounded tips). These are great for poking at conductive elements.</p>
+<h2>EDC Kit Inventory List <a name="EDC"></a></h2>
+<ul>
+<li><a href=""></a></li>
+</ul>
+<h2>Ancillary Gear</h2>
+<p>Depending on the expedition, I like to fill a few pockets with some useful tools.</p>
+<p><strong>Thigh Pockets</strong>
+I tend to keep <a href="https://www.amazon.com/dp/B00004TR4S">Gerber Multi-Plier MP400</a> close at hand, along with a <a href="">Garmin Rino GPS Radio</a>. The Rino has proved robust in colder climates, but has become less useful once on-station if a Starlink is powered on.</p>
+<p><strong>Chest Pocket</strong>
+Depending on the weather, I&rsquo;ll keep my phone in an outer or inner chest pocket - phone batteries tend not to appreciate the cold. Especially with Starlink, phones can provide quick maps, GPS localization, cameras, and communications. </p>
+<h2>Potential Gear</h2>
+<p>There are a number of items that I&rsquo;m considering adding to the kit, but still need a trial run or further thought.</p>
+<ul>
+<li><strong>Mini-lighter or torch lighter</strong> - Torch lighters are refillable and have a impressively controllable flame, but are forbidden from air travel in the US. Disposable mini-lighters can be carried onboard (but not checked), so it wouldn&rsquo;t be able to travel within the kit itself. Lighters, however, are very useful when dealing with heat shrink, fusing line, or even as a backup soldering iron.</li>
+<li><strong>uSD-based USB key</strong> - As more field problems evolve in the digital space, having available storage and/or pre-downloaded programs or references might be very useful. A bootable Linux drive can assist when recovering from a number of field problems (password-recovery, file transfer, terminal access, etc). Having up to date software repositories, programming libraries, or even reference material can help when there is no internet access. But updating a drive prior to every deployment may be taxing.</li>
+<li><strong>Tape Measure</strong> - So far, I&rsquo;m still searching for a small &amp; thin tape measure that would fit in the kit and provide both standard and metric lengths. Currently, I rely on the ~6&rdquo; stainless metal ruler.</li>
+<li><strong>Drill Bits</strong> - Drill bits require a drill, which is far too big for the kit. Our teams generally pack a larger kit for this level of fixing. I can cut holes with a knife if a hack is needed, yet bits are small&hellip;</li>
+<li><strong>Aligator Clips</strong> - Two alligator clips with some stiff wire can serve as a stand to hold electronic parts. There are other similar easy mount solutions that may make their way into this kit.</li>
+</ul>
+<h2>Removed Gear</h2>
+<ul>
+<li><strong>Large Wera Socket Set</strong> - While useful, the bits took up far more space than the silicone-cased equivalent now included. The primary motivation for its removal was the addition of the Fluke multimeter, which still allows for the stackable sockets.</li>
+<li><strong>Tape measure</strong> - Currently, I haven&rsquo;t found a small enough tape measure to fit. I&rsquo;ve tried fabric tape measures, but they generally don&rsquo;t have both standard and metric notations.</li>
+<li><strong>Soldering Iron Stand</strong> - Usually the solder iron sits across the ratchet if absolutely needed, but it often doesn&rsquo;t have a stand in this kit.</li>
+<li><strong>Scissors</strong> - Larger scissors would be useful for many things, but as with many aspects of this kit, they were sacrificed to make the volume work.</li>
+<li><strong>Consumables</strong> - Very few consumables are included in the kit as it is primarily meant to be for tools, however, in an every-day-carry, all elements of the kit can be made to be consumable if absolutely necessary!</li>
+</ul>
+<p>&hellip;</p>
+        </div>
+
+        
+
+        <nav class="blog-nav"
+            style="margin-top: 4rem; display: flex; justify-content: space-between; padding-top: 2rem; border-top: 2px solid #eee;">
+            <div class="prev-post" style="flex: 1;">
+                
+            </div>
+            <div class="next-post" style="flex: 1; text-align: right;">
+                
+            </div>
+        </nav>
+    </article>
+</main>
+
+    </main>
+
+    <footer>
+    <div
+        style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem; text-align: center; font-size: 0.9rem; color: #888;">
+        <p>&copy; 2026 Andrew Klesh. All rights reserved.
+            
+            | <a href="/dist_tools/tools/index.html" style="color: #888; text-decoration: none;">Tools</a> | <a
+                href="/dist_tools/admin.html" style="color: #888; text-decoration: none;">Admin</a>
+            
+            
+            <br><span style="font-size: 0.8em; color: #aaa;">Build: 8a2f446* (2026-08-31 19:57:21)</span>
+            
+        </p>
+    </div>
+</footer>
+
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const siteNav = document.getElementById('site-nav');
+
+            if (menuToggle && siteNav) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    siteNav.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                        siteNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle mobile dropdowns when clicking on dropdown parent with href="#"
+            const dropdowns = document.querySelectorAll('.site-header .dropdown > a');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768 && this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
